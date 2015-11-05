@@ -5,11 +5,8 @@ var jade = require('gulp-jade');
 var notify = require("gulp-notify");
 var changed = require('gulp-changed');
 var path = require('path');
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
 
-// require('./libs/file-helper.js').writeSassFiles();
-//  gulp.task('sass', function () {
+// gulp.task('sass', function () {
 //    return sass('./assets/sass/**/*.scss', {
 //        stopOnError: true,
 //        // output the cache, so this would not affect the git
@@ -40,39 +37,5 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', function () {
-  // gulp.start('minify-css', 'concat', 'images', 'jade', 'watch');
   gulp.start('watch');
 });
-
-// gulp serve
-// 监视文件改动并重新载入
-// gulp.task('serve', function() {
-//   browserSync({
-//     server: {
-//       baseDir: 'app'
-//     }
-//   });
-
-//   gulp.watch(['*.jade'], {cwd: 'assets/jade'}, reload);
-//   // gulp.watch('app/scss/*.scss', ['sass']);
-// });
-
-// var browserSync = require('browser-sync');
-// var reload = browserSync.reload;
-
-// gulp.task('sass', function() {
-//   return sass('scss/styles.scss')
-//     .pipe(gulp.dest('app/css'))
-//     .pipe(reload({ stream:true }));
-// });
-
-// // 监视 Sass 文件的改动，如果发生变更，运行 'sass' 任务，并且重载文件
-// gulp.task('serve', ['sass'], function() {
-//   browserSync({
-//     server: {
-//       baseDir: 'app'
-//     }
-//   });
-
-//   gulp.watch('app/scss/*.scss', ['sass']);
-// });

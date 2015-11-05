@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Document
+	link(rel="stylesheet", href="../stylesheets/work.css")
+body
+	#page
+		include ./header
+		include ./content
+	script(
+		src="../javascripts/libs/requirejs-2.1.16.min.js",
+		type="text/javascript",
+		data-main="../javascripts/index.js"
+	)

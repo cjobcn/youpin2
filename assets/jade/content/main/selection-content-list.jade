@@ -1,0 +1,71 @@
+include ../../mixin
+
+//-
+- var arrNames = ['发布中的职位', '已关闭的职位', '已暂缓职位', '已成功职位'];
+//-
+- var aindustries = [];
+//-
+- var industry = {};
+- industry.name = "房地产";
+- industry.items = [];
+//-
+- var industryItem = {};
+- industryItem.name = "土木/建筑工程";
+- industryItem.content = [];
+- industryItem.content.push("项目经理");
+- industryItem.content.push("项目经理aaa");
+- industryItem.content.push("项目理");
+- industryItem.content.push("项目");
+- industryItem.content.push("项a");
+- industryItem.content.push("aaa");
+- industryItem.content.push("asasas");
+//-
+- industry.items.push(industryItem);
+- industry.items.push(industryItem);
+- industry.items.push(industryItem);
+- industry.items.push(industryItem);
+//-
+- aindustries.push(industry);
+- aindustries.push(industry);
+- aindustries.push(industry);
+//-
+//- var cities = ["北京", "上海", "杭州", "广州", "深圳", "铁岭", "靠山屯", "夹皮沟", "三棵树", "麻花沟"];
+
+//-
+- var cities = {};
+- cities.i = ["上海", "北京", "深圳", "上海", "北京", "深圳", "深圳"];
+- cities.ii = ["上海", "北京", "深圳", "上海", "北京", "深圳", "深圳"];
+- cities.iii = ["上海", "北京", "深圳", "上海", "北京", "深圳", "深圳"];
+
+//-
+- var customers = [];
+- var one = {};
+- one.industryName = "房地产";
+- one.industryCompanies = [];
+- one.industryCompanies.push('aaaaa')
+- one.industryCompanies.push('bbbbbbbbbbbbbbb')
+- one.industryCompanies.push('ccccc')
+- one.industryCompanies.push('ddddddddddddd')
+- one.industryCompanies.push('eeeeeeeeeeeeeeeeeee')
+- customers.push(one);
+- customers.push(one);
+- customers.push(one);
+- customers.push(one);
+
+//-
+- var managers = [];
+- managers.push(["aaa", "bbb", "cccc", "dddddd"]);
+- managers.push(["aaa", "bbb", "cccc", "dddddd"]);
+- managers.push(["aaa", "bbb", "cccc", "dddddd"]);
+
+.selection-content-list
+	.selection-content.selection-content-job-states(index="0")
+		+selection-job-states(arrNames)
+	.selection-content.selection-content-industries-function(index="1")
+		+selection-industries(aindustries)
+	.selection-content.selection-content-cities(index="2")
+		+selection-cities(cities)
+	.selection-content.selection-content-customers(index="3")
+		+selection-customers(customers)
+	.selection-content.selection-content-managers(index="4")
+		+selection-managers(managers)

@@ -1,0 +1,33 @@
+#selection-menu { height: 36px; background-color: #f4f6fa; position: relative; }
+#selection-menu .selection-content-active { display: block; }
+
+#selection-menu-search { width: 187px; position: absolute; right: 20px; top: 5px; }
+#selection-menu-search input { width: 187px; height: 22px; background-color: #fff; }
+#selection-menu-search .img-magnify { position: absolute; right: 7px; top: 2px; }
+
+.selection-menu-list {  }
+.selection-menu-list > li { float: left; }
+.selection-menu-list > li > .selection-content-active { display: block; }
+
+.selection-nav { position: relative; }
+
+.selection-nav > a { }
+.selection-nav > a:hover { }
+
+.selection-nav .img-selction { position: absolute; }
+.selection-nav .img-job-state {}
+.selection-nav .img-industry-function {}
+.selection-nav .img-cities {}
+.selection-nav .img-customer {}
+.selection-nav .img-customer-manager {}
+
+.selection-nav span { display: inline-block; font-size: 12px; }
+.selction-nav-job-state span {}
+.selction-nav-industry-function span {}
+.selction-nav-cities span {}
+.selction-nav-customer span {}
+.selction-nav-customer-manager span {}
+
+.selection-content { z-index: 999; display: none; width: 270px; padding: 20px; position: absolute; left : 0px; top: 41px; border: 1px solid #E9E9E9; border-top: none; background-color: #FFFFFF; }
+.selection-city { width: 68px; height: 18px; margin: 0px 10px; padding: 5px 0px; line-height: 16px; text-align: center; color: #333333; display: inline-block; background-color: #fff; border: 1px solid #E9E9E9; }
+.selection-city:hover { color: #f00; font-weight: bold; background-color: #E9E9E9; border: 1px solid #E9E9E9; }
