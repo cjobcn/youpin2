@@ -1,6 +1,6 @@
 {
-  "name": "youpin2",
-  "description": "powerful youpin2",
+  "name": "heihei",
+  "description": "powerful heihei",
   "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
@@ -42,14 +42,14 @@
   "license": "BSD-3-Clause AND MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/peterlevel1/youpin2.git"
+    "url": "git+https://github.com/peterlevel1/heihei.git"
   },
   "main": "./app.js",
   "engines": {
     "node": ">=0.10"
   },
   "bugs": {
-    "url": "https://github.com/peterlevel1/youpin2/issues"
+    "url": "https://github.com/peterlevel1/heihei/issues"
   },
   "maintainers": [
     {
