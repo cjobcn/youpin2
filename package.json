@@ -1,0 +1,62 @@
+{
+  "name": "youpin2",
+  "description": "powerful youpin2",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "async": "1.4.0",
+    "body-parser": "1.12.4",
+    "cookie-parser": "1.3.5",
+    "debug": "2.2.0",
+    "ejs": "2.3.4",
+    "express": "4.12.4",
+    "gulp": "3.9.0",
+    "gulp-autoprefixer": "2.3.1",
+    "gulp-cache": "0.2.10",
+    "gulp-changed": "^1.3.0",
+    "gulp-clean": "0.3.1",
+    "gulp-concat": "2.6.0",
+    "gulp-data": "1.2.0",
+    "gulp-imagemin": "2.3.0",
+    "gulp-jade": "1.1.0",
+    "gulp-jshint": "1.11.2",
+    "gulp-livereload": "3.8.0",
+    "gulp-minify-css": "1.2.1",
+    "gulp-notify": "2.2.0",
+    "gulp-rename": "1.2.2",
+    "gulp-ruby-sass": "2.0.5",
+    "gulp-sourcemaps": "1.5.2",
+    "gulp-uglify": "1.3.0",
+    "gulp-util": "3.0.6",
+    "jade": "1.9.2",
+    "morgan": "1.5.3",
+    "promise": "7.0.4",
+    "serve-favicon": "2.2.1"
+  },
+  "homepage": "https://github.com/peterlevel1",
+  "author": {
+    "name": "Peter",
+    "email": "jserfun@163.com",
+    "url": "https://github.com/peterlevel1"
+  },
+  "license": "BSD-3-Clause AND MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterlevel1/youpin2.git"
+  },
+  "main": "./app.js",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "bugs": {
+    "url": "https://github.com/peterlevel1/youpin2/issues"
+  },
+  "maintainers": [
+    {
+      "name": "Peter",
+      "email": "jserfun@163.com"
+    }
+  ],
+  "directories": {},
+  "readme": "heihei"
+}
