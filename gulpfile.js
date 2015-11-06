@@ -32,10 +32,12 @@ gulp.task('jade', function() {
 
 gulp.task('watch', function() {
   livereload.listen();
-  // gulp.watch('./assets/sass/**/*.scss', ['sass']);
+  // this will fail
+  gulp.watch('./assets/sass/**/*.scss', ['sass']);
   gulp.watch('./assets/jade/**/*.jade', ['jade']);
 });
 
+// this is cool
 gulp.task('default', function () {
   gulp.start('watch');
 });
