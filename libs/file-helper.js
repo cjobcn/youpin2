@@ -153,3 +153,32 @@ fh.writeDevdependences = function (callback) {
 fh.say = function () {
 	console.log('hello world');
 };
+
+fh.transferTabs = function (filename) {
+	var str = fs.readFileSync(filename, 'utf8');
+	str = str.replace( /\n(\t+)/g, function (all, strTabs) {
+		if (!strTabs) return all;
+		var len = strTabs.length;
+		var ws2 = ' ' + ' ';
+		var ret = '\n';
+		while (len--) ret += ws2;
+		return ret;
+	});
+
+	fs.writeFileSync(filename, str);
+	console.log('done');
+};
+
+var filename = '../assets/jade/content/main/selection-content-list.jade';
+fh.transferTabs(filename);
+
+// var fo = require('fo');
+// console.log(fo);
+// var rtabs = /^(\t+|\s+|)?[^\n]+$/gm;
+// var str = '\tsdsdsdsd\r\n\t\tsdsdsdsd\n';
+// var one;
+// while (one = rtabs.exec(rtabs)) {
+// 	console.log(one);
+// }
+
+// console.log(/\n/.test(str));
