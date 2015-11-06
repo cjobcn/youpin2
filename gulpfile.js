@@ -38,6 +38,7 @@ gulp.task('watch', function() {
 });
 
 // this is cool
+// actually not
 gulp.task('default', function () {
   gulp.start('watch');
 });
