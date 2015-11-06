@@ -169,8 +169,50 @@ fh.transferTabs = function (filename) {
 	console.log('done');
 };
 
-var filename = '../assets/jade/content/main/selection-content-list.jade';
-fh.transferTabs(filename);
+// var filename = '../assets/jade/content/main/selection-content-list.jade';
+// fh.transferTabs(filename);
+
+var fo = require('fo');
+
+fh.transferTabsForDir = function (dir, callback) {
+	if (!fs.readdirSync(dir))
+		return callback(new Error('dir not exists: ' + dir));
+
+	var rskip = /^(svn|\.git|\.sass|\.cache|\.bin)/;
+
+	function onFile(file, next) {
+		fo.readFile([file, 'utf8'])
+		.then(function(str) {
+			str = toWhiteSpace2(str);
+			fo.writeFile([file, str])
+			.then(function () { next(); })
+			.catch(next);
+		})
+		.catch(next);
+	}
+
+	function toWhiteSpace2(str) {
+		return str.replace(/\n(\t+)/g, function (all, strTabs) {
+			var len = strTabs.length;
+			var ws2 = ' ' + ' ';
+			var ret = '\n';
+			while (len--) ret += ws2;
+			return ret;
+		});
+	}
+
+	function onDir(dir) {
+		return rskip.test(dir) ? false : true;
+	}
+
+	fo.walkdir(dir, onFile, onDir, callback);
+}
+
+fh.transferTabsForDir('../assets/jade', function (err) {
+	if (err)
+		throw err;
+	console.log('done');
+})
 
 // var fo = require('fo');
 // console.log(fo);

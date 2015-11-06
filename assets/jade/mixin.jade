@@ -6,64 +6,64 @@
 
 //- header ----------------------------------------------------
 mixin show-site-header-menu(arrNew)
-	#site-header-menu.fr
-		ul.site-header-link-menu
-			li
-				if arrNew && ~arrNew.indexOf('person')
-					i.img.img-info-new
-				a.img.img-header-menu.img-hm-person(href="#")
-			li
-				if arrNew && ~arrNew.indexOf('info')
-					i.img.img-info-new
-				a.img.img-header-menu.img-hm-info(href="#")
-			li
-				if arrNew && ~arrNew.indexOf('mail')
-					i.img.img-info-new
-				a.img.img-header-menu.img-hm-mail(href="#")
-			li
-				if arrNew && ~arrNew.indexOf('switch')
-					i.img.img-info-new
-				a.img.img-header-menu.img-hm-switch(href="#")
+  #site-header-menu.fr
+    ul.site-header-link-menu
+      li
+        if arrNew && ~arrNew.indexOf('person')
+          i.img.img-info-new
+        a.img.img-header-menu.img-hm-person(href="#")
+      li
+        if arrNew && ~arrNew.indexOf('info')
+          i.img.img-info-new
+        a.img.img-header-menu.img-hm-info(href="#")
+      li
+        if arrNew && ~arrNew.indexOf('mail')
+          i.img.img-info-new
+        a.img.img-header-menu.img-hm-mail(href="#")
+      li
+        if arrNew && ~arrNew.indexOf('switch')
+          i.img.img-info-new
+        a.img.img-header-menu.img-hm-switch(href="#")
 
 mixin show-site-logo()
-	#site-logo.fl
-		a.img.img-logo(href="#")
+  #site-logo.fl
+    a.img.img-logo(href="#")
 
 mixin show-header(arrNew)
-	#header
-		.header-container
-			.clearfix
-				+show-site-logo()
-				+show-site-header-menu(arrNew)
+  #header
+    .header-container
+      .clearfix
+        +show-site-logo()
+        +show-site-header-menu(arrNew)
 
 //- *************************************************************
 
 mixin info-desc(position, company)
-	.info-desc
-		if position
-			h2.info-position  #{position}
-		if company
-			h3.info-company #{company}
-		a.talent-btn.img.img-arrow-right(href="#")
+  .info-desc
+    if position
+      h2.info-position  #{position}
+    if company
+      h3.info-company #{company}
+    a.talent-btn.img.img-arrow-right(href="#")
 
 mixin info-talent-person(name, isNew, level)
-	- var icommon = I_MAX_TALENT_LEVELS - level;
-	li.info-talent-person
-		p.talent-desc
-			a.talen-name(href="#") #{name}
-			if isNew
-				i.img.img-info-new
-		p.talent-level
-			if level > 0
-				if level > I_MAX_TALENT_LEVELS
-					- level = I_MAX_TALENT_LEVELS
-				while level-- !== 0
-					i.img.img-talent.img-talent-level-active
-			if icommon > 0
-				if icommon > I_MAX_TALENT_LEVELS
-					- icommon = I_MAX_TALENT_LEVELS
-				while icommon-- !== 0
-					i.img.img-talent.img-talent-level
+  - var icommon = I_MAX_TALENT_LEVELS - level;
+  li.info-talent-person
+    p.talent-desc
+      a.talen-name(href="#") #{name}
+      if isNew
+        i.img.img-info-new
+    p.talent-level
+      if level > 0
+        if level > I_MAX_TALENT_LEVELS
+          - level = I_MAX_TALENT_LEVELS
+        while level-- !== 0
+          i.img.img-talent.img-talent-level-active
+      if icommon > 0
+        if icommon > I_MAX_TALENT_LEVELS
+          - icommon = I_MAX_TALENT_LEVELS
+        while icommon-- !== 0
+          i.img.img-talent.img-talent-level
 
 //- oitem json
 //- oitem.desc {Object}
@@ -72,238 +72,238 @@ mixin info-talent-person(name, isNew, level)
 //- oitem.readyDownload {Array}
 //- oitem.matched {Array}
 mixin info-item(oitem)
-	.info-item.clearfix
-		.info-col-t
-			input(type="checkbox")
-		.info-col-a
-			+info-desc(oitem.desc.position, oitem.desc.company)
-		.info-col-b
-			.info-talent-recommending.clearfix
-				ul.info-talent-list
-					each val, index in oitem.recommending
-						if index < I_MAX_TALENT_RECOMMENDING
-							+info-talent-person(val.name, val.isNew, val.level)
-				a.talent-btn.img.img-arrow-right(href="#")
-		.info-col-c
-			.info-talent-matched.clearfix
-				ul.info-talent-list
-					each val, index in oitem.matched
-						if index < I_MAX_TALENT_MATCHED
-							+info-talent-person(val.name, val.isNew, val.level)
-		.info-col-d
-			.info-talent-update.clearfix
-				h5 #{oitem.update.ymd}
-				h5 #{oitem.update.hms}
-		.info-col-e
-			p
-				a.img-item-4.img-item-record(href="#")
-				a.img-item-4.img-item-note(href="#")
-				a.img-item-4.img-item-heart(href="#")
-				a.img-item-4.img-item-trash(href="#")
+  .info-item.clearfix
+    .info-col-t
+      input(type="checkbox")
+    .info-col-a
+      +info-desc(oitem.desc.position, oitem.desc.company)
+    .info-col-b
+      .info-talent-recommending.clearfix
+        ul.info-talent-list
+          each val, index in oitem.recommending
+            if index < I_MAX_TALENT_RECOMMENDING
+              +info-talent-person(val.name, val.isNew, val.level)
+        a.talent-btn.img.img-arrow-right(href="#")
+    .info-col-c
+      .info-talent-matched.clearfix
+        ul.info-talent-list
+          each val, index in oitem.matched
+            if index < I_MAX_TALENT_MATCHED
+              +info-talent-person(val.name, val.isNew, val.level)
+    .info-col-d
+      .info-talent-update.clearfix
+        h5 #{oitem.update.ymd}
+        h5 #{oitem.update.hms}
+    .info-col-e
+      p
+        a.img-item-4.img-item-record(href="#")
+        a.img-item-4.img-item-note(href="#")
+        a.img-item-4.img-item-heart(href="#")
+        a.img-item-4.img-item-trash(href="#")
 
 mixin info-titles()
-	.clearfix
-		.info-col-t
-		.info-col-a
-			h2 职位
-		.info-col-b
-			h2 推荐中人才
-		.info-col-c
-			h2 匹配人才
-		.info-col-d
-			h2 更新时间
-		.info-col-e
+  .clearfix
+    .info-col-t
+    .info-col-a
+      h2 职位
+    .info-col-b
+      h2 推荐中人才
+    .info-col-c
+      h2 匹配人才
+    .info-col-d
+      h2 更新时间
+    .info-col-e
 
 mixin info-content-items(aitems)
-	each val in aitems
-		+info-item(val)
+  each val in aitems
+    +info-item(val)
 
 mixin show-date-for-user(odate)
-	p#date
-		i.date-week #{odate.week}
-		i.date-year #{odate.year}
-		i.date-month #{odate.month}
-		i.date-day #{odate.day}
+  p#date
+    i.date-week #{odate.week}
+    i.date-year #{odate.year}
+    i.date-month #{odate.month}
+    i.date-day #{odate.day}
 
 mixin show-user-info(info)
-	#user-info
-		p
-			span
-				a.user-info-num#user-info-num-receive-cvs(href="#")
-					|#{info.receive}
-			a(href="#") 收到简历
-		p
-			span
-				a.user-info-num#user-info-num-delegate-position(href="#")
-					|#{info.delegate}
-			a(href="#") 委托职位
-		p
-			span
-				a.user-info-num#user-info-num-recommend-feedback(href="#")
-					|#{info.recommendFeedback}
-			a(href="#") 推荐反馈
-		p
-			span
-				a.user-info-num#user-info-num-feedback-apply(href="#")
-					|#{info.feedbackApply}
-			a(href="#") 反馈申请
-		p
-			span
-				a.user-info-num#user-info-num-build-match(href="#")
-					|#{info.buildMatch}
-			a(href="#") 建立匹配
+  #user-info
+    p
+      span
+        a.user-info-num#user-info-num-receive-cvs(href="#")
+          |#{info.receive}
+      a(href="#") 收到简历
+    p
+      span
+        a.user-info-num#user-info-num-delegate-position(href="#")
+          |#{info.delegate}
+      a(href="#") 委托职位
+    p
+      span
+        a.user-info-num#user-info-num-recommend-feedback(href="#")
+          |#{info.recommendFeedback}
+      a(href="#") 推荐反馈
+    p
+      span
+        a.user-info-num#user-info-num-feedback-apply(href="#")
+          |#{info.feedbackApply}
+      a(href="#") 反馈申请
+    p
+      span
+        a.user-info-num#user-info-num-build-match(href="#")
+          |#{info.buildMatch}
+      a(href="#") 建立匹配
 
 mixin show-user-function()
-	#user-function
-		.user-publish-postion
-			a.img.img-publish-position(href="#")
-		.user-deledate-postion
-			a.img.img-delegate-position(href="#")
+  #user-function
+    .user-publish-postion
+      a.img.img-publish-position(href="#")
+    .user-deledate-postion
+      a.img.img-delegate-position(href="#")
 
 mixin show-address-for-user(oaddress)
-	- var weatherConditionImage = "weather-condition-image";
-	p.weather-info
-		i#user-city #{oaddress.name}
-		i#temperature  #{oaddress.temperature}
-		i.weather-du o
-		i C
-	p.weather-quality
-		i 空气质量:
-		i#weather-quality-condition  #{oaddress.airQualityCondition}
-		+show-weather-condition(oaddress.weatherCondition)
+  - var weatherConditionImage = "weather-condition-image";
+  p.weather-info
+    i#user-city #{oaddress.name}
+    i#temperature  #{oaddress.temperature}
+    i.weather-du o
+    i C
+  p.weather-quality
+    i 空气质量:
+    i#weather-quality-condition  #{oaddress.airQualityCondition}
+    +show-weather-condition(oaddress.weatherCondition)
 
 mixin show-weather-condition(weatherCondition)
-	if weatherCondition
-		case weatherCondition
-			when "perfect"
-				a.img.img-weather.weather-condition-image
-			when "good"
-				a.img.img-weather.weather-condition-image
-			when "rain"
-				a.img.img-weather.weather-condition-image
-			when "cloudy"
-				a.img.img-weather.weather-condition-image
-			when "very big rain"
-				a.img.img-weather.weather-condition-image
-			when "big rain"
-				a.img.img-weather.weather-condition-image
-			when "middle rain"
-				a.img.img-weather.weather-condition-image
-			when "small rain"
-				a.img.img-weather.weather-condition-image
-			when "very small rain"
-				a.img.img-weather.weather-condition-image
-			default
-				a.img.img-weather.weather-condition-image
+  if weatherCondition
+    case weatherCondition
+      when "perfect"
+        a.img.img-weather.weather-condition-image
+      when "good"
+        a.img.img-weather.weather-condition-image
+      when "rain"
+        a.img.img-weather.weather-condition-image
+      when "cloudy"
+        a.img.img-weather.weather-condition-image
+      when "very big rain"
+        a.img.img-weather.weather-condition-image
+      when "big rain"
+        a.img.img-weather.weather-condition-image
+      when "middle rain"
+        a.img.img-weather.weather-condition-image
+      when "small rain"
+        a.img.img-weather.weather-condition-image
+      when "very small rain"
+        a.img.img-weather.weather-condition-image
+      default
+        a.img.img-weather.weather-condition-image
 
 mixin say-hello-to-user(name)
-	.user-hello
-		h2
-			span.username #{name}
-			|&nbsp;, 早上好
+  .user-hello
+    h2
+      span.username #{name}
+      |&nbsp;, 早上好
 
 mixin show-user-base(ouser)
-	#user-base
-		+say-hello-to-user(ouser.name)
-		+show-date-for-user(ouser.date)
-		+show-address-for-user(ouser.address)
+  #user-base
+    +say-hello-to-user(ouser.name)
+    +show-date-for-user(ouser.date)
+    +show-address-for-user(ouser.address)
 
 mixin show-user(ouser)
-	#user.fl
-		+show-user-base(ouser)
-		+show-user-info(ouser.info)
-		+show-user-function()
+  #user.fl
+    +show-user-base(ouser)
+    +show-user-info(ouser.info)
+    +show-user-function()
 
 mixin make-info-crumb(postionData)
-	#info-crumb
-		p
-			a.info-all-positions(href="#") 所有职位
-			i.img.img-arrow-right
-			a.info-current-city(href="#")
-				span #{postionData.city}
-				i.img.img-delete
-			i.img.img-arrow-right
-			a.info-sum-positions(href="#")
-				|共
-				span #{postionData.sum}
-				|个职位
+  #info-crumb
+    p
+      a.info-all-positions(href="#") 所有职位
+      i.img.img-arrow-right
+      a.info-current-city(href="#")
+        span #{postionData.city}
+        i.img.img-delete
+      i.img.img-arrow-right
+      a.info-sum-positions(href="#")
+        |共
+        span #{postionData.sum}
+        |个职位
 
 mixin make-pagination(start, times)
-	if !start || start < 1
-		- start = 1;
-	if !times || times < 1
-		- times = 1;
-	- var end = start + times - 1;
-	- var i = 1;
-	if times >= 5
-		- times = 5;
-	#pagination
-		p
-			if times <= 1 || start <= 1
-				a.pagination-btn-prev.pagination-no-use(href="#") |<
-				a.pagination-btn-prev.pagination-no-use(href="#") 上一页
-			else
-				a.pagination-btn-prev |<
-				a.pagination-btn-prev 上一页
+  if !start || start < 1
+    - start = 1;
+  if !times || times < 1
+    - times = 1;
+  - var end = start + times - 1;
+  - var i = 1;
+  if times >= 5
+    - times = 5;
+  #pagination
+    p
+      if times <= 1 || start <= 1
+        a.pagination-btn-prev.pagination-no-use(href="#") |<
+        a.pagination-btn-prev.pagination-no-use(href="#") 上一页
+      else
+        a.pagination-btn-prev |<
+        a.pagination-btn-prev 上一页
 
-			a.pagination-num.pagination-active(href="#") #{start}
-			if times > 1
-				while i < times
-					a.pagination-num(href="#") #{start + i}
-					- i++
-			span.pagination-ellipsis ...
-			a.pagination-btn-next(href="#") 下一页
-			a.pagination-btn-next(href="#") >|
-			span.pagination-empty
-			span.pagination-jump-to 跳转到
-			input.pagination-custom-num(type="text", value="")
-			span.pagination-jump-to 页
-			a.pagination-btn-enter(href="#") 确定
-			span.pagination-hidden-sum #{end}
+      a.pagination-num.pagination-active(href="#") #{start}
+      if times > 1
+        while i < times
+          a.pagination-num(href="#") #{start + i}
+          - i++
+      span.pagination-ellipsis ...
+      a.pagination-btn-next(href="#") 下一页
+      a.pagination-btn-next(href="#") >|
+      span.pagination-empty
+      span.pagination-jump-to 跳转到
+      input.pagination-custom-num(type="text", value="")
+      span.pagination-jump-to 页
+      a.pagination-btn-enter(href="#") 确定
+      span.pagination-hidden-sum #{end}
 
 mixin selection-job-states(arrNames)
-	ul.selection-job-btns
-		each val in arrNames
-			li
-				a(href="#") #{val}
+  ul.selection-job-btns
+    each val in arrNames
+      li
+        a(href="#") #{val}
 
 mixin selection-industries(aindustries)
-	each industry in aindustries
-		.selection-industry
-			a.selection-industry-name #{industry.name}
-			ul.selection-industry-list.clearfix
-				each item, index in industry.items
-					if index < I_MAX_INDUSTRY_ITEM
-						li
-							a.selection-industry-item-name #{item.name}
-							p.selection-industry-item-content
-								each val in item.content
-									a(href="#") #{val}
+  each industry in aindustries
+    .selection-industry
+      a.selection-industry-name #{industry.name}
+      ul.selection-industry-list.clearfix
+        each item, index in industry.items
+          if index < I_MAX_INDUSTRY_ITEM
+            li
+              a.selection-industry-item-name #{item.name}
+              p.selection-industry-item-content
+                each val in item.content
+                  a(href="#") #{val}
 
 mixin selection-cities(cities)
-	p.selection-city-i
-		a(href="#").active 全国
-		each val in cities.i
-			a(href="#") #{val}
-	p.selection-city-ii
-		each val in cities.ii
-			a(href="#") #{val}
-	p.selection-city-iii
-		each val in cities.iii
-			a(href="#") #{val}
+  p.selection-city-i
+    a(href="#").active 全国
+    each val in cities.i
+      a(href="#") #{val}
+  p.selection-city-ii
+    each val in cities.ii
+      a(href="#") #{val}
+  p.selection-city-iii
+    each val in cities.iii
+      a(href="#") #{val}
 
 mixin selection-customers(customers)
-	ul
-		each val in customers
-			li
-				a.selection-customer-name #{val.industryName}
-				.selection-customer-content
-					each val2 in val.industryCompanies
-						a(href="#") #{val2}
+  ul
+    each val in customers
+      li
+        a.selection-customer-name #{val.industryName}
+        .selection-customer-content
+          each val2 in val.industryCompanies
+            a(href="#") #{val2}
 
 mixin selection-managers(managers)
-	ul
-		each val in managers
-			li
-				each val2 in val
-					a(href="#") #{val2}
+  ul
+    each val in managers
+      li
+        each val2 in val
+          a(href="#") #{val2}
