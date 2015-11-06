@@ -35,7 +35,7 @@ gulp.task('watch', function() {
   // gulp.watch('./assets/sass/**/*.scss', ['sass']);
   gulp.watch('./assets/jade/**/*.jade', ['jade']);
 });
-
+//something
 gulp.task('default', function () {
   gulp.start('watch');
 });
