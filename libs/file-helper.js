@@ -169,6 +169,8 @@ fh.transferTabs = function (filename) {
 	console.log('done');
 };
 
+fh.transferTabs('../assets/javascripts/index.js');
+
 // var filename = '../assets/jade/content/main/selection-content-list.jade';
 // fh.transferTabs(filename);
 
@@ -208,11 +210,11 @@ fh.transferTabsForDir = function (dir, callback) {
 	fo.walkdir(dir, onFile, onDir, callback);
 }
 
-fh.transferTabsForDir('../assets/jade', function (err) {
-	if (err)
-		throw err;
-	console.log('done');
-})
+// fh.transferTabsForDir('../assets/jade', function (err) {
+// 	if (err)
+// 		throw err;
+// 	console.log('done');
+// })
 
 // var fo = require('fo');
 // console.log(fo);
