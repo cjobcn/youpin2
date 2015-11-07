@@ -26,8 +26,6 @@ module.exports = aggregate;
 function aggregate(opts, callback) {
   if (!jadeHome || !jsHome)
     return callback(new Error('no jadeHome or no jsHome'));
-  if (!opts.cmd && !opts.namespace)
-    return callback(new Error('no namespace'));
   if (!util.isArray(opts.inputs))
     return callback(new Error('inputs not a array'));
   if (!opts.output)
@@ -57,7 +55,7 @@ function compileView(opts, callback) {
 
   try {
     opts.inputs = opts.inputs.map(getCompiledString(bufs.exports)).join(';\n') + ';\n';
-  } catch (err) { return callback(err) };
+  } catch (err) { return callback(err) }
 
   bufs.push(opts.inputs);
   bufs.push(bufs.tail);

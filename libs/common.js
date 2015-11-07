@@ -15,9 +15,9 @@ function common(opts) {
 
   var globalDeps = opts.deps && opts.namespace
     ? opts.deps.map(function (a) {
-        return 'global' + getKey(a)
+        return 'global' + getKey(a);
       }).join(', ')
-    : ''
+    : '';
 
   var bufs = [];
     bufs.push(
@@ -71,9 +71,9 @@ function getUrl(url, baseUrl) {
   return !util.isString(url)
     ? null
     : !path.isAbsolute(url)
-      ? baseUrl
+      ? (baseUrl
         ? path.join(baseUrl, url)
-        : path.join(process.cwd(), url)
+        : path.join(process.cwd(), url))
       : url;
 }
 
