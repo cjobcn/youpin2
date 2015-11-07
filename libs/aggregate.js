@@ -55,7 +55,7 @@ aggregate.getHomes = function () {
     jadeHome : jadeHome,
     jsHome : jsHome
   };
-}
+};
 
 function compileView(opts, callback) {
   opts.amd = opts.amd === void 0 ? false : !!opts.amd;
