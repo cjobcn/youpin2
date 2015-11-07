@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Document
+    link(rel="stylesheet", href="../stylesheets/work.css")
+  body
+    #page
+      #header
+      #content
+        .clearfix
+          #side.fl
+          #main.fl
+            .main-container
+              #home
+                #selection-menu
+                #home-info
+                  #home-info-header
+                    #info-crumb
+                  #home-info-title
+                  #home-info-content
+            #pagination
+          #user.fl
+    script(type="text/javascript", src="../javascripts/libs/jade-runtime.js")
+    script(type="text/javascript", src="../javascripts/templates/index-ii.js")
+    script(type="text/javascript", src="../javascripts/datas/index-ii.js")
+    script(type="text/javascript", src="../javascripts/controllers/index-ii.js")
+    script(
+      src="../javascripts/libs/requirejs-2.1.16.min.js",
+      type="text/javascript",
+      data-main="../javascripts/index.js"
+    )

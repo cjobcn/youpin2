@@ -1,0 +1,49 @@
+- var I_MAX_INDUSTRY_ITEM = 4;
+
+mixin selection-job-states(arrNames)
+  ul.selection-job-btns
+    each val in arrNames
+      li
+        a(href="#") #{val}
+
+mixin selection-industries(aindustries)
+  each industry in aindustries
+    .selection-industry
+      a.selection-industry-name #{industry.name}
+      ul.selection-industry-list.clearfix
+        each item, index in industry.items
+          if index < I_MAX_INDUSTRY_ITEM
+            li
+              a.selection-industry-item-name #{item.name}
+              p.selection-industry-item-content
+                each val in item.content
+                  a(href="#") #{val}
+
+mixin selection-cities(cities)
+  p.selection-city-i
+    a(href="#").active 全国
+    each val in cities.i
+      a(href="#") #{val}
+  p.selection-city-ii
+    each val in cities.ii
+      a(href="#") #{val}
+  p.selection-city-iii
+    each val in cities.iii
+      a(href="#") #{val}
+
+mixin selection-customers(customers)
+  ul
+    each val in customers
+      li
+        a.selection-customer-name #{val.industryName}
+        .selection-customer-content
+          each val2 in val.industryCompanies
+            a(href="#") #{val2}
+
+mixin selection-managers(managers)
+  ul
+    each val in managers
+      li
+        each val2 in val
+          a(href="#") #{val2}
+

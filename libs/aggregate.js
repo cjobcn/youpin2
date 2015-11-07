@@ -49,6 +49,14 @@ aggregate.setBaseUrl = function (_baseUrl) {
   baseUrl = getUrl(_baseUrl);
 };
 
+aggregate.getHomes = function () {
+  return {
+    baseUrl : baseUrl,
+    jadeHome : jadeHome,
+    jsHome : jsHome
+  };
+}
+
 function compileView(opts, callback) {
   opts.amd = opts.amd === void 0 ? false : !!opts.amd;
   var bufs = common(opts);
