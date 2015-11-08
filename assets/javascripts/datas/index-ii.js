@@ -107,6 +107,10 @@
 
   var industries = t.data.content.selection.memu.industries;
   var one = industries[0];
+  var item = one.items[0];
+  one.items.push(item);
+  one.items.push(item);
+  one.items.push(item);
   industries.push(one);
   industries.push(one);
   industries.push(one);
