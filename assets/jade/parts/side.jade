@@ -1,4 +1,4 @@
-#side.fl
+mixin side()
   .tab-v
     ul.tab-v-nav
       li
@@ -11,3 +11,6 @@
         a.img.img-side.img-handon(href="#")
       li
         a.img.img-side.img-books(href="#")
+
+if data
+  +side()

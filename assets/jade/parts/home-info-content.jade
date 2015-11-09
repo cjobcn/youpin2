@@ -1,0 +1,75 @@
+- var I_MAX_TALENT_LEVELS = 5;
+- var I_MAX_TALENT_RECOMMENDING = 6;
+- var I_MAX_TALENT_READY_DOWNLOAD = 4;
+- var I_MAX_TALENT_MATCHED = 4;
+
+mixin info-content-items(aitems)
+  each val in aitems
+    +info-item(val)
+
+//- oitem json
+//- oitem.desc {Object}
+//- oitem.recommending {Array}
+//- oitem.recommending -> val {Object} -> val.name, val.isNew, val.level
+//- oitem.readyDownload {Array}
+//- oitem.matched {Array}
+mixin info-item(oitem)
+  .info-item.clearfix
+    .info-col-t
+      input(type="checkbox")
+    .info-col-a
+      +info-desc(oitem.desc.position, oitem.desc.company)
+    .info-col-b
+      .info-talent-recommending.clearfix
+        ul.info-talent-list
+          each val, index in oitem.recommending
+            if index < I_MAX_TALENT_RECOMMENDING
+              +info-talent-person(val.name, val.isNew, val.level)
+        a.talent-btn.img.img-arrow-right(href="#")
+    .info-col-c
+      .info-talent-matched.clearfix
+        ul.info-talent-list
+          each val, index in oitem.matched
+            if index < I_MAX_TALENT_MATCHED
+              +info-talent-person(val.name, val.isNew, val.level)
+    .info-col-d
+      .info-talent-update.clearfix
+        h5 #{oitem.update.ymd}
+        h5 #{oitem.update.hms}
+    .info-col-e
+      p
+        a.img-item-4.img-item-record(href="#")
+        a.img-item-4.img-item-note(href="#")
+        a.img-item-4.img-item-heart(href="#")
+        a.img-item-4.img-item-trash(href="#")
+
+mixin info-desc(position, company)
+  .info-desc
+    if position
+      h2.info-position  #{position}
+    if company
+      h3.info-company #{company}
+    a.talent-btn.img.img-arrow-right(href="#")
+
+mixin info-talent-person(name, isNew, level)
+  - var icommon = I_MAX_TALENT_LEVELS - level;
+  li.info-talent-person
+    p.talent-desc
+      a.talen-name(href="#") #{name}
+      if isNew
+        i.img.img-info-new
+    p.talent-level
+      if level > 0
+        if level > I_MAX_TALENT_LEVELS
+          - level = I_MAX_TALENT_LEVELS
+        while level-- !== 0
+          i.img.img-talent.img-talent-level-active
+      if icommon > 0
+        if icommon > I_MAX_TALENT_LEVELS
+          - icommon = I_MAX_TALENT_LEVELS
+        while icommon-- !== 0
+          i.img.img-talent.img-talent-level
+
+if data
+  +info-content-items(data.content.items)
+
