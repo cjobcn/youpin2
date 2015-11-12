@@ -2,7 +2,7 @@
  * Vue.js v0.12.16
  * (c) 2015 Evan You
  * Released under the MIT License.
- */ console.log(11111);
+ */
 ! function (t, e) {
   "object" == typeof exports && "object" == typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : "object" == typeof exports ? exports.Vue = e() : t.Vue = e()
 }(this, function () {

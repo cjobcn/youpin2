@@ -21,11 +21,14 @@ var path = require('path');
 //      .pipe(notify({message : 'sass'}));
 // });
 
+var watched = './assets/work-results/Peter-2015-11-11/jade/**/*.jade';
+var out = './assets/work-results/Peter-2015-11-11';
+
 gulp.task('jade', function() {
-  return gulp.src('./assets/jade/**/*.jade')
-    .pipe(changed('./assets/htmls'))
+  return gulp.src(watched)
+    .pipe(changed(out))
     .pipe(jade({pretty: true}))
-    .pipe(gulp.dest('./assets/htmls'))
+    .pipe(gulp.dest(out))
     .pipe(livereload())
     .pipe(notify({message : 'jade'}));
 });
@@ -33,7 +36,7 @@ gulp.task('jade', function() {
 gulp.task('watch', function() {
   livereload.listen();
   // gulp.watch('./assets/sass/**/*.scss', ['sass']);
-  gulp.watch('./assets/jade/**/*.jade', ['jade']);
+  gulp.watch(watched, ['jade']);
 });
 
 gulp.task('default', function () {

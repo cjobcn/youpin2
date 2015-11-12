@@ -1,0 +1,12 @@
+
+<div id="header">
+  <div class="container">
+    <div id="site-logo" class="fl"><a href="{{logo.href}}"><img src="{{logo.src}}" width="{{logo.width}}" height="{{logo.height}}"/></a>
+    </div>
+    <div id="site-header-menu" class="fr">
+      <ul class="site-header-link-menu">
+        <li v-repeat="item in imgs"><a href="{{item.href}}" class="{{item.className}}"><i v-if="item.isNew" class="img img-info-new"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>

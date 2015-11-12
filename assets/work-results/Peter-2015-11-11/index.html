@@ -7,6 +7,7 @@
   <meta name="description" content="work result on 2015-11-11"/>
   <meta name="author" content="Peter"/>
   <link rel="stylesheet" href="stylesheets/work.css"/>
+  <script type="text/javascript" src="js/requirejs-2.1.16.min.js" data-main="js/index.js"></script>
 </head>
 <body>
   <div id="page">
@@ -16,7 +17,7 @@
         </div>
         <div id="site-header-menu" class="fr">
           <ul class="site-header-link-menu">
-            <li v-repeat="item in imgs"><a href="{{item.href}}" class="img img-header-menu {{item.className}}"><i v-if="item.isNew" class="img img-info-new"></i></a></li>
+            <li v-repeat="item in imgs"><a href="{{item.href}}" class="{{item.className}}"><i v-if="item.isNew" class="img img-info-new"></i></a></li>
           </ul>
         </div>
       </div>
@@ -979,8 +980,5 @@
       <p><a href="#">Copyright 2009 cjobcn.com inc. all rights reserved.</a></p>
       <p><a href="#">沪ICP备05110979号</a></p>
     </div>
-    <script type="text/javascript" src="js/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="js/vue.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
   </div>
 </body>
