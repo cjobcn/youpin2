@@ -9,6 +9,7 @@ Gemfile.lock
 test
 bower.json
 .bowerrc
+assets/config.rb
 
 # Ignore bundler config
 /.bundle
