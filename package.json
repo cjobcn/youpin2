@@ -1,6 +1,6 @@
 {
-  "name": "heihei",
-  "description": "powerful heihei",
+  "name": "youpin",
+  "description": "powerful youpin",
   "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
@@ -34,23 +34,8 @@
     "serve-favicon": "2.2.1",
     "underscore": "^1.8.3"
   },
-  "homepage": "https://github.com/peterlevel1",
-  "author": {
-    "name": "Peter",
-    "email": "jserfun@163.com",
-    "url": "https://github.com/peterlevel1"
-  },
-  "license": "BSD-3-Clause AND MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/peterlevel1/heihei.git"
-  },
-  "main": "./app.js",
   "engines": {
     "node": ">=0.10"
-  },
-  "bugs": {
-    "url": "https://github.com/peterlevel1/heihei/issues"
   },
   "maintainers": [
     {
@@ -59,5 +44,5 @@
     }
   ],
   "directories": {},
-  "readme": "heihei"
+  "readme": "youpin"
 }
