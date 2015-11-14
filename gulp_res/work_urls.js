@@ -2,7 +2,7 @@ var workUrls = [
   {
     name : 'jade',
     src : './assets/jade/**/**/*.jade',
-    out : './assets/htmls',
+    out : './assets/html',
     message : ''
   },
   {

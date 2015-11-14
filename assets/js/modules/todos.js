@@ -71,7 +71,7 @@ define(['jquery','vue', 'handle-store'], function ($, Vue, handleStore) {
         .toggleClass('active')
         .focus();
 
-        this.isInputing = true;
+        this.isInputing = false;
         this.prevInputIndex = index;
         return false;
       },
