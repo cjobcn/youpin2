@@ -8,7 +8,7 @@ module.exports = function (gulp, opts) {
         // this is the output dir
         // tempDir : path.join(__dirname, '.')
       })
-      .pipe(opts.changed(urls.out))
+      // .pipe(opts.changed(urls.out))
       .on('error', opts.sass.logError)
       .pipe(gulp.dest(urls.out))
       .pipe(opts.livereload())
