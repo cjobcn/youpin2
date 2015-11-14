@@ -7,6 +7,7 @@ Gemfile.lock
 .rvmrc
 .rbenv-version
 test
+bower.json
 
 # Ignore bundler config
 /.bundle
