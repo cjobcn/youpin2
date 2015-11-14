@@ -8,6 +8,7 @@ Gemfile.lock
 .rbenv-version
 test
 bower.json
+.bowerrc
 
 # Ignore bundler config
 /.bundle
