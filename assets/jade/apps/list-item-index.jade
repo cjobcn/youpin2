@@ -1,0 +1,60 @@
+component#list-item(v-repeat='item in items')
+  .my-position-info-item.clearfix
+    // info-col-t
+    .info-col-t
+      input(type='checkbox')
+    // info-col-a
+    .info-col-a
+      .info-desc.clearfix
+        h2.info-position {{item.desc.position}} {{item.desc.name}}
+        |
+        h3.info-company {{item.desc.company}}
+        a.talent-btn(href='#')
+          img(src='images/talent-btn.jpg', width='16', height='16')
+    // info-col-b
+    .info-col-b
+      .info-talent-recommending.clearfix
+        ul.info-talent-list(v-repeat='val in item.recommending')
+          li.info-talent-person
+            p.talent-desc
+              a.talen-name(href='#')
+                | {{val.name}}
+              |
+              i.img.img-info-new(v-if='val.isNew')
+            |
+            p.talent-level
+              i.img.img-talent.img-talent-level-active(v-repeat='val.level1')
+              |
+              i.img.img-talent.img-talent-level(v-repeat='val.level2')
+        a.talent-btn(href='#')
+          img(src='images/talent-btn.jpg', width='16', height='16')
+    // info-col-c
+    .info-col-c
+      .info-talent-matched.clearfix
+        ul.info-talent-list(v-repeat='val in item.recommending')
+          li.info-talent-person
+            p.talent-desc
+              a.talen-name(href='#')
+                | {{val.name}}
+              |
+              i.img.img-info-new(v-if='val.isNew')
+            |
+            p.talent-level
+              i.img.img-talent.img-talent-level-active(v-repeat='val.level1')
+              |
+              i.img.img-talent.img-talent-level(v-repeat='val.level2')
+        a.talent-btn(href='#')
+          img(src='images/talent-btn.jpg', width='16', height='16')
+    // info-col-d
+    .info-col-d
+      .info-talent-update.clearfix
+        h5.ymd {{item.update.ymd}}
+        |
+        h5.hms {{item.update.hms}}
+    // info-col-e
+    .info-col-e
+      p
+        a.img-item-4.img-item-record(href='#')
+        a.img-item-4.img-item-note(href='#')
+        a.img-item-4.img-item-heart(href='#')
+        a.img-item-4.img-item-trash(href='#')
