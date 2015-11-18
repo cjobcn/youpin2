@@ -13,7 +13,8 @@ define(['vue'], function (Vue) {
   var component = Vue.component('list-item', {
     template : '#list-item',
     data : function () {
-      return {};
+      return {
+      }
     }
   });
 

@@ -23,12 +23,11 @@ define(['jquery','vue', 'handle-store'], function ($, Vue, handleStore) {
       showTaskMask : function (e) {
         var index = this.findItemIndex(e);
         var itemData = this.findItemData(index);
-        itemData.isShowTaskMask = true;
+        // itemData.isShowTaskMask = true;
         if (itemData.isCompleted) {
           e.preventDefault();
           return false;
         }
-        // itemData.isShowDelete = true;
 
         this.findItemInput(index)
         .toggleClass('active')
@@ -42,7 +41,7 @@ define(['jquery','vue', 'handle-store'], function ($, Vue, handleStore) {
             this.findItemData(this.prevInputIndex).isShowDelete = false;
           }
         }
-        itemData.isCompleted = true;
+        // itemData.isCompleted = true;
         itemData.isShowTaskMask = true;
         this.isInputing = false;
         this.freshIndex();
@@ -71,7 +70,7 @@ define(['jquery','vue', 'handle-store'], function ($, Vue, handleStore) {
         .toggleClass('active')
         .focus();
 
-        this.isInputing = false;
+        this.isInputing = true;
         this.prevInputIndex = index;
         return false;
       },
@@ -219,6 +218,7 @@ define(['jquery','vue', 'handle-store'], function ($, Vue, handleStore) {
     methods : {
       toggleAll : taskList.toggleAll,
       inputsDone : function (value) {
+        value = value.trim();
         if (value)
           taskList.addItem(value);
         this.inputs = '';
