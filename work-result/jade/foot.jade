@@ -1,0 +1,18 @@
+#foot
+  .container
+    .row-main
+      .foot-input-title
+        //- input
+      .foot-input-content
+        //- textarea
+      a(href="#")
+        img(src="images/btn-send-email.jpg", width="116", height="42")
+    .row-side
+      ul.foot-item-list#foot-side-list
+        li.clearfix(v-repeat="item in items", class="{{item.className}}")
+          .foot-item-img
+            a(href="{{item.href}}", v-on="click:clicked($event, item, $index)")
+              img(src="{{item.imgSrc}}", width="42", height="42")
+          .foot-item-content
+            p(v-if="item.contents[0]") {{item.contents[0]}}
+            p(v-if="item.contents[1]") {{item.contents[1]}}
