@@ -42,32 +42,32 @@
                     <div v-show="item.active" class="tab-content pn-tab-content">
                       <div v-if="item.tabContent.className === 'job-state'" class="tab-divider"></div>
                       <div v-show="item.active" v-if="item.tabContent.className !== 'job-state'" class="postions-tab-search city-search">
-                        <input type="text" v-model="item.tabContent.inputs"/><i class="img img-magnify"></i>
+                        <input type="text" debounce="500" v-model="item.inputs"/><i class="img img-magnify"></i>
                       </div>
                       <div v-if="item.tabContent.className === 'job-state'" v-class="item.tabContent.className" class="tab-1">
                         <h3 v-repeat="one in item.tabContent.items">{{one.value}}</h3>
                       </div>
                       <div v-if="item.tabContent.className === 'cities'" class="tab-1 {{item.tabContent.className}}">
-                        <div v-repeat="one in item.tabContent.items" class="city-item">
-                          <h3 v-on="click: onClickCity(one)" class="city-item-title">{{one.name}}</h3>
+                        <div v-repeat="one in item.tabContent.items | filterBy item.inputs in 'name'" class="city-item">
+                          <h3 v-on="click: onClickIt(one)" class="city-item-title">{{one.name}}</h3>
                           <div v-show="one.active">
-                            <h3 v-repeat="sub in one.sub" v-on="click: onClickCity(one)" class="city-item-sub">{{sub}}</h3>
+                            <h3 v-repeat="sub in one.sub" v-on="click: onClickIt(sub)" class="city-item-sub">{{sub}}</h3>
                           </div>
                         </div>
                       </div>
                       <div v-if="item.tabContent.className === 'customer-manager'" class="tab-1 {{item.tabContent.className}}">
-                        <h3 v-repeat="one in item.tabContent.items">{{one.name}}</h3>
+                        <h3 v-repeat="one in item.tabContent.items | filterBy item.inputs in 'name'" v-on="click: onClickIt(one)">{{one.name}}</h3>
                       </div>
                       <div v-if="item.tabContent.className === 'customer'" class="tab-1 {{item.tabContent.className}}">
-                        <h3 v-repeat="one in item.tabContent.items">{{one.name}}</h3>
+                        <h3 v-repeat="one in item.tabContent.items | filterBy item.inputs in 'name'" v-on="click: onClickIt(one)">{{one.name}}</h3>
                       </div>
                       <div v-if="item.tabContent.className === 'industry-function'" class="tab-1 {{item.tabContent.className}}">
-                        <div v-repeat="one in item.tabContent.items" class="city-i city-item">
-                          <h3 v-on="click: onClickCity(one)" class="city-item-title">{{one.name}}</h3>
+                        <div v-repeat="one in item.tabContent.items | filterBy item.inputs in 'name'" class="city-i city-item">
+                          <h3 v-on="click: onClickIt(one)" class="city-item-title">{{one.name}}</h3>
                           <div v-repeat="two in one.sub" v-show="one.active" v-if="one.sub" class="city-ii city-item">
-                            <h3 v-on="click: onClickCity(two)" class="city-item-sub">{{two.name}}</h3>
+                            <h3 v-on="click: onClickIt(two)" class="city-item-sub">{{two.name}}</h3>
                             <div v-show="two.active" v-if="two.sub" class="city-iii city-item">
-                              <h3 v-repeat="three in two.sub" v-on="click: onClickCity(three)" class="city-item-sub">{{three.name}}</h3>
+                              <h3 v-repeat="three in two.sub" v-on="click: onClickIt(three)" class="city-item-sub">{{three.name}}</h3>
                             </div>
                           </div>
                         </div>

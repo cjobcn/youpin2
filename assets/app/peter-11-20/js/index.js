@@ -14,15 +14,15 @@ requirejs.config({
 require([
   'mods/content-item',
   'backends-list',
+  'mods/position-nav',
   'mods/header',
   'mods/page-tab',
   'mods/position-content-title',
-  'mods/position-nav',
   'mods/foot',
   'mods/pagination',
   'mods/content-side',
   'mods/publish-delegate'
-], function (item, backendsList) {
+], function (item, backendsList, posNav) {
   $(function () {
     item.getPositionList()
     .done(function (res) {
@@ -35,4 +35,6 @@ require([
       item.render(locals);
     });
   });
+
+  posNav.listenClickIfLeave();
 });

@@ -36,6 +36,7 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
           item.active = false;
           item.name = obj.name;
           item.parent = arr;
+          item.isIndustry = true;
           arr.push(item);
 
           var sub = objGetSub(obj);
@@ -96,7 +97,8 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
       item.name = key;
       item.active = false;
       item.isProvince = !!provinces[key];
-      item.level = item.isProvince ? 2 : 1;
+      item.level = item.isProvince ? 1 : 2;
+      item.isCity = true;
       item.sub = area.citys[key].map(function (one) {
         return one.value;
       });
@@ -108,7 +110,8 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
   function getCustomerManagers() {
     return filterList['filter_list']['manager_list'].map(function (one) {
       return {
-        name : one['real_name']
+        name : one['real_name'],
+        isCustomerManager: true
       };
     });
   }
@@ -116,7 +119,8 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
   function getCustomers() {
     return filterList['filter_list']['client_list'].map(function (one) {
       return {
-        name : one['show_name']
+        name : one['show_name'],
+        isCustomer: true
       }
     });
   }
@@ -147,10 +151,13 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
   var customers = getCustomers();
   var cities = getCities();
   var customeManagers = getCustomerManagers();
-  // console.log(JSON.stringify(industries));
+
   var positionNav = new Vue({
     el: '#position-nav-main',
     data: {
+      activeIndex: null,
+      condition: '',
+      activeIndexes : [],
       positionSearchHolder: '搜索',
       positionSearchValue: '',
       list : [
@@ -172,6 +179,7 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
           }
         },
         {
+          inputs : '',
           baseLevel: 1,
           active: false,
           tabTitle : {
@@ -179,11 +187,13 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
             imgClassName: 'img img-selction img-industry-function'
           },
           tabContent: {
+            inputs : '',
             className : 'industry-function',
             items : industries
           }
         },
         {
+          inputs : '',
           active: false,
           baseLevel: 1,
           tabTitle : {
@@ -191,12 +201,12 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
             imgClassName: 'img img-selction img-cities'
           },
           tabContent: {
-            inputs : '',
             className : 'cities',
             items : cities
           }
         },
         {
+          inputs : '',
           active: false,
           tabTitle : {
             title: '客户',
@@ -208,6 +218,7 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
           }
         },
         {
+          inputs : '',
           active: false,
           tabTitle : {
             title: '客户经理',
@@ -232,21 +243,93 @@ define(['vue', 'jquery', 'area', 'filter-list'], function (Vue, $, area, filterL
       },
       onTitleClick : function (e, item, index) {
         e.preventDefault();
+        // console.log(index);
         item.active = !item.active;
         return false;
       },
-      onEnter : function (item) {
+      onClickIt : function (item) {
         item.active = !item.active;
         return false;
       },
-      onLeave : function (item) {
-        item.active = !item.active;
+      onItemSearchFocus: function (index) {
+        this.activeIndex = index;
         return false;
       },
-      onClickCity : function (item) {
-        item.active = !item.active;
-        console.log(item.level);
+      onItemSearchBlur: function () {
+        this.activeIndex = null;
         return false;
+      },
+      getItem: function (index) {
+        index = ~~index;
+        return index >= 0 && index < this.list.length
+          ? this.list[index]
+          : null;
+      },
+      figourOutItemlocation: function () {
+        var index;
+        if (item.isIndustry) index = 0;
+        else if (item.isCity) index = 1;
+        else if (item.isCustomer) index = 2;
+        else if (item.isCustomerManager) index = 3;
+        if (index == null)
+          throw new Error('figourOutItemlocation: have not catch the index');
+        return index;
+      },
+      countActiveIndexes: function (item) {
+        var index = this.figourOutItemlocation(item);
+        if (item.active) {
+          if (!~this.activeIndexes.indexOf(index)) {
+            this.activeIndexes.push(index);
+          }
+        } else {
+          var at = this.activeIndexes.indexOf(index);
+          this.activeIndexes.splice(at, 1);
+        }
+      },
+      emptyActiveIndexes: function () {
+        if (this.isAllClosed())
+          this.activeIndexes = [];
+      },
+      isAllClosed : function () {
+        return this.list.every(function (one) {
+          return !one.active;
+        });
+      },
+      closeAll: function (closeSub, emptyInputs) {
+        var self = this;
+        this.list.forEach(function (one, index) {
+          one.active = false;
+          if (emptyInputs)
+            one.inputs = '';
+          if (closeSub) {
+            if (index == 2) {
+              var cities = self.list[2].tabContent.items;
+              cities.forEach(function (one) {
+                one.active = false;
+              })
+            } else if (index == 1) {
+              var industries = self.list[1].tabContent.items;
+              industries.forEach(function (one) {
+                walker(one, function (one) {
+                  one.active = false;
+                })
+              })
+            }
+          }
+        });
+        this.emptyActiveIndexes();
+      },
+      listenClickIfLeave: function () {
+        var el = this.$el;
+        var self = this;
+        function isOutOfPosNav(node) {
+          return !$.contains(el, node);
+        }
+        $('body').click(function (e) {
+          if (isOutOfPosNav(e.target) && !self.isAllClosed())
+            self.closeAll(true, true);
+          return false;
+        });
       },
       getFilterList : getFilterList,
       getIndustries : getIndustries,
