@@ -1,0 +1,155 @@
+#content
+  .container
+    #publish-delegate
+      ul.tab-h
+        li(v-on="click: publish")
+          a(href="#")
+            img(src="images/nav-publish.jpg", width="85", height="34")
+        li(v-on="click: delegate")
+          a(href="#")
+            img(src="images/nav-delegate.jpg", width="85", height="34")
+    #site-tab.tab
+      ul.tab-title#site-tab-title
+        li(
+          v-repeat="val in tabTitles",
+          v-class="tab-title-last: $index == tabTitles.length - 1, active: $index == activeIndex"
+        )
+          a(href="val.href") {{val.title}}
+      .container
+        .tab-content
+          .my-position-nav#position-nav-main
+            ul#position-tab-titles
+              li(v-repeat="item in list")
+                .tab-title(v-on="click: onTitleClick($event, item, $index)")
+                  i(class="{{item.tabTitle.imgClassName}}")
+                  span {{item.tabTitle.title}}
+                  i.caret(v-class="item.active ? 'caret-down' : 'caret-up' ")
+                .tab-content.pn-tab-content(v-show="item.active")
+
+                  //- if "item.tabContent.className === 'job-state'"
+                  .tab-divider(v-if="item.tabContent.className === 'job-state'")
+
+                  //- if "item.tabContent.className !== 'job-state'"
+                  .postions-tab-search.city-search(
+                    v-show="item.active"
+                    v-if="item.tabContent.className !== 'job-state'"
+                  )
+                    input(type="text", v-model="item.tabContent.inputs")
+                    i.img.img-magnify
+
+                  //- job-state
+                  div.tab-1(
+                    v-if="item.tabContent.className === 'job-state'"
+                    v-class="item.tabContent.className"
+                  )
+                    h3(
+                      v-repeat="one in item.tabContent.items"
+                    ) {{one.value}}
+
+                  //- cities
+                  div.tab-1(
+                    v-if="item.tabContent.className === 'cities'"
+                    class="{{item.tabContent.className}}"
+                  )
+                    .city-item(v-repeat="one in item.tabContent.items")
+                      h3.city-item-title(v-on="click: onClickCity(one)") {{one.name}}
+                      div(v-show="one.active")
+                        h3.city-item-sub(v-repeat="sub in one.sub", v-on="click: onClickCity(sub)") {{sub}}
+
+                  //- customer-manager
+                  div.tab-1(
+                    v-if="item.tabContent.className === 'customer-manager'"
+                    class="{{item.tabContent.className}}"
+                  )
+                    h3(v-repeat="one in item.tabContent.items") {{one.name}}
+
+                  //- customers
+                  div.tab-1(
+                    v-if="item.tabContent.className === 'customer'"
+                    class="{{item.tabContent.className}}"
+                  )
+                    h3(v-repeat="one in item.tabContent.items") {{one.name}}
+
+                  //- industries
+                  div.tab-1(
+                    v-if="item.tabContent.className === 'industry-function'"
+                    class="{{item.tabContent.className}}"
+                  )
+                    .city-i.city-item(v-repeat="one in item.tabContent.items")
+                      h3.city-item-title(v-on="click: onClickCity(one)") {{one.name}}
+                      .city-ii.city-item(
+                        v-repeat="two in one.sub",
+                        v-show="one.active",
+                        v-if="one.sub"
+                      )
+                        h3.city-item-sub(
+                          v-on="click: onClickCity(two)"
+                        ) {{two.name}}
+
+                        .city-iii.city-item(v-show="two.active", v-if="two.sub")
+                          h3.city-item-sub(
+                            v-repeat="three in two.sub",
+                             v-on="click: onClickCity(three)"
+                          ) {{three.name}}
+
+            #position-search
+              .tab-title
+                input(
+                  type="text",
+                  v-on="focus: positionSearchFocus, blur: positionSearchBlur",
+                  v-model="positionSearchValue"
+                )
+                i.img.img-magnify
+                span.position-search-placeholder {{ positionSearchHolder }}
+              .tab-content
+          .row-main
+            .my-position-content
+              #my-position-content-title
+                .container
+                  .info-col-t
+                  .info-col-a
+                    h2 {{title.position}}
+                  .info-col-b
+                    h2 {{title.recommending}}
+                  .info-col-c
+                    h2 {{title.matched}}
+                  .info-col-d
+                    h2 {{title.update}}
+                  .info-col-e
+              #my-position-info-list
+                .container
+              #pagination
+                p
+                  a(
+                    href="#",
+                    v-on="click: onClickStart(e, $index)"
+                  ) {{start}}
+                  a(
+                    href="#",
+                    v-if="nextAll > 0",
+                    v-repeat="nextAll",
+                    v-on="click: onClickRandom(e, $index)"
+                  ) {{start + $index + 1}}
+                  span(v-if="start + nextAll < sum") ...
+                  a(href="#", v-on="click: onClickLast").last Last
+                .pagination-next
+                  a(href="#", v-on="click: onClickNext") Next
+                  a(href="#", v-on="click: onClickNext").pagination-next-img
+                    img.fr(
+                      src="images/pagination-next.jpg",
+                      width="16",
+                      height="20"
+                    )
+          .row-side#content-side-imgs
+            .side-img-1
+              a(href="{{img1.href}}")
+                img(src="{{img1.imgSrc}}")
+            .side-img-2
+              .side-img-item(v-repeat="item in items")
+                .side-img-item-img
+                  a(href="#")
+                    img(src="{{item.imgSrc}}")
+                p.side-img-item-title
+                  a(href="{{item.href}}") {{item.title}}
+                p.side-img-item-content
+                  a(href="{{item.href}}") {{item.content}}

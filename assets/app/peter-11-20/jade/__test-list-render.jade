@@ -1,0 +1,65 @@
+.my-position-info-item.clearfix(v-for="item in items")
+  .info-col-t
+    input(type="checkbox")
+  .info-col-a
+    .info-desc.clearfix
+      h2.info-position {{item.desc.position}}
+      h3.info-company {{item.desc.company}}
+      a.talent-btn(href="#")
+        img(
+          src="images/talent-btn.jpg",
+          width="16",
+          height="16"
+        )
+  .info-col-b
+    .info-talent-recommending.clearfix
+      ul.info-talent-list
+        li.info-talent-person(
+          v-repeat="val in item.recommending"
+        )
+          p.talent-desc
+            a.talen-name(href="#") {{val.name}}
+            i.img.img-info-new(v-if="val.isNew")
+          p.talent-level(
+            v-repeat="val2 in item.level"
+          )
+            i(
+              class="img img-talent {{val2 ? img-talent-level-active : ''}}"
+            )
+      a.talent-btn(href="#")
+        img(
+          src="images/talent-btn.jpg",
+          width="16",
+          height="16"
+        )
+  .info-col-c
+    .info-talent-matched.clearfix
+      ul.info-talent-list
+        li.info-talent-person(
+          v-repeat="val in item.matched"
+        )
+          p.talent-desc
+            a.talen-name(href="#") {{val.name}}
+            i.img.img-info-new(v-if="val.isNew")
+          p.talent-level(
+            v-repeat="val2 in item.level"
+          )
+            i(
+              class="img img-talent {{val2 ? img-talent-level-active : ''}}"
+            )
+      a.talent-btn(href="#")
+        img(
+          src="images/talent-btn.jpg",
+          width="16",
+          height="16"
+        )
+  .info-col-d
+    .info-talent-update.clearfix
+      h5.ymd {{item.update.ymd}}
+      h5.hms {{item.update.hms}}
+  .info-col-e
+    p
+      a.img-item-4.img-item-record(href="#")
+      a.img-item-4.img-item-note(href="#")
+      a.img-item-4.img-item-heart(href="#")
+      a.img-item-4.img-item-trash(href="#")

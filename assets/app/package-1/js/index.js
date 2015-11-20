@@ -34,15 +34,30 @@
     data: {
       list : [
         {
+          name: 'position-state',
           tabTitle : {
             title: '职位状态',
             imgClassName: 'img img-selction img-job-state'
+          },
+          tabContent: {
+            list : [
+              { state: 'publishing', iconClassName: '', value: '' },
+              { state: 'closed', iconClassName: '', value: '' },
+              { state: 'tempbuffed', iconClassName: '', value: '' },
+              { state: 'sccessed', iconClassName: '', value: '' }
+            ]
           }
         },
         {
+          name: 'industry-function',
           tabTitle : {
             title: '行业职能',
             imgClassName: 'img img-selction img-industry-function'
+          },
+          tabContent : {
+            list : [
+
+            ]
           }
         },
         {
@@ -129,14 +144,12 @@
     // })
   }
 
-var Component = Vue.component('list-item', {
-  template : '#list-item',
-
-  data : function () {
-    return {
+  var listItem = Vue.component('list-item', {
+    template : '#list-item',
+    data : function () {
+      return {}
     }
-  }
-});
+  });
 
   var posList = new Vue({
     el: '#my-position-info-list',
@@ -161,7 +174,6 @@ var Component = Vue.component('list-item', {
       ]
     }
   });
-  posList.$append(Component);
 
   // *** this would not work ***
   // var positionInfoList = new Vue({
