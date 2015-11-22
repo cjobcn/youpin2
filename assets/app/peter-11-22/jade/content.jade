@@ -73,12 +73,12 @@
           .row-side#content-side-imgs
             .side-img-1
               a(href="{{img1.href}}")
-                img(src="{{img1.imgSrc}}")
+                img(v-attr="src:img1.imgSrc")
             .side-img-2
               .side-img-item(v-repeat="item in items")
                 .side-img-item-img
                   a(href="#")
-                    img(src="{{item.imgSrc}}")
+                    img(v-attr="src:item.imgSrc")
                 p.side-img-item-title
                   a(href="{{item.href}}") {{item.title}}
                 p.side-img-item-content

@@ -12,7 +12,7 @@
         li.clearfix(v-repeat="item in items", class="{{item.className}}")
           .foot-item-img
             a(href="{{item.href}}", v-on="click:clicked($event, item, $index)")
-              img(src="{{item.imgSrc}}", width="42", height="42")
+              img(v-attr="src:item.imgSrc", width="42", height="42")
           .foot-item-content
             p(v-if="item.contents[0]") {{item.contents[0]}}
             p(v-if="item.contents[1]") {{item.contents[1]}}
