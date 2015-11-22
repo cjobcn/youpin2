@@ -6,7 +6,8 @@ Gemfile.lock
 *.gemfile.lock
 .rvmrc
 .rbenv-version
-test
+
+/test
 bower.json
 .bowerrc
 assets/config.rb
