@@ -4,8 +4,6 @@ requirejs.config({
     'vue': 'vue-ninja-0.12.16.min',
     'jquery': 'jquery',
     'cookie': 'cookie',
-    'position-list' : 'backends/position-list',
-    'filter-list' : 'backends/filter-list',
     'area' : 'area'
   }
 });
