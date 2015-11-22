@@ -162,10 +162,10 @@
                 </div>
               </div>
               <div id="content-side-imgs" class="row-side">
-                <div class="side-img-1"><a href="{{img1.href}}"><img src="{{img1.imgSrc}}"/></a></div>
+                <div class="side-img-1"><a href="{{img1.href}}"><img v-attr="src:img1.imgSrc"/></a></div>
                 <div class="side-img-2">
                   <div v-repeat="item in items" class="side-img-item">
-                    <div class="side-img-item-img"><a href="#"><img src="{{item.imgSrc}}"/></a></div>
+                    <div class="side-img-item-img"><a href="#"><img v-attr="src:item.imgSrc"/></a></div>
                     <p class="side-img-item-title"><a href="{{item.href}}">{{item.title}}</a></p>
                     <p class="side-img-item-content"><a href="{{item.href}}">{{item.content}}</a></p>
                   </div>
@@ -187,7 +187,7 @@
         <div class="row-side">
           <ul id="foot-side-list" class="foot-item-list">
             <li v-repeat="item in items" class="clearfix {{item.className}}">
-              <div class="foot-item-img"><a href="{{item.href}}" v-on="click:clicked($event, item, $index)"><img src="{{item.imgSrc}}" width="42" height="42"/></a></div>
+              <div class="foot-item-img"><a href="{{item.href}}" v-on="click:clicked($event, item, $index)"><img v-attr="src:item.imgSrc" width="42" height="42"/></a></div>
               <div class="foot-item-content">
                 <p v-if="item.contents[0]">{{item.contents[0]}}</p>
                 <p v-if="item.contents[1]">{{item.contents[1]}}</p>
