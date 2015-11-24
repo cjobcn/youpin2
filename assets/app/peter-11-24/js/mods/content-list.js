@@ -208,7 +208,9 @@ define(['vue','jquery'], function (Vue, $) {
 
         this.cur = i;
         contentList.showCurPage(this.cur);
-        this.working = false;
+        pagination.$nextTick(function () {
+          pagination.working = false;
+        });
         return false;
       }
     }
