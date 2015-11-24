@@ -1,0 +1,19 @@
+{
+  "desc" : { "position": "投资部总监/总经理   翠花", "company" : "IBM" },
+  "recommending" : [
+    { "name" : "Jack", "isNew": true, "level": 1 },
+    { "name" : "Jack", "isNew": false, "level": 1 },
+    { "name" : "Jack", "isNew": true, "level": 2 },
+    { "name" : "Jack", "isNew": false, "level": 3 }
+  ],
+  "matched" : [
+    { "name" : "Robert", "isNew": true, "level": 1 },
+    { "name" : "Robert", "isNew": false, "level": 1 },
+    { "name" : "Robert", "isNew": false, "level": 2 },
+    { "name" : "Robert", "isNew": false, "level": 3 }
+  ],
+  "update" : {
+    "ymd" : "2015/10/30",
+    "hms" : "16:00"
+  }
+}
