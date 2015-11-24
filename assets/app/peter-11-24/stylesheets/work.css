@@ -287,10 +287,10 @@ body { color: #333; font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f5
 .info-talent-list > li { float: left; background: #fff; padding-top: 6px; width: 60px; padding-right: 20px; }
 /* -------------------------- */
 .expand-transition {
-  transition: height .5s ease;
-  -moz-transition: height .5s ease;
-  -webkit-transition: height .5s ease;
-  -o-transition: height .5s ease;
+  transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
   z-index: auto;
   height: 24px;
   overflow: hidden;

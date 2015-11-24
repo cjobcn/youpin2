@@ -86,21 +86,12 @@ define(['vue','jquery'], function (Vue, $) {
       each: I_CONTENTLIST_EACH
     },
     compiled: function () {
-      var self = this;
       $.ajax({
         type: 'post',
         url: "http://youpinsh.cn/v2/index.php?s=/Home/position/GetPositionList",
         data: this.getReadyPostData()
       })
-      .done(function (res) {
-        var items = translatePosted(res).data.items;
-        var pages = self.getPages(items, 30);
-        var len = self.getLen(pages);
-        self.$set('items', pages[self.curIndex]);
-        self.$set('pages', pages);
-        self.$set('len', len);
-        self.$emit('data-loaded');
-      })
+      .done(this.showDataFromBackends.bind(this))
       .error(function (xhr, error) {
         console.warn('error: load data for position list failed');
       });
@@ -108,6 +99,15 @@ define(['vue','jquery'], function (Vue, $) {
     methods: {
       getReadyPostData: function (data) {
         return {}
+      },
+      showDataFromBackends: function (res) {
+        var items = translatePosted(res).data.items;
+        var pages = this.getPages(items, 30);
+        var len = this.getLen(pages);
+        this.$set('items', pages[this.curIndex]);
+        this.$set('pages', pages);
+        this.$set('len', len);
+        this.$emit('data-loaded');
       },
       showCurPage: function (index) {
         index = Math.max(0, ~~index);
