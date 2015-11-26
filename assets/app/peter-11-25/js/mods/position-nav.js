@@ -470,7 +470,7 @@ define(['vue', 'jquery', 'area', 'filter-list', './content-list'], function (Vue
       collectAjaxData: function () {
         var data = {
           // x
-          page: 0,
+          // page: 0,
           // √
           status: 0,
           // x
