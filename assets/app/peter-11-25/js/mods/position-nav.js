@@ -474,11 +474,11 @@ define(['vue', 'jquery', 'area', 'filter-list', './content-list'], function (Vue
           // √
           status: 0,
           // x
-          client_list: 0,
+          client_list: [],
           // x
-          manager: 0,
+          manager: [],
           // x
-          industry: 0,
+          industry: [],
           // √
           city_list: []
         };
@@ -497,12 +497,15 @@ define(['vue', 'jquery', 'area', 'filter-list', './content-list'], function (Vue
               break;
             // x
             case ajaxKeys.client:
+              data[ajaxKeys.client].push(value);
               break;
             // x
             case ajaxKeys.manager:
+              data[ajaxKeys.manager].push(value);
               break;
             // x
             case ajaxKeys.industry:
+              data[ajaxKeys.industry].push(value);
               break;
             // √
             // push it into an array
