@@ -51,8 +51,6 @@ define(['vue','jquery'], function (Vue, $) {
 
       //
       item.update = {};
-      item.update.ymd = '';
-      item.update.hms = '';
       var times = one['update_time'].split(' ');
       if (!times || !times.length)
         console.warn('position.update_time -> no times');
@@ -128,16 +126,18 @@ define(['vue','jquery'], function (Vue, $) {
         }
       },
       getPages: function (items, repeat) {
+        repeat = Math.max(1, ~~repeat);
         var each = this.each;
         var pages = [];
         var i = 0;
-
-        repeat = Math.max(1, ~~repeat);
+        var isExtend = repeat > 1;
         while (repeat--) items.forEach(function (one) {
           if (i === 0)
             pages.push([]);
-
-          pages[pages.length - 1].push($.extend(true, {}, one));
+          if (isExtend)
+            pages[pages.length - 1].push($.extend(true, {}, one));
+          else
+            pages[pages.length - 1].push(one);
           i = ++i === each ? 0 : i;
         });
 
