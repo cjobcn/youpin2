@@ -6,6 +6,7 @@ Gemfile.lock
 *.gemfile.lock
 .rvmrc
 .rbenv-version
+.idea
 
 /test
 bower.json
