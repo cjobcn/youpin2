@@ -1,13 +1,16 @@
 #content
   .container
-    #publish-delegate.hidden
-      ul.tab-h
-        li(v-on="click: publish")
-          a(href="#")
-            img(src="images/nav-publish.jpg", width="85", height="34")
-        li(v-on="click: delegate")
-          a(href="#")
-            img(src="images/nav-delegate.jpg", width="85", height="34")
+    #one-key-send.hidden
+      a(href="#", v-on="click: onClick")
+        i.fa.fa-plus
+        |批量转发
+      //ul.tab-h
+      //  li(v-on="click: publish")
+      //    a(href="#")
+      //      img(src="images/nav-publish.jpg", width="85", height="34")
+      //  li(v-on="click: delegate")
+      //    a(href="#")
+      //      img(src="images/nav-delegate.jpg", width="85", height="34")
     #site-tab.tab
       ul.tab-title#site-tab-title(v-cloak)
         li(

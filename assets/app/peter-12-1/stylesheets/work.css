@@ -154,10 +154,22 @@ body { color: #333; font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f5
 /* #publish-delegate */
 .tab-h {  }
 .tab-h li { float: left; }
-#publish-delegate { float: right; padding-top: 16px; }
-#publish-delegate .tab-h { }
-#publish-delegate li { padding-right: 7px; }
-/* ---------------------------------------------------------------- */
+/*#publish-delegate .tab-h { }*/
+/*#publish-delegate li { padding-right: 7px; }*/
+#one-key-send { float: right; padding-top: 16px; }
+#one-key-send a {
+  display: block;
+  padding: 0px 5px;
+  line-height: 34px;
+  height: 34px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0097FE;
+  border-radius: 5px;
+}
+#one-key-send a .fa { font-weight: 300; padding-right: 5px; }
+  /* ---------------------------------------------------------------- */
 
 /* #site-tab */
 .tab {}

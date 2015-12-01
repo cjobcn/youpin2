@@ -24,11 +24,14 @@
     </div>
     <div id="content">
       <div class="container">
-        <div id="publish-delegate" class="hidden">
-          <ul class="tab-h">
-            <li v-on="click: publish"><a href="#"><img src="images/nav-publish.jpg" width="85" height="34"/></a></li>
-            <li v-on="click: delegate"><a href="#"><img src="images/nav-delegate.jpg" width="85" height="34"/></a></li>
-          </ul>
+        <div id="one-key-send" class="hidden"><a href="#" v-on="click: onClick"><i class="fa fa-plus"></i>批量转发</a>
+          <!--ul.tab-h-->
+          <!--  li(v-on="click: publish")-->
+          <!--    a(href="#")-->
+          <!--      img(src="images/nav-publish.jpg", width="85", height="34")-->
+          <!--  li(v-on="click: delegate")-->
+          <!--    a(href="#")-->
+          <!--      img(src="images/nav-delegate.jpg", width="85", height="34")-->
         </div>
         <div id="site-tab" class="tab">
           <ul id="site-tab-title" v-cloak="v-cloak" class="tab-title">

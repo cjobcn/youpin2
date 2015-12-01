@@ -11,6 +11,6 @@ require([
   'mods/header',
   'mods/page-tab',
   'mods/position-nav',
-  'mods/publish-delegate',
+  'mods/one-key-send',
   'mods/copyright'
 ], function () {});

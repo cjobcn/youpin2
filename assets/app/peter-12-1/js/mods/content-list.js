@@ -1,5 +1,5 @@
-define(['vue', 'jquery', './publish-delegate', './copyright'],
-  function (Vue, $, publishDelegate, copyright) {
+define(['vue', 'jquery', './one-key-send', './copyright'],
+  function (Vue, $, oneKeySend, copyright) {
 
   var I_HIDDEN_AT_FIRST = 4;
   var I_CONTENTLIST_EACH = 15;
@@ -306,8 +306,8 @@ define(['vue', 'jquery', './publish-delegate', './copyright'],
         if (!pagination.active)
           pagination.$set('active', true);
 
-        if (!publishDelegate.active)
-          publishDelegate.show();
+        if (!oneKeySend.active)
+          oneKeySend.show();
 
         if (!copyright.active)
           copyright.show();
