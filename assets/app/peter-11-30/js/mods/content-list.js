@@ -138,13 +138,17 @@ define(['vue', 'jquery', './publish-delegate', './copyright'],
         var each = this.each;
         var pages = [];
         var i = 0;
-
         repeat = Math.max(1, ~~repeat);
+        var noRepeat = repeat === 1;
         while (repeat--) items.forEach(function (one) {
           if (i === 0)
             pages.push([]);
 
-          pages[pages.length - 1].push($.extend(true, {}, one));
+          if (noRepeat)
+            pages[pages.length - 1].push(one);
+          else
+            pages[pages.length - 1].push($.extend(true, {}, one));
+
           i = ++i === each ? 0 : i;
         });
 
@@ -220,6 +224,9 @@ define(['vue', 'jquery', './publish-delegate', './copyright'],
       onClick : function (e, i, isTarget) {
         e.preventDefault();
         i = isTarget ? Math.min(Math.max(0, ~~i), this.sum - 1) : i;
+        // there may be many pages, but can't store them if a too large number from mySQL,
+        // so if hitting the limit of the current range which is less than the sum from backends,
+        // then this click action should trigger an ajax action
         if (i < 0 || i == this.cur || i > this.sum - 1 || this.working)
           return false;
         this.working = true;

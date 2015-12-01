@@ -183,7 +183,7 @@ define(['vue', 'jquery', '../backends/area', '../backends/filter-list', './conte
 
     if ($.isArray(item.sub)) item.sub.forEach(function (one) {
       if (one && one.sub)
-        walker(one, callback, base + 1)
+        walker(one, callback, base + 1);
       else
         callback(one, base + 1);
     });
