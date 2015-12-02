@@ -1,5 +1,3 @@
-// -------------------------
-// -------------------------
 var gulp = require('gulp');
 var gulpTasks = require('./gulp_tasks/index.js');
 
