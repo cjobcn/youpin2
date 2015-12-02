@@ -1,0 +1,131 @@
+template#template-talent-recommending
+  li.info-talent-person
+    p.talent-desc
+      a.talen-name(href='#') {{name}}
+      i.img.img-info-new(v-if="isNew")
+    p.talent-level
+      i.img.img-talent.img-talent-level-active(v-repeat="level")
+      i.img.img-talent.img-talent-level(v-repeat="5 - level")
+
+template#template-talent-matched
+  li.info-talent-person
+    p.talent-desc
+      a.talen-name(href='#') {{name}}
+      i.img.img-info-new(v-if="isNew")
+    p.talent-level
+      i.img.img-talent.img-talent-level-active(v-repeat="level")
+      i.img.img-talent.img-talent-level(v-repeat="5 - level")
+
+template#template-my-position-content-title
+  #my-position-content-title.clearfix
+    .info-col-t
+    .info-col-a
+      h2 {{title.position}}
+    .info-col-b
+      h2 {{title.recommending}}
+    .info-col-c
+      h2 {{title.matched}}
+    .info-col-d
+      h2 {{title.update}}
+    .info-col-e
+
+template#template-my-position-items
+  .my-position-info-item.clearfix
+    .info-col-t
+      input(type='checkbox')
+    .info-col-a
+      .info-desc.clearfix
+        h2.info-position {{desc.position}} {{desc.name}}
+        h3.info-company {{desc.company}}
+    .info-col-b
+      .info-talent-recommending.clearfix.info-talent-list-container
+        ul.info-talent-list
+          li.info-talent-person(
+            v-repeat="val in recommending"
+            v-show="val.active"
+            v-transition="expand"
+            stagger="100"
+          )
+            p.talent-desc
+              a.talen-name(href='#') {{val.name}}
+              i.img.img-info-new(v-if="val.isNew")
+            p.talent-level
+              i.img.img-talent.img-talent-level-active(v-repeat="val.level")
+              i.img.img-talent.img-talent-level(v-repeat="5 - val.level")
+        a.talent-btn.fa.fa-chevron-down(
+          href='#'
+          v-on="click:onClickRecommendingBtn($event, this, $index)"
+        )
+    .info-col-c
+      .info-talent-matched.clearfix.info-talent-list-container
+        ul.info-talent-list
+          talent-matched(v-repeat="matched")
+    .info-col-d
+      .info-talent-update.clearfix
+        h5.ymd {{update.ymd}}
+        h5.hms {{update.hms}}
+    .info-col-e
+      p
+        a.img-item-4.img-item-record(href='#')
+        a.img-item-4.img-item-note(href='#')
+        a.img-item-4.img-item-heart(href='#')
+        a.img-item-4.img-item-trash(href='#')
+
+template#template-delegated-title
+  #delegated-title.clearfix
+    .info-col-t
+    .info-col-a
+      h2 {{title.position}}
+    .info-col-b
+      h2 {{title.customManager}}
+    .info-col-c
+      h2 {{title.recommending}}
+    .info-col-d
+      h2 {{title.readyRecommending}}
+
+template#template-delegated-position-items
+  .my-position-info-item.clearfix
+    .info-col-t
+      input(type='checkbox')
+    .info-col-a
+      .info-desc.clearfix
+        h2.info-position {{desc.position}}
+        h3.info-company {{desc.company}}
+    .info-col-b
+       .delegated-custom-manager
+         h2 {{customManager.name}}
+    .info-col-c
+      .delegated-recommending.info-talent-recommending.clearfix.info-talent-list-container
+        ul.info-talent-list
+          li.info-talent-person(
+            v-repeat="val in recommending",
+            v-show="val.active",
+            v-transition="expand",
+            stagger="100"
+          )
+            p.talent-desc
+              a.talen-name(href='#') {{val.name}}
+              i.img.img-info-new(v-if="val.isNew")
+            p.talent-level
+              i.img.img-talent.img-talent-level-active(v-repeat="val.level")
+              i.img.img-talent.img-talent-level(v-repeat="5 - val.level")
+        a.talent-btn(
+          href='#'
+          v-on="click:onClickRecommendingBtn($event, this, $index)"
+        ) 更多
+    .info-col-d
+      .delegated-ready-recommending.info-talent-recommending.clearfix.info-talent-list-container
+        ul.info-talent-list
+          li.info-talent-person(
+            v-repeat="val in readyRecommending",
+            v-show="val.active"
+          )
+            p.talent-desc
+              a.talen-name(href='#') {{val.name}}
+              i.img.img-info-new(v-if="val.isNew")
+            p.talent-level
+              i.img.img-talent.img-talent-level-active(v-repeat="val.level")
+              i.img.img-talent.img-talent-level(v-repeat="5 - val.level")
+        a.mail-cv(href="#")
+          |投递简历
+          i.fa.fa-heart-o

@@ -9,10 +9,9 @@ Gemfile.lock
 .idea
 
 /test
-/ninja
 bower.json
 .bowerrc
-assets/config.rb
+.rb
 
 # Ignore bundler config
 /.bundle

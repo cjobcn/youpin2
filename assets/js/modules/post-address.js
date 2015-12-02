@@ -1,1 +1,0 @@
-define([], 'http://youpinsh.cn/v2/index.php?s=/Home/position/getpositionlist');

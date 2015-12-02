@@ -1,20 +1,20 @@
 var workUrls = [
   {
     name : 'jade',
-    src : './assets/jade/**/**/*.jade',
-    out : './assets/html',
+    src : './develop/jade/**/**/*.jade',
+    out : './develop',
     message : ''
   },
   {
     name : 'sass',
-    src : './assets/sass/**/**/*.scss',
-    out : './assets/css',
+    src : './develop/sass/**/**/*.scss',
+    out : './develop/css',
     message : ''
   }
 ];
 workUrls.findUrl = function (name) {
-  var i = -1;
   var ret;
+  var i = -1;
   while (++i < workUrls.length) {
     if (workUrls[i] && workUrls[i].name === name) {
       ret = workUrls[i];
