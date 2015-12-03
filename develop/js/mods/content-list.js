@@ -300,7 +300,7 @@ define(['../vue', 'jquery', './one-key-send', './copyright'],
       }
     },
     events: {
-      'data-loaded': function () {
+      "data-loaded": function () {
         pagination.$set('sum', this.getCurrentList().length);
 
         if (!pagination.active)

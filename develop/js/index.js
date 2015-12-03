@@ -1,4 +1,4 @@
-  requirejs.config({
+requirejs.config({
   paths: {
     'vue': './vue',
     'jquery': './jquery'

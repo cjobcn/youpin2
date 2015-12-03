@@ -49,7 +49,7 @@ define(['../vue', 'jquery', '../backends/area', '../backends/filter-list', './co
       } else if (util.isObject(obj)) {
         if (!obj.name)
           throw new Error('getIndustries: obj should have a name: ' + JSON.stringify(obj));
-        var item = getItem(obj, arr);
+        var item = buildFunctionalityItem(obj, arr);
         var sub = objGetSub(obj);
         sub && iterate(sub, item.sub);
       } else {
@@ -59,7 +59,7 @@ define(['../vue', 'jquery', '../backends/area', '../backends/filter-list', './co
       return arr;
     }
 
-    function getItem(obj, arr) {
+    function buildFunctionalityItem(obj, arr) {
       var item = {};
       item.sub = [];
       item.sub.level = arr.level + 1;

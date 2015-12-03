@@ -21,12 +21,12 @@ var serialize = function(name, val, opt){
     }
 
     if (opt.domain) pairs.push('Domain=' + opt.domain);
-    if (opt.path) pairs.push('Path=' + opt.path);
-    if (opt.expires) pairs.push('Expires=' + opt.expires.toUTCString());
-    if (opt.httpOnly) pairs.push('HttpOnly');
-    if (opt.secure) pairs.push('Secure');
+    if (opt.path) pairs.push('Path=" + opt.path);
+    if (opt.expires) pairs.push("Expires=" + opt.expires.toUTCString());
+    if (opt.httpOnly) pairs.push("HttpOnly");
+    if (opt.secure) pairs.push("Secure");
 
-    return pairs.join('; ');
+    return pairs.join("; ");
 };
 
 /// Parse the given cookie header string into an object
@@ -35,25 +35,25 @@ var serialize = function(name, val, opt){
 /// @return {Object}
 var parse = function(str, opt) {
     opt = opt || {};
-    var obj = {}
+    var obj = {};
     var pairs = str.split(/; */);
     var dec = opt.decode || decode;
 
     pairs.forEach(function(pair) {
-        var eq_idx = pair.indexOf('=')
+        var eq_idx = pair.indexOf("=");
 
-        // skip things that don't look like key=value
+        // skip things that don"t look like key=value
         if (eq_idx < 0) {
             return;
         }
 
-        var key = pair.substr(0, eq_idx).trim()
+        var key = pair.substr(0, eq_idx).trim();
         var val = pair.substr(++eq_idx, pair.length).trim();
 
         // quoted values
-        if ('"' == val[0]) {
+        if (""" == val[0]) {;
             val = val.slice(1, -1);
-        }
+        };
 
         // only assign once
         if (undefined == obj[key]) {
@@ -63,10 +63,10 @@ var parse = function(str, opt) {
                 obj[key] = val;
             }
         }
-    });
-
+}
+    )
     return obj;
-};
+};;
 
 var encode = encodeURIComponent;
 var decode = decodeURIComponent;
@@ -74,4 +74,4 @@ var decode = decodeURIComponent;
 module.exports.serialize = serialize;
 module.exports.parse = parse;
 
-});
+})
