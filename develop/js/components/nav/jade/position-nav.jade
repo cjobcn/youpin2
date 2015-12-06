@@ -1,0 +1,123 @@
+.my-position-nav#position-nav-main(v-cloak)
+  ul#position-tab-titles
+    li(v-repeat="item in list")
+      .tab-title(v-on="click: onTitleClick($event, item, $index)")
+        i(class="{{item.tabTitle.imgClassName}}")
+        span {{item.tabTitle.title}}
+        i.caret(v-class="item.active ? 'caret-up' : 'caret-down' ")
+      .tab-content.pn-tab-content(v-show="item.active")
+
+        //- if "item.tabContent.className === 'job-state'"
+        .tab-divider(v-if="item.tabContent.className === 'job-state'")
+
+        //- if "item.tabContent.className !== 'job-state'"
+        //- then let's set the input here for listening inputs
+        .postions-tab-search.city-search(
+        v-show="item.active"
+        v-if="item.tabContent.className !== 'job-state'"
+        )
+          input(
+          type="text",
+          debounce="500",
+          v-model="item.inputs"
+          )
+          i.img.img-magnify
+
+        //- job-state
+        div.tab-1(
+        v-if="item.tabContent.className === 'job-state'"
+        v-class="item.tabContent.className"
+        )
+          h3(
+          v-repeat="one in item.tabContent.items"
+          v-on="click: onClickIt(one, $event)"
+          )
+            span
+              input(type="checkbox")
+            |{{one.name}}
+
+        //- cities
+        div.tab-1(
+        v-if="item.tabContent.className === 'cities'"
+        class="{{item.tabContent.className}}"
+        )
+          .city-item(
+          v-repeat="one in item.tabContent.items | filterBy item.inputs in 'name'"
+          )
+            h3.city-item-title(v-on="click: onClickIt(one, $event)")
+              span
+                input(type="checkbox")
+              |{{one.name}}
+            div(v-show="one.active")
+              h3.city-item-sub(v-repeat="sub in one.sub", v-on="click: onClickIt(sub, $event)")
+                span
+                  input(type="checkbox")
+                |{{sub.name}}
+
+        //- customer-manager
+        div.tab-1(
+        v-if="item.tabContent.className === 'customer-manager'"
+        class="{{item.tabContent.className}}"
+        )
+          h3(
+          v-repeat="one in item.tabContent.items | filterBy item.inputs in 'name'"
+          v-on="click: onClickIt(one, $event)"
+          )
+            span
+              input(type="checkbox")
+            |{{one.name}}
+
+        //- customers
+        div.tab-1(
+        v-if="item.tabContent.className === 'customer'"
+        class="{{item.tabContent.className}}"
+        )
+          h3(
+          v-repeat="one in item.tabContent.items | filterBy item.inputs in 'name'"
+          v-on="click: onClickIt(one, $event)"
+          )
+            span
+              input(type="checkbox")
+            |{{one.name}}
+
+        //- industries
+        div.tab-1(
+        v-if="item.tabContent.className === 'industry-function'"
+        class="{{item.tabContent.className}}"
+        )
+          .city-i.city-item(
+          v-repeat="one in item.tabContent.items | filterBy item.inputs in 'name'"
+          )
+            h3.city-item-title(v-on="click: onClickIt(one, $event)")
+              span
+                input(type="checkbox")
+              |{{one.name}}
+            .city-ii.city-item(
+            v-repeat="two in one.sub",
+            v-show="one.active && one.sub"
+            )
+              h3.city-item-sub(
+              v-on="click: onClickIt(two, $event)"
+              )
+                span
+                  input(type="checkbox")
+                |{{two.name}}
+
+              .city-iii.city-item(v-show="two.active", v-if="two.sub")
+                h3.city-item-sub(
+                v-repeat="three in two.sub",
+                v-on="click: onClickIt(three, $event)"
+                )
+                  span
+                    input(type="checkbox")
+                  |{{three.name}}
+  #position-search
+    .tab-title
+      input(
+        type="text",
+        v-on="focus: positionSearchFocus, blur: positionSearchBlur",
+        v-model="positionSearchValue"
+      )
+      i.img.img-magnify
+      span.position-search-placeholder {{ positionSearchHolder }}
+    .tab-content

@@ -1,0 +1,122 @@
+@import "./_vars.scss";
+@import "./_mixin.scss";
+
+@charset "UTF-8";
+/* base */
+* { margin: 0; padding: 0; }
+ol,
+ul { list-style: none; }
+a { text-decoration: none; color: #999; }
+a:hover { cursor: pointer; }
+img { border: none; vertical-align: top; }
+table { border-collapse: collapse; }
+textarea { resize: none; overflow: auto; outline: none; border: none; }
+form,
+select { margin: 0; }
+input { outline: medium; border: none; }
+i { font-style: normal; }
+/*Ping Hei Bold*/
+body { color: #333; font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif; }
+/* ---------------------------------------------------------------- */
+
+/* common */
+.fl { float: left; }
+.fr { float: right; }
+.clearfix,
+.container { zoom: 1; }
+.clearfix:after,
+.container:after { content: " ";  display: block; clear: both; }
+.container { margin-left: auto; margin-right: auto; }
+/*.caret { display: ; width: 8px; height: 8px; background: url("../images/caret.jpg") no-repeat; }*/
+.caret {
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.caret-down {
+  border-top: 4px solid #999999;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+.caret-up {
+  border-bottom: 4px solid #999999;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+
+/* ------- render considerations ---------- */
+/* hide the prev build result */
+[v-cloak],
+.hidden { display: none !important; }
+/* ---------------------------------------------------------------- */
+
+/* container: width 1350 * 0.76 */
+/*.container { width: 75%;  margin: 0 auto; }*/
+/* ---------------------------------------------------------------- */
+
+/* .img */
+.img { display: inline-block; background: url("../../../images/icons.png") no-repeat; }
+
+/* @start @.img-side-a */
+.img-side { width: 60px; height: 60px; }
+
+.img-home { background-position: -32px -132px; }
+.img-member { background-position: -116px -132px; }
+.img-briefcase { background-position: -204px -132px; }
+.img-handon { background-position: -290px -132px; }
+.img-books { background-position: -376px -132px; }
+
+.img-home-ii { background-position: -32px -210px; }
+.img-member-ii { background-position: -116px -210px; }
+.img-briefcase-ii { background-position: -204px -210px; }
+.img-handon-ii { background-position: -290px -210px; }
+.img-books-ii { background-position: -376px -210px; }
+/* @end @.img-side-a */
+
+/* @start @.img-header-menu */
+.img-header-menu { width : 32px; height: 32px; }
+
+.img-hm-person { background-position: -38px -298px; }
+.img-hm-info { background-position: -90px -298px; }
+.img-hm-mail { background-position: -142px -298px; }
+.img-hm-switch  { background-position: -194px -298px; }
+
+.img-hm-person-ii { background-position: -38px -348px; }
+.img-hm-info-ii { background-position: -90px -348px; }
+.img-hm-mail-ii { background-position: -142px -348px; }
+.img-hm-switch-ii  { background-position: -194px -348px; }
+/* @end @.img-header-menu */
+
+/* @start @ img-selections */
+.img-selction {  width : 16px; height: 16px; }
+.img-job-state { background-position: -252px -353px; }
+.img-industry-function { background-position: -284px -353px; }
+.img-cities { background-position: -317px -353px; }
+.img-customer  { background-position: -346px -353px; }
+.img-customer-manager  { background-position: -378px -353px; }
+/* @end @ img-selections */
+
+.img-logo { width: 298px; height: 50px; background-position: -19px -17px; }
+.img-magnify { width: 20px; height: 20px; background-position: -368px -302px; }
+.img-weather { width: 26px; height: 26px; background-position: -252px -298px; }
+
+.img-talent-level-active,
+.img-talent { width: 10px; height: 4px; }
+.img-talent-level-active { background-position: -293px -318px; }
+.img-talent-level { background-position: -305px -318px; }
+
+.img-info-new { width: 16px; height: 8px; background-position: -335px -304px; }
+.img-publish-position { width: 132px; height: 54px; background-position: -326px -16px; }
+.img-delegate-position { width: 133px; height: 48px; background-position: -326px -76px; }
+
+.img-delete { width: 8px; height: 8px; background-position: -418px -307px; }
+.img-arrow-right { width: 4px; height: 10px; background-position: -403px -305px; }
+
+/* @start @ img-item-4 */
+.img-item-4 { width: 18px; height: 18px; display: inline-block; background: url("../../../images/icon-item-4.png") no-repeat;  }
+.img-item-record { background-position: 0px 0px; }
+.img-item-note { background-position: -26px 0px; }
+.img-item-heart { background-position: -49px 0px; }
+.img-item-trash { background-position: -73px 0px; }
+/* @end @ img-item-4 */
+/* ---------------------------------------------------------------- */
