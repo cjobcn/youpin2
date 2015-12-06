@@ -1,0 +1,6 @@
+@import './vars.scss';
+
+@mixin batch-forward-position() {
+  float: right;
+  padding-top: 16px;
+}

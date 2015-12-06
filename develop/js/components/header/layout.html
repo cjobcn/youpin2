@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <title>index</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../../../stylesheets/fa/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../_base/index.css"/>
+  <link rel="stylesheet" href="./index.css"/>
+  <script type="text/javascript" src="../../require.js" data-main="./load.js"></script>
+</head>
+<body>
+  <div id="page">
+    <div id="header" v-cloak="v-cloak">
+      <div class="container">
+        <div id="site-logo" class="fl"><a href="{{logo.href}}"><img v-attr="src:logo.imgSrc" width="214" height="60"/></a></div>
+        <div id="site-header-menu" class="fr">
+          <ul class="site-header-link-menu">
+            <li v-repeat="item in imgs"><a href="{{item.href}}" class="img img-header-menu {{item.className}}"><i v-if="item.isNew" class="img img-info-new"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

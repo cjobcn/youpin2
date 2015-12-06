@@ -1,0 +1,52 @@
+/* #pagination */
+#pagination {
+  position: relative; }
+
+#pagination p {
+  text-align: center;
+  height: 70px;
+  line-height: 70px; }
+
+#pagination a {
+  color: #717171;
+  display: inline-block;
+  padding-right: 10px; }
+
+#pagination .last {
+  padding-left: 10px; }
+
+#pagination .start {
+  padding-right: 20px; }
+
+.pagination-next {
+  width: 70px;
+  height: 60px;
+  position: absolute;
+  top: 25px;
+  right: -10px; }
+
+.pagination-next a {
+  color: #000;
+  display: block;
+  padding-right: 0px;
+  float: left; }
+
+.pagination-prev {
+  width: 70px;
+  height: 60px;
+  position: absolute;
+  top: 25px;
+  left: 0px; }
+
+.pagination-prev a {
+  color: #000;
+  display: block;
+  padding-right: 0px;
+  float: left; }
+
+.pagination-prev a:hover,
+.pagination-next a:hover,
+#pagination .active {
+  font-weight: bold; }
+
+/* ---------------------------------------------------------------------------------------- */
