@@ -1,0 +1,7 @@
+ul#site-tab-title(v-cloak)
+  li(
+  v-repeat="val in tabTitles",
+  v-class="tab-title-last: $index == tabTitles.length - 1, active: $index == activeIndex",
+  v-on="click: onClick($event, val, $index)"
+  )
+    a(href="val.href") {{val.title}}

@@ -1,0 +1,42 @@
+/* #header */
+#header {
+  height: 60px;
+  background-color: #131418; }
+
+#header > .container {
+  width: 84.5%; }
+
+#site-logo {
+  height: 60px; }
+
+/* #site-header-menu */
+#site-header-menu {
+  padding-right: 0; }
+
+.site-header-link-menu {
+  height: 32px;
+  padding: 15px 0 0 0; }
+
+.site-header-link-menu > li {
+  position: relative;
+  width: 32px;
+  float: left;
+  padding-left: 20px; }
+
+.site-header-link-menu .img-info-new {
+  position: absolute;
+  right: 0; }
+
+.img-hm-person:hover {
+  background-position: -38px -348px; }
+
+.img-hm-info:hover {
+  background-position: -90px -348px; }
+
+.img-hm-mail:hover {
+  background-position: -142px -348px; }
+
+.img-hm-switch:hover {
+  background-position: -194px -348px; }
+
+/* ---------------------------------------------------------------- */

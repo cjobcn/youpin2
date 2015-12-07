@@ -1,0 +1,10 @@
+#position-nav-result(v-cloak)
+  p.show-result
+    span {{results}}
+    | results
+  ul.clearfix
+    li(v-repeat="items")
+      span {{$value}}
+      a(href="#", v-on="click: onClick($event, $index)").fa.fa-remove
+    li.reset
+      a(href="#", v-on="click: empty($event)") reset
