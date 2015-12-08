@@ -11,15 +11,32 @@
 </head>
 <body>
   <div id="page">
-    <div id="header" v-cloak="v-cloak">
+    <header v-class="hidden:!active">
       <div class="container">
-        <div id="site-logo" class="fl"><a href="{{logo.href}}"><img v-attr="src:logo.imgSrc" width="214" height="60"/></a></div>
-        <div id="site-header-menu" class="fr">
-          <ul class="site-header-link-menu">
-            <li v-repeat="item in imgs"><a href="{{item.href}}" class="img img-header-menu {{item.className}}"><i v-if="item.isNew" class="img img-info-new"></i></a></li>
+        <template id="template-header-logo">
+          <div id="header-logo"><a href="{{href}}"><img src="../../../images/site-logo.png" width="300" height="60"/></a></div>
+        </template>
+        <header-logo></header-logo>
+        <template id="template-header-interactive">
+          <ul id="header-interactive">
+            <li v-repeat="val in list" v-on="mouseenter: val.active = !val.active, mouseleave: val.active = !val.active" class="{{val.className}}"><i v-class="active: val.active" class="fa {{val.iconClassName}}"></i>
+              <ul v-show="val.active">
+                <li v-repeat="item in val.list"><a href="{{item.href}}">{{item.value}}</a></li>
+              </ul>
+            </li>
           </ul>
-        </div>
+        </template>
+        <header-interactive></header-interactive>
+        <template id="template-header-tab">
+          <div id="header-tab" v-on="mouseleave: activeIndex = currentIndex">
+            <ul>
+              <li v-repeat="val in tabTitles" v-on="click: onClick($event, val, $index), mouseenter: activeIndex = $index" v-style="left: val.left"><a href="{{val.href}}">{{val.title}}</a></li>
+            </ul>
+            <div v-style="left: tabTitles[activeIndex].left, width: tabTitles[activeIndex].width" class="active-border"></div>
+          </div>
+        </template>
+        <header-tab></header-tab>
       </div>
-    </div>
+    </header>
   </div>
 </body>

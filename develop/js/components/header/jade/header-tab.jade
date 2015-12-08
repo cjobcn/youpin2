@@ -1,0 +1,14 @@
+template#template-header-tab
+  #header-tab(v-on="mouseleave: activeIndex = currentIndex")
+    ul
+      li(
+        v-repeat="val in tabTitles",
+        v-on="click: onClick($event, val, $index), mouseenter: activeIndex = $index",
+        v-style="left: val.left"
+      )
+        a(href="{{val.href}}") {{val.title}}
+    .active-border(v-style="left: tabTitles[activeIndex].left, width: tabTitles[activeIndex].width")
+
+
+
+
