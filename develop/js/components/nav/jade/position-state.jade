@@ -1,0 +1,8 @@
+template#template-position-state
+  .position-state(v-cloak)
+    a(
+      v-attr="href: val.href",
+      v-repeat="val in list",
+      v-on="click: onClick($event, val, $index)",
+      v-class="active: currentListIndex == $index"
+    ) {{val.text}}

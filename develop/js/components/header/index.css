@@ -1,42 +1,88 @@
 /* #header */
-#header {
+header {
   height: 60px;
-  background-color: #131418; }
+  background-color: #2a2428; }
 
-#header > .container {
+header > .container {
   width: 84.5%; }
 
-#site-logo {
+/* ---------------------------------------------------------------- */
+/* #header-logo */
+#header-logo {
+  float: left;
   height: 60px; }
 
-/* #site-header-menu */
-#site-header-menu {
-  padding-right: 0; }
+/* ---------------------------------------------------------------- */
+/* #header-tab */
+#header-tab {
+  float: right;
+  top: 10px;
+  height: 46px;
+  width: 473px;
+  position: relative; }
 
-.site-header-link-menu {
-  height: 32px;
-  padding: 15px 0 0 0; }
-
-.site-header-link-menu > li {
-  position: relative;
-  width: 32px;
-  float: left;
-  padding-left: 20px; }
-
-.site-header-link-menu .img-info-new {
+#header-tab li {
+  height: 46px;
+  line-height: 46px;
   position: absolute;
-  right: 0; }
+  top: 0;
+  padding: 0 14px; }
 
-.img-hm-person:hover {
-  background-position: -38px -348px; }
+#header-tab a {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; }
 
-.img-hm-info:hover {
-  background-position: -90px -348px; }
+#header-tab .active-border {
+  height: 4px;
+  position: absolute;
+  bottom: -4px;
+  background-color: #708dd7;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s; }
 
-.img-hm-mail:hover {
-  background-position: -142px -348px; }
+/* ---------------------------------------------------------------- */
+/* #header-interactive */
+#header-interactive {
+  float: right;
+  height: 18px;
+  padding-top: 40px;
+  padding-left: 90px; }
 
-.img-hm-switch:hover {
-  background-position: -194px -348px; }
+#header-interactive > li {
+  float: left;
+  height: 16px;
+  line-height: 16px;
+  padding-bottom: 2px;
+  position: relative; }
+  #header-interactive > li .fa {
+    font-size: 16px;
+    color: #6d6c6d;
+    padding-right: 5px; }
+    #header-interactive > li .fa.active {
+      cursor: pointer;
+      color: #bcbabc; }
+  #header-interactive > li ul {
+    z-index: 2;
+    padding-bottom: 3px;
+    background-color: #2a2428;
+    position: absolute;
+    top: 18px; }
+    #header-interactive > li ul li {
+      padding: 3px 5px;
+      text-align: center; }
+    #header-interactive > li ul a {
+      color: #6a6a6a; }
+    #header-interactive > li ul a:hover {
+      color: #e1e1e1; }
+  #header-interactive > li.header-interactive-plus ul {
+    width: 60px;
+    left: -44px; }
+  #header-interactive > li.header-interactive-user ul {
+    width: 60px;
+    left: 0; }
 
 /* ---------------------------------------------------------------- */

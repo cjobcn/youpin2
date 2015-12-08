@@ -1,0 +1,34 @@
+include ./position-state
+include ./industry-function
+include ./custom
+include ./custom-manager
+include ./work-place
+include ./salary
+
+ul.nav-list
+  li(
+    v-repeat="val in list",
+    v-class="active: $index == activeListIndex",
+    v-on="click: onNavListLi1Click($event, val, $index)",
+    v-cloak
+  )
+    .nav-title.container
+      i.icon-nav.icon-nav-cat(v-class="val.iconClassName")
+      span {{val.text}}
+      i.icon-nav-arrow.fa(v-class="fa-chevron-down: !val.active, fa-chevron-up: val.active")
+    .nav-content
+      position-state(v-if="val.desc === 'position-state'", v-show="val.active")
+      industry-function(v-if="val.desc === 'industry-function'", v-show="val.active")
+      custom(v-if="val.desc === 'custom'", v-show="val.active")
+      custom-manager(v-if="val.desc === 'custom-manager'", v-show="val.active")
+      work-place(v-if="val.desc === 'work-place'", v-show="val.active")
+      salary(v-if="val.desc === 'salary'", v-show="val.active")
+
+.nav-main-search
+  input(
+    type="text",
+    v-model="mainSearch.text",
+    v-attr="placeholder: mainSearch.placeholder",
+    v-on="keyup: onKeyUp($event, mainSearch.text) | key 'enter'"
+  )
+  i.icon-nav.icon-nav-cat.icon-nav-search
