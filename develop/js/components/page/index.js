@@ -14,6 +14,8 @@ require([
 ], function (header, nav, content, copyright) {
   // ------------------------
   header.show();
+  nav.show();
+  content.show();
   copyright.show();
   // ------------------------
 }, function (err) {
