@@ -2,7 +2,7 @@ include ./position-state
 include ./industry-function
 include ./custom
 include ./custom-manager
-include ./work-place
+include ./city
 include ./salary
 
 ul.nav-list
@@ -16,13 +16,14 @@ ul.nav-list
       i.icon-nav.icon-nav-cat(v-class="val.iconClassName")
       span {{val.text}}
       i.icon-nav-arrow.fa(v-class="fa-chevron-down: !val.active, fa-chevron-up: val.active")
+      .nav-mask(v-if="$index == 1")
     .nav-content
-      position-state(v-if="val.desc === 'position-state'", v-show="val.active")
-      industry-function(v-if="val.desc === 'industry-function'", v-show="val.active")
-      custom(v-if="val.desc === 'custom'", v-show="val.active")
-      custom-manager(v-if="val.desc === 'custom-manager'", v-show="val.active")
-      work-place(v-if="val.desc === 'work-place'", v-show="val.active")
-      salary(v-if="val.desc === 'salary'", v-show="val.active")
+      position-state(v-if="val.desc === 'position-state'")
+      industry-function(v-if="val.desc === 'industry-function'")
+      custom(v-if="val.desc === 'custom'")
+      custom-manager(v-if="val.desc === 'custom-manager'")
+      city(v-if="val.desc === 'city'")
+      salary(v-if="val.desc === 'salary'")
 
 .nav-main-search
   input(

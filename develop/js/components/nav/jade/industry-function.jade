@@ -1,0 +1,22 @@
+template#template-industry-function
+  .industry-function.nav-content-item(v-cloak, v-show="active", v-on="click: stop($event)")
+    .industry-level-1.clearfix(v-repeat="item1 in list")
+      a(
+        href="#",
+        v-on="click:onClick($event, item1, $index)",
+        style="height: {{countAnchorHeight(item1)}}",
+        v-class="active: item1.active"
+      ) {{item1.name}}
+      .industry-level-2(v-repeat="item2 in item1.sub")
+        a(
+          href="#",
+          v-on="click:onClick($event, item2, $index)",
+          v-class="active: item2.active"
+        ) {{item2.name}}
+        .industry-level-3
+          a(
+            href="#",
+            v-repeat="item3 in item2.sub",
+            v-on="click:onClick($event, item3, $index)"
+            v-class="last: $index == item2.sub.length - 1, active: item3.active"
+          ) {{item3.name}}

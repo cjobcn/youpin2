@@ -1,0 +1,9 @@
+template#template-salary
+  .salary.nav-content-item(v-cloak, v-show="active", v-on="click: stop($event)")
+    .salary-count
+      input(type="text", v-model="min", placeholder="不限")
+      span.salary-span -
+      input(type="text", v-model="max", placeholder="不限")
+      span.salary-span2 K/月
+    .salary-btn
+      button(type="button", v-on="click:onClick($event)") YES
