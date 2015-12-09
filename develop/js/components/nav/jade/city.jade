@@ -1,5 +1,5 @@
-template#template-custom-manager
-  .custom-manager.nav-content-item(v-cloak, v-show="active", v-on="click: stop($event)")
+template#template-city
+  .city.nav-content-item(v-cloak, v-show="active", v-on="click: stop($event)")
     p(v-repeat="val in list")
       a(
         v-on="click:onClick($event, val, $index)",

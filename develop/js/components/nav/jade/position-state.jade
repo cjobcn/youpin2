@@ -1,8 +1,8 @@
 template#template-position-state
-  .position-state(v-cloak)
+  .position-state.nav-content-item(v-cloak, v-show="active", v-on="click: stop($event)")
     a(
       v-attr="href: val.href",
       v-repeat="val in list",
       v-on="click: onClick($event, val, $index)",
-      v-class="active: currentListIndex == $index"
-    ) {{val.text}}
+      v-class="active: val.active"
+    ) {{val.name}}
