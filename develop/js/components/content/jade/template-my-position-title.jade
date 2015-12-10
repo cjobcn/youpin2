@@ -1,0 +1,22 @@
+template#template-my-position-title
+  ul.container.my-position-title
+    li.content-main-col-1
+      .my-position-item
+        i.fa(
+        v-class="fa-circle-o: !count, fa-check-circle-o: count"
+        v-on="click: onClick($event)"
+        )
+    li.content-main-col-2
+      .my-position-item
+        h2 {{position}}
+    li.content-main-col-3
+      .my-position-item
+        h2 {{recommandingTalent}}
+    li.content-main-col-4
+      .my-position-item
+        h2 {{readyRecommandingTalent}}
+    li.content-main-col-5
+      .my-position-item
+        h2 {{update}}
+    li.content-main-col-6
+      .my-position-item

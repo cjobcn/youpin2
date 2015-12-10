@@ -1,5 +1,5 @@
 define(function () {
-  var I_HIDDEN_AT_FIRST = 4;
+  var I_HIDDEN_AT_FIRST = 6;
   var I_ALL_LEVEL = 5;
 
   var assembleDesc = function (item, one) {
@@ -32,7 +32,7 @@ define(function () {
       item.recommending.push(rec);
     });
 
-    one['recommend_resume'].active = false;
+    item.recommending.active = false;
   };
 
   var assembleMatched = function (item, one) {
@@ -64,6 +64,15 @@ define(function () {
     item.update.hms = times[1] || '';
   };
 
+  var assembleNotes = function (item) {
+    item.notes = [
+      { href: "#", className: "img-item-record" },
+      { href: "#", className: "img-item-note" },
+      { href: "#", className: "img-item-heart" },
+      { href: "#", className: "img-item-trash" }
+    ];
+  };
+
   return function translatePosted(res) {
     var data = {};
     data.items = [];
@@ -71,10 +80,13 @@ define(function () {
     res.position.forEach(function (one) {
       var item = {};
 
+      item.count = false;
+      item.active = false;
       assembleDesc(item, one);
       assembleRecommanding(item, one);
       assembleMatched(item, one);
       assembleUpdate(item, one);
+      assembleNotes(item);
 
       data.items.push(item);
     });

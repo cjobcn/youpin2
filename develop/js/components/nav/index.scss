@@ -21,10 +21,12 @@ $i: 0;
 /* ------------------------------------------------------------------------ */
 
 /* nav */
+$layout-side: 15.5%;
+$layout-main: 84.5%;
 $nav-height: 38px;
 $nav-border-width: 1px;
 nav { height: $nav-height + $nav-border-width * 2; }
-nav > .container { width: 84.5%; background-color: #e9e9e9; }
+nav > .container { width: $layout-main; background-color: #e9e9e9; }
 /* ------------------------------------------------------------------------ */
 
 /* .nav-main-search */
@@ -50,7 +52,7 @@ $nav-main-search-height: 14px;
 }
 /* ------------------------------------------------------------------------ */
 
-/* .nav-list */
+/* some main vars about $nav-li-1 ... */
 $nav-li-1-width: 120px;
 $nav-li-1-padding-left: 20px;
 $nav-li-1-padding-right: 10px;
@@ -58,7 +60,6 @@ $nav-li-1-border-width: 1px;
 $nav-li-1-box-width: $nav-li-1-width + 2 * $nav-li-1-border-width + $nav-li-1-padding-left + $nav-li-1-padding-right;
 $nav-content-zindex: 2;
 $li-sub-box-padding-top: 10px;
-
 /* .nav-li-1-border */
 .nav-li-1-border {
   border: $nav-li-1-border-width solid #b0b0b0;
@@ -281,14 +282,14 @@ $salary-height: 70px;
     }
   }
 }
-
 /* ------------------------------------------------------------------------ */
+
 
 /* .nav-result */
 .nav-result {
-  overflow: hidden;
+  height: auto;
+  padding: 10px $layout-side 10px 0;
   clear: both;
-  padding: 10px 0px;
   background-color: #fff;
   z-index: $nav-content-zindex - 1;
   li {
@@ -297,6 +298,7 @@ $salary-height: 70px;
     line-height: 2.2em;
     background-color: #4574ba;
     margin-right: 1em;
+    margin-bottom: 1em;
     padding: 0px 4px;
   }
   .reset a, span { color: #fff; }
