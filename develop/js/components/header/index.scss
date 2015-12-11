@@ -65,9 +65,11 @@ $header-interactive-ul-zindex: 2 !default;
   height: $header-interactive-height;
   line-height: $header-interactive-height;
   padding-bottom: $header-interactive-padding-bottom;
+  padding-left: 10px;
   position: relative;
   .fa {
     font-size: $header-interactive-height;
+    font-weight: 100;
     color: #6d6c6d;
     padding-right: 5px;
     &.active {

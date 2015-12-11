@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <title>index</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../../../stylesheets/fa/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="./index.css"/>
+  <style>body { min-height: 1000px; }</style>
+  <script type="text/javascript" src="../../require.js" data-main="./test.js"></script>
+</head>
+<body>
+  <div id="page">
+    <header v-class="hidden:!active">
+      <div class="container">
+        <template id="template-header-logo">
+          <div id="header-logo"><a href="{{href}}"><img src="../../../images/site-logo.png" width="300" height="60"/></a></div>
+        </template>
+        <header-logo></header-logo>
+        <template id="template-header-interactive">
+          <ul id="header-interactive">
+            <li v-repeat="val in list" v-on="mouseenter: val.active = !val.active, mouseleave: val.active = !val.active" class="{{val.className}}"><i v-class="active: val.active" class="fa {{val.iconClassName}}"></i>
+              <ul v-show="val.active">
+                <li v-repeat="item in val.list"><a href="{{item.href}}">{{item.value}}</a></li>
+              </ul>
+            </li>
+          </ul>
+        </template>
+        <header-interactive></header-interactive>
+        <template id="template-header-tab">
+          <div id="header-tab" v-on="mouseleave: activeIndex = currentIndex">
+            <ul>
+              <li v-repeat="val in tabTitles" v-on="click: onClick($event, val, $index), mouseenter: activeIndex = $index" v-style="left: val.left"><a href="{{val.href}}">{{val.title}}</a></li>
+            </ul>
+            <div v-style="left: tabTitles[activeIndex].left, width: tabTitles[activeIndex].width" class="active-border"></div>
+          </div>
+        </template>
+        <header-tab></header-tab>
+      </div>
+    </header>
+    <div class="position-detail">
+      <div class="container">
+        <main>
+          <div class="pd-main-item pd-position-desc">
+            <div class="pd-main-border"></div>
+            <div class="pd-main-title clearfix">
+              <h2>营销总监-中信地产(北京)</h2>
+              <p><i class="fa fa-download"></i><i>已关闭</i></p>
+              <div><a href="#">编辑职位</a></div>
+            </div>
+            <div class="pd-main-content">
+              <p><i>客户经理:&nbsp;</i><i>孙还还&nbsp;</i><i class="fa fa-qq"></i></p>
+              <p><i>薪酬:</i><i>&nbsp;7</i><i>-</i><i>10</i><i>&nbsp;K/月</i><i>&nbsp;(W/年)</i></p>
+            </div>
+          </div>
+          <div class="pd-main-item pd-position-info">
+            <div class="pd-main-benifit">
+              <p><a href="#">五险一金</a><a href="#">期权激励</a></p>
+            </div>
+            <div class="pd-main-border"></div>
+            <div class="pd-main-title clearfix">
+              <h2>职位信息</h2>
+            </div>
+          </div>
+          <div class="pd-position-info-content">
+            <div class="pd-position-info-scrollbar">
+              <div></div>
+            </div>
+            <div class="pd-position-info-sport">
+              <div class="pd-main-item pd-words">
+                <div class="pd-main-content clearfix">
+                  <div class="pd-main-col-1">
+                    <p><i>发布时间:&nbsp;</i><i>2015/12/8</i></p>
+                    <p><i>学历要求:&nbsp;</i><i>本科</i></p>
+                    <p><i>招聘人数:&nbsp;</i><i>1</i></p>
+                    <p><i>性别要求:&nbsp;</i><i>男</i></p>
+                  </div>
+                  <div class="pd-main-col-2">
+                    <p><i>工作地点:&nbsp;</i><i>上海市闸北区光复路581号</i></p>
+                    <p><i>汇报对象:&nbsp;</i><i>CTO</i></p>
+                    <p><i>年龄要求:&nbsp;</i><i>35</i><i>&nbsp;-&nbsp;</i><i>40</i></p>
+                    <p><i>性别要求:&nbsp;</i><i>男</i></p>
+                  </div>
+                </div>
+              </div>
+              <div class="pd-main-item pd-custom-needs">
+                <div class="pd-main-title">
+                  <h2>客户要求</h2>
+                </div>
+                <div class="pd-main-content">
+                  <ol>
+                    <li>
+                      <p>从事Android应用软件开发。</p>
+                    </li>
+                    <li>
+                      <p>大学本科，2年以上工作经验，通信.电子工程.软件.等相关专业；</p>
+                    </li>
+                    <li>
+                      <p>有Android或Java开发基础；</p>
+                    </li>
+                    <li>
+                      <p>属性android SDK，具有2年以上实际开发经验者优先；</p>
+                    </li>
+                    <li>
+                      <p>工作积极主动，懂得团队协作，有较强责任感和严谨工作作风，对移动产品有浓厚兴趣；</p>
+                    </li>
+                    <li>
+                      <p>较强的沟通学习能力，对技术有热情，善于主动跟踪和学习最新的软件技术。</p>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="pd-main-item pd-position-details">
+                <div class="pd-main-title">
+                  <h2>职位详情&nbsp;(岗位职责+对候选人要求)</h2>
+                </div>
+                <div class="pd-main-content">
+                  <ol>
+                    <li>
+                      <p>从事Android应用软件开发。</p>
+                    </li>
+                    <li>
+                      <p>大学本科，2年以上工作经验，通信.电子工程.软件.等相关专业；</p>
+                    </li>
+                    <li>
+                      <p>有Android或Java开发基础；</p>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="pd-main-item pd-note">
+                <div class="pd-main-title">
+                  <h2>备注:</h2>
+                </div>
+                <div class="pd-main-content">
+                  <h4>需要:</h4>
+                  <h4>不要:</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pd-main-item pd-received-cvs">
+            <div class="pd-main-border"></div>
+            <div class="pd-main-title">
+              <h2>已收到简历</h2>
+            </div>
+            <div class="pd-main-content">
+              <ul>
+                <li class="clearfix">
+                  <p class="pd-rcv-name"><a href="#">高锟</a></p>
+                  <p class="pd-rcv-consult"><span>顾问:&nbsp;</span><span>陆元敏&nbsp;</span><i class="fa fa-qq"></i></p>
+                  <p class="pd-rcv-date"><em>2015-02-02</em></p>
+                  <p class="pd-rcv-note"><i>这是最近的</i></p>
+                </li>
+                <li class="clearfix">
+                  <p class="pd-rcv-name"><a href="#">高锟</a></p>
+                  <p class="pd-rcv-consult"><span>顾问:&nbsp;</span><span>陆元敏&nbsp;</span><i class="fa fa-qq"></i></p>
+                  <p class="pd-rcv-date"><em>2015-02-02</em></p>
+                  <p class="pd-rcv-note"><i>这是最近的</i></p>
+                </li>
+                <li class="clearfix">
+                  <p class="pd-rcv-name"><a href="#">小明</a></p>
+                  <p class="pd-rcv-consult"><span>顾问:&nbsp;</span><span>陆元敏&nbsp;</span><i class="fa fa-qq"></i></p>
+                  <p class="pd-rcv-date"><em>2015-02-02</em></p>
+                  <p class="pd-rcv-note"><i>这是最近的</i></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </main>
+        <aside>
+          <div class="pd-side-item pd-delegate-company">
+            <div class="pd-side-border"></div>
+            <div class="pd-side-title">
+              <h2>委托公司</h2>
+            </div>
+            <div class="pd-side-content">
+              <ul class="clearfix">
+                <li><span>公司1</span><i class="fa fa-remove"></i></li>
+                <li><span>公司1</span><i class="fa fa-remove"></i></li>
+              </ul>
+            </div>
+          </div>
+          <div class="pd-side-item pd-quick-preview">
+            <div class="pd-side-border"></div>
+            <div class="pd-side-title">
+              <h2>快速预览</h2>
+            </div>
+            <div class="pd-side-content">
+              <p><a href="#">基础信息</a></p>
+              <p><a href="#">职位详情</a></p>
+              <p><a href="#">收到的简历</a></p>
+            </div>
+          </div>
+          <div class="pd-side-item pd-seem-position">
+            <div class="pd-side-border"></div>
+            <div class="pd-side-title">
+              <h2>快速预览</h2>
+            </div>
+            <div class="pd-side-content">
+              <p class="pd-seem-position-desc">浙江数芳科技（以下简称“su2"）有限公司作为一家外商独资的移动互联网软件公司，从07年成立至今一直致力与移动互联网软件产品的开发，销售和运营工作。数芳公司从成立伊始就和各大手机品牌厂商以及手机研发公司有较好的合作关系，与电信运营商从2009年开始有较为密切的合作，为浙江电信提供了翼起来，wifi客户端，智慧杭州，天翼看交通等软件产品的开发设计以及运营支持，同时数芳也获得了电信c w客户端解决方案的生成供货资格。数芳公司2013年底开始进***载wifi行业，凭借在移动互联网行业的多年经营基础，迅速完成业务切入，公司旗下的灵无线、公交乐等产品已经在全国许多省份长途车、公交车上进行安装部署，为用户提供免费高速的车载移动网络服务。</p>
+              <p class="pd-seem-position-view clearfix"><a href="#">浏览该职位</a></p>
+              <p class="pd-seem-position-view-more"><a href="#">查看更多</a></p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div id="copyright" class="hidden">
+      <p><a href="#">Copyright 2009 cjobcn.com inc. all rights reserved.</a></p>
+      <p><a href="#">沪ICP备05110979号</a></p>
+    </div>
+  </div>
+</body>

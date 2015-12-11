@@ -1,0 +1,97 @@
+@import "../_base/index.scss";
+
+/* ------------------------------------------------------------------------ */
+/* =====================   @classPrefix: .pp-*     ======================== */
+/* ------------------------------------------------------------------------ */
+
+/* vars */
+$pd-padding-10: 10px;
+$pd-main-border-width: 1px;
+$pd-main-border-color: #d8d7d6;
+$pd-main-title-height: 14px;
+$pd-main-title-h2-color: #333;
+$pd-p-color: #626262;
+$pd-main-title-zindex: 2;
+$pd-scrollbar-zindex: 2;
+/* ------------------------------------------------------------------------ */
+
+/* floats */
+.pp-main-col-1,
+.pp-main-col-2 {
+  float: left;
+}
+/* ------------------------------------------------------------------------ */
+
+/* .position-detail */
+.position-detail {
+  padding-top: 25px;
+  padding-bottom: 150px;
+  // --------------------------------------
+  width: 100%;
+  > .container { width: 84.5%; }
+  main, aside { float: left; }
+  main { width: 78%; padding-right: 20px; }
+  aside { width: 20%; }
+  // --------------------------------------
+  .fa { cursor: pointer; }
+  $qq-size: 12px;
+  .fa-qq {
+    display: inline-block;
+    color: #539edc;
+    font-size: $qq-size;
+    padding: 2px;
+    line-height: $qq-size;
+    text-align: center;
+    border-radius: 9px;
+    border: 1px solid #539edc;
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+/* .pp-side-item + .pp-main-item */
+.pp-main-item {
+  position: relative;
+  p { color : $pd-p-color; }
+}
+.pp-side-item {
+  @extend .pp-main-item;
+}
+.pp-side-item .pp-side-title,
+.pp-main-item .pp-main-title {
+  padding-bottom: 14px;
+}
+/* ------------------------------------------------------------------------ */
+
+/* .pp-side-border + .pp-main-border */
+.pp-side-border,
+.pp-main-border {
+  position: absolute;
+  left: 0;
+  top: ceil($pd-main-title-height / 2) + $pd-main-border-width;
+  width: 98%;
+  height: 0;
+  border-top: $pd-main-border-width solid $pd-main-border-color;
+  z-index: $pd-main-title-zindex - 1;
+}
+/* ------------------------------------------------------------------------ */
+
+/* .pp-side-title + .pp-main-title */
+.pp-side-title,
+.pp-main-title {
+  position: relative;
+  height: $pd-main-title-height;
+  line-height: $pd-main-title-height;
+  z-index: $pd-main-title-zindex;
+  h2, p {
+    float: left;
+    background-color: #fff;
+    height: $pd-main-title-height;
+    line-height: $pd-main-title-height;
+  }
+  h2 { color: $pd-main-title-h2-color; }
+  p {
+    position: relative;
+    top: ceil($pd-main-title-height / 6);
+  }
+}
+/* ------------------------------------------------------------------------ */

@@ -1,13 +1,14 @@
 requirejs.config({
-  baseUrl: '../',
+  baseUrl: './',
   paths: {
     jquery: '../../jquery',
     vue: '../../vue'
   }
 });
 
-require(['./index'], function (mod) {
-  //mod.show();
+require([
+  'jquery'
+], function ($) {
 }, function (err) {
   throw err;
 });

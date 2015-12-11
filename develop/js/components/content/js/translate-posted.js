@@ -66,10 +66,10 @@ define(function () {
 
   var assembleNotes = function (item) {
     item.notes = [
-      { href: "#", className: "img-item-record" },
-      { href: "#", className: "img-item-note" },
-      { href: "#", className: "img-item-heart" },
-      { href: "#", className: "img-item-trash" }
+      { href: "#", desc: "record", className: "img-item-record" },
+      { href: "#", desc: "note", className: "img-item-note" },
+      { href: "#", desc: "heart", className: "img-item-heart" },
+      { href: "#", desc: "trash", className: "img-item-trash" }
     ];
   };
 

@@ -9,6 +9,11 @@ define([
   var I_CONTENTLIST_EACH = 15;
   var imgDir = '../../../images/';
 
+  var stop = function (e) {
+    e.stopImmediatePropagation();
+    e.preventDefault();
+  };
+
   var myPosition = new Vue({
     el: '#content .my-position',
     data: {
@@ -17,6 +22,9 @@ define([
     methods: {
       show: function () {
         this.active = true;
+      },
+      hide: function () {
+        this.active = false;
       }
     },
     events: {
@@ -47,7 +55,8 @@ define([
           onClick: function (e) {
             var count = this.count = !this.count;
             // -------------------------------------------
-            // what is this logic ? now just set all the state be the same as the title check !
+            // what is this logic ?
+            // now just set all the state be the same as the title check !
             this.$dispatch('change-count-from-title', count);
             // -------------------------------------------
             return false;
@@ -61,6 +70,28 @@ define([
           this.sendAjax({});
         },
         methods: {
+          onClickEdit: function (e, val, item) {
+            stop(e);
+
+            if (this.editing)
+              return;
+            this.editing = true;
+
+            switch (val.desc) {
+              case 'record':
+                this.$emit('edit-record', item);
+                break;
+              case 'note':
+                this.$emit('edit-note', item);
+                break;
+              case 'heart':
+                this.$emit('edit-heart', item);
+                break;
+              case 'trash':
+                this.$emit('edit-trash', item);
+                break;
+            }
+          },
           onClickRecommendingBtn: function (e, item) {
             e.preventDefault();
             var len = item.recommending.length;
@@ -160,10 +191,23 @@ define([
             curList.forEach(function (one) {
               one.count = count;
             });
-          }
+          },
+          'edit-record': function (item) {},
+          // edit-note is alias for position-detail
+          // this event needs item's cv data from backends,
+          // now just fake the data
+          // the data api should be part of content list item
+          'edit-note': function (item) {
+            // the content and the nav should be covered under this note page
+            // so the position of this note page would be a seperate part of the whole app
+            content.$emit('edit-note', item);
+          },
+          'edit-heart': function (item) {},
+          'edit-trash': function (item) {}
         },
         data: function () {
           return {
+            editing: false,
             list: [],
             each: I_CONTENTLIST_EACH,
             currentIndex: 0,
@@ -218,7 +262,7 @@ define([
     }
   });
 
-  return new Vue({
+  var content = new Vue({
     el: '#content',
     data: {
       active: false
@@ -226,7 +270,18 @@ define([
     methods: {
       show: function () {
         this.active = true;
+      },
+      hide: function () {
+        this.active = false;
+      }
+    },
+    events : {
+      'edit-note': function (item) {
+        console.log('edit-note');
+        //this.active = false;
       }
     }
-  })
+  });
+
+  return content;
 });

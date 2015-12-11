@@ -54,5 +54,6 @@ template#template-my-position-content
           a.img-item-4(
             class="{{val.className}}",
             v-attr="href:val.href",
-            v-repeat="val in item.notes"
+            v-repeat="val in item.notes",
+            v-on="click:onClickEdit($event, val, item)"
           )
