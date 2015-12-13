@@ -69,7 +69,118 @@ define([
           // init post data would be: {} ?
           this.sendAjax({});
         },
+        ready: function () {
+          this.doc = $(document);
+        },
+        data: function () {
+          return {
+            editing: false,
+            list: [],
+            each: I_CONTENTLIST_EACH,
+            currentIndex: 0,
+            len: 0,
+            ajaxPostUrl: 'http://youpinsh.cn/v2/index.php/Home/Position/GetPositionList',
+            doc: null,
+            drag: {
+              mousemove: null,
+              mouseup: null,
+              scrollbar: null,
+              content: null,
+              isDraging: false
+            }
+          };
+        },
         methods: {
+          enterCol2: function (e, item) {
+            stop(e);
+            item.desc.active = true;
+            this.clearDrag();
+          },
+          leaveCol2: function (e, item) {
+            stop(e);
+            item.desc.active = false;
+            this.clearDrag();
+          },
+          scrollbarMouseDown: function (e) {
+            stop(e);
+            if (this.drag.isDraging)
+              throw new Error('not draging, but receive: scrollbarMouseDown');
+
+            this.drag.isDraging = true;
+            var $scrollbar = $(e.target);
+            var $content = $scrollbar.parent().siblings('.my-position-desc-pd-c').find('div');
+            this.drag.scrollbar = $scrollbar;
+            this.drag.content = $content;
+
+            var irange = $scrollbar.parent().height() - $scrollbar.height();
+            var minY = $scrollbar.parent().offset().top - $(window).scrollTop();
+            var maxY = minY + irange;
+            var self = this;
+
+            var mousemove = function (e) {
+              stop(e);
+              if (!self.drag.isDraging)
+                throw new Error('not draging, but receive: mousemove');
+
+              var curY = e.clientY;
+              var deltaY = curY <= minY
+                ? 0
+                : curY >= maxY
+                ? irange
+                : curY - minY;
+              self.drag.scrollbar.css('top', deltaY);
+              // this step would need some counts,
+              // to get the right scale of the top position;
+              // but if set the accurate height of the "container",
+              // it's no need to do that extra step.
+              self.drag.content.css('top', -deltaY);
+
+              return false;
+            };
+
+            var mouseup = function (e) {
+              stop(e);
+              if (!self.drag.isDraging)
+                throw new Error('not draging, but receive: mouseup');
+
+              self.clearDrag();
+              mousemove = null;
+              mouseup = null;
+              $scrollbar = null;
+              $content = null;
+
+              return false;
+            };
+
+            this.doc.mousemove(mousemove);
+            this.doc.mouseup(mouseup);
+
+            return false;
+          },
+          clearDrag: function (e) {
+            if (e)
+              stop(e);
+
+            if (!this.drag.isDraging)
+              return;
+
+            this.drag.isDraging = false;
+            // does it need to trigger mouseup to prevent memory leak ?
+            this.doc.off('mousemove');
+            this.doc.off('mouseup');
+            this.drag.scrollbar = null;
+            this.drag.content = null;
+          },
+          enterDesc: function (e, desc, item) {
+            stop(e);
+            desc.active = true;
+            //console.log('enter');
+          },
+          leaveDesc: function (e, desc, item) {
+            stop(e);
+            desc.active = false;
+            //console.log('leave');
+          },
           onClickEdit: function (e, val, item) {
             stop(e);
 
@@ -204,16 +315,6 @@ define([
           },
           'edit-heart': function (item) {},
           'edit-trash': function (item) {}
-        },
-        data: function () {
-          return {
-            editing: false,
-            list: [],
-            each: I_CONTENTLIST_EACH,
-            currentIndex: 0,
-            len: 0,
-            ajaxPostUrl: 'http://youpinsh.cn/v2/index.php/Home/Position/GetPositionList'
-          };
         }
       },
       'my-position-pagination': createPagination({

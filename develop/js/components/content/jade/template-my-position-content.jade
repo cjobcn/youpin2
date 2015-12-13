@@ -7,10 +7,16 @@ template#template-my-position-content
           v-class="fa-circle-o: !item.count, fa-check-circle-o: item.count"
           v-on="click: item.count = !item.count"
         )
+        //v-on="mouseenter:enterDesc($event, item.desc, item), mouseleave:leaveDesc($event, item.desc, item)"
+    - var str = "mouseenter: enterCol2($event, item)"
+    - str += ", " + "mouseleave: leaveCol2($event, item)"
     li.content-main-col-2
-      .my-position-item
+      .my-position-item(
+        v-on="#{str}"
+      )
         h2.pos-title {{item.desc.name}}
         h2.pos-desc {{item.desc.position}}
+        include my-position-desc-preview
     li.content-main-col-3
       .my-position-item
         ul.clearfix

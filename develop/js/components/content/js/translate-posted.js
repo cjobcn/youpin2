@@ -7,6 +7,7 @@ define(function () {
     item.desc.position = one['position_name'] || '';
     item.desc.company = one['client_name'] || '';
     item.desc.name = one['manager_name'] || '';
+    item.desc.active = false;
   };
 
   var assembleRecommanding = function (item, one) {
