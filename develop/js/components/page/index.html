@@ -275,12 +275,64 @@
         <template id="template-my-position-content">
           <ul v-repeat="item in list[currentIndex]" wait-for="data-loaded" class="container my-position-content">
             <li class="content-main-col-1">
-              <div class="my-position-item"><i v-class="fa-circle-o: !item.count, fa-check-circle-o: item.count" v-on="click: item.count = !item.count" class="fa"></i></div>
+              <div class="my-position-item"><i v-class="fa-circle-o: !item.count, fa-check-circle-o: item.count" v-on="click: item.count = !item.count" class="fa"></i>
+                <!--v-on="mouseenter:enterDesc($event, item.desc, item), mouseleave:leaveDesc($event, item.desc, item)"-->
+              </div>
             </li>
             <li class="content-main-col-2">
-              <div class="my-position-item">
+              <div v-on="mouseenter: enterCol2($event, item), mouseleave: leaveCol2($event, item)" class="my-position-item">
                 <h2 class="pos-title">{{item.desc.name}}</h2>
                 <h2 class="pos-desc">{{item.desc.position}}</h2>
+                <artical v-show="item.desc.active" class="my-position-desc-preview">
+                  <div class="caret-left"></div>
+                  <ul>
+                    <li>
+                      <h2>职位信息</h2>
+                      <p><i>职位名称:</i><em>投资部经理</em></p>
+                      <p><i>发布时间:</i><em>7月28日15:57</em></p>
+                      <p><i>工作地点:</i><em>上海</em></p>
+                      <p><i>学历要求:</i><em>本科</em></p>
+                      <p><i>汇报对象:</i><em>总经理</em></p>
+                      <p><i>招聘人数:</i><em>1人</em></p>
+                      <p><i>所属行业:</i><em>房地产/投资开发/投资</em></p>
+                      <p><i>年龄要求:</i><em>30-45人</em></p>
+                    </li>
+                    <li class="my-position-desc-pd">
+                      <h2>职位描述</h2>
+                      <div class="my-position-desc-pd-c">
+                        <div>
+                          <p><i>职位需求:</i><em>投资部经理</em></p>
+                          <p><i>汇报对象:</i><em>总经理</em></p>
+                          <p><i>下属人数:</i><em>3名</em></p>
+                          <p><i>岗位描述:</i></p>
+                          <ol>
+                            <li>
+                              <p>参与制定具体的发展目标，根据公司发展战略，把握投资方向。</p>
+                            </li>
+                            <li>
+                              <p>参与制定具体的发展目标，根据公司发展战略，把握投资方向。</p>
+                            </li>
+                            <li>
+                              <p>参与制定具体的发展目标，根据公司发展战略，把握投资方向。</p>
+                            </li>
+                            <li>
+                              <p>参与制定具体的发展目标，根据公司发展战略，把握投资方向。</p>
+                            </li>
+                          </ol>
+                          <p><i>工作地址:</i><em>上海北京东路科技京城</em></p>
+                        </div>
+                      </div>
+                      <div class="my-position-desc-pd-scrollbar">
+                        <div v-on="mousedown: scrollbarMouseDown($event)"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <h2>薪酬福利</h2>
+                      <p><i>职位年薪:</i><em>60-80W/年</em></p>
+                      <p><i>薪资构成:</i><em>30万12个月发，剩下30万年底发</em></p>
+                    </li>
+                  </ul>
+                </artical>
               </div>
             </li>
             <li class="content-main-col-3">

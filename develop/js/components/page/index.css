@@ -916,12 +916,15 @@ nav > .container {
 }
 .my-position-content .content-main-col-2 .my-position-item {
   padding-top: 10px;
+  position: relative;
 }
 .my-position-content .content-main-col-2 .my-position-item h2.pos-title {
+  cursor: pointer;
   color: #717173;
   line-height: 22px;
 }
 .my-position-content .content-main-col-2 .my-position-item h2.pos-desc {
+  cursor: pointer;
   color: #999;
   line-height: 22px;
 }
@@ -989,8 +992,99 @@ nav > .container {
   opacity: 0;
 }
 
+#content .my-position-desc-preview {
+  width: 360px;
+  height: 570px;
+  z-index: 100;
+  padding: 0 20px;
+  border: 2px solid #a9ceed;
+  position: absolute;
+  left: 180px;
+  top: 10px;
+  background-color: #fff;
+}
+#content .my-position-desc-preview ul {
+  width: 100%;
+}
+#content .my-position-desc-preview ul > li {
+  border-bottom: 1px solid #706e6e;
+  padding: 14px 0;
+  position: relative;
+  overflow: hidden;
+}
+#content .my-position-desc-preview h2 {
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  color: #000;
+  text-align: left;
+}
+#content .my-position-desc-preview p {
+  line-height: 18px;
+  color: #747272;
+  text-align: left;
+}
+#content .my-position-desc-preview p i, #content .my-position-desc-preview p em {
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+}
+#content .my-position-desc-preview p i {
+  padding-right: 5px;
+}
+#content .my-position-desc-preview .my-position-desc-pd {
+  height: 222px;
+}
+#content .my-position-desc-preview .my-position-desc-pd ol {
+  list-style: decimal;
+  padding: 0 0 1em 1.8em;
+}
+#content .my-position-desc-preview .my-position-desc-pd-c {
+  width: 95%;
+  height: 90%;
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+  background-color: #fff;
+}
+#content .my-position-desc-preview .my-position-desc-pd-c div {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#content .my-position-desc-preview .my-position-desc-pd-scrollbar {
+  width: 5px;
+  height: 75%;
+  background-color: #e0e0e0;
+  position: absolute;
+  right: 5px;
+  top: 50px;
+  z-index: 101;
+}
+#content .my-position-desc-preview .my-position-desc-pd-scrollbar div {
+  width: 100%;
+  height: 14px;
+  background-color: #0097FE;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+#content .my-position-desc-preview .caret-left {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 6px solid #539edc;
+  position: absolute;
+  top: 10px;
+  left: -6px;
+}
+
 /* ---------------------------------------------------------------------------------------- */
-/* #pagination */
+/* .pagination */
 .pagination {
   position: relative;
 }
