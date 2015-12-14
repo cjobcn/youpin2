@@ -16,6 +16,13 @@ define([
         this.active = false;
         $(this.$el).addClass('hidden');
       },
+      clickBtn: function (e) {
+        this.$emit('clickBtn');
+        return false;
+      }
+    },
+    events: {
+      clickBtn: function () {}
     }
   });
 });

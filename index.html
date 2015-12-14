@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <title>index</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="work result on 2015-11-11"/>
+  <meta name="author" content="Peter"/>
+  <link rel="stylesheet" href="stylesheets/work.css"/>
+</head>
+<body>
+  <div id="page">
+    <div id="header">
+      <div class="container">
+        <div id="site-logo" class="fl"><a href="{{logo.href}}"><img src="{{logo.src}}" width="{{logo.width}}" height="{{logo.height}}"/></a>
+        </div>
+        <div id="site-header-menu" class="fr">
+          <ul class="site-header-link-menu">
+            <li v-repeat="item in imgs"><a href="{{item.href}}" class="img img-header-menu {{item.className}}"><i v-if="item.isNew" class="img img-info-new"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      <div class="container">
+        <div id="publish-delegate">
+          <ul class="tab-h">
+            <li><a href="#"><img src="images/nav-publish.jpg" width="85" height="34"/></a></li>
+            <li><a href="#"><img src="images/nav-delegate.jpg" width="85" height="34"/></a></li>
+          </ul>
+        </div>
+        <div id="site-tab" class="tab">
+          <ul id="site-tab-title" class="tab-title">
+            <li v-repeat="val in tabTitles" class="{{$index == tabTitles.length - 1 ? 'tab-title-last' : ''}}"><a href="val.href">{{val.title}}</a></li>
+          </ul>
+          <div class="container">
+            <div class="tab-content">
+              <div id="position-nav-main" class="my-position-nav">
+               <ul>
+                  <li v-repeat="item in list">
+                    <div class="tab-title"><i class="{{item.tabTitle.imgClassName}}"></i><span>{{item.tabTitle.title}}</span><i class="caret"></i></div>
+                    <div class="tab-content"></div>
+                  </li>
+                </ul>     
+                <div id="position-search">
+                  <div class="tab-title">
+                    <input type="text"/><i class="img img-magnify"></i><span class="position-search-placeholder">搜索</span>
+                  </div>
+                  <div class="tab-content"></div>
+                </div>
+              </div>
+              <div class="row-main">
+                <div class="my-position-content">
+                  <div id="my-position-content-title">
+                    <div class="container">
+                      <div class="info-col-t"></div>
+                      <div class="info-col-a">
+                        <h2>{{title.position}}</h2>
+                      </div>
+                      <div class="info-col-b">
+                        <h2>{{title.recommending}}</h2>
+                      </div>
+                      <div class="info-col-c">
+                        <h2>{{title.matched}}</h2>
+                      </div>
+                      <div class="info-col-d">
+                        <h2>{{title.update}}</h2>
+                      </div>
+                      <div class="info-col-e"></div>
+                    </div>
+                  </div>
+                  <div id="my-position-info-list">
+                    <div class="container"></div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                    <div class="my-position-info-item clearfix">
+                      <div class="info-col-t">
+                        <input type="checkbox"/>
+                      </div>
+                      <div class="info-col-a">
+                        <div class="info-desc clearfix">
+                          <h2 class="info-position">投资部总监/总经理   翠花</h2>
+                          <h3 class="info-company">IBM</h3><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-b">
+                        <div class="info-talent-recommending clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Jack</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul><a href="#" class="talent-btn"><img src="images/talent-btn.jpg" width="16" height="16"/></a>
+                        </div>
+                      </div>
+                      <div class="info-col-c">
+                        <div class="info-talent-matched clearfix">
+                          <ul class="info-talent-list">
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                            <li class="info-talent-person">
+                              <p class="talent-desc"><a href="#" class="talen-name">Robert</a><i class="img img-info-new"></i></p>
+                              <p class="talent-level"><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level-active"></i><i class="img img-talent img-talent-level"></i><i class="img img-talent img-talent-level"></i></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="info-col-d">
+                        <div class="info-talent-update clearfix">
+                          <h5 class="ymd">2015/10/30</h5>
+                          <h5 class="hms">16:00</h5>
+                        </div>
+                      </div>
+                      <div class="info-col-e">
+                        <p><a href="#" class="img-item-4 img-item-record"></a><a href="#" class="img-item-4 img-item-note"></a><a href="#" class="img-item-4 img-item-heart"></a><a href="#" class="img-item-4 img-item-trash"></a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="pagination">
+                    <p><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><span>...</span><a href="#" class="last">Last</a></p>
+                    <div class="pagination-next"><a href="#">Next</a><a href="#" class="pagination-next-img"><img src="images/pagination-next.jpg" width="16" height="20" class="fr"/></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row-side">
+                <div class="side-img-1"><a href="#"><img src="images/side-img-1.jpeg"/></a></div>
+                <div class="side-img-2">
+                  <div class="side-img-item">
+                    <div class="side-img-item-img"><a href="#"><img src="images/side-item.jpg"/></a></div>
+                    <p class="side-img-item-title"><a href="#">联合货币</a></p>
+                    <p class="side-img-item-content"><a href="#">SegmentFault是一个面向中文开发者的专业技术社区及服务平台</a></p>
+                  </div>
+                  <div class="side-img-item">
+                    <div class="side-img-item-img"><a href="#"><img src="images/side-item.jpg"/></a></div>
+                    <p class="side-img-item-title"><a href="#">联合货币</a></p>
+                    <p class="side-img-item-content"><a href="#">SegmentFault是一个面向中文开发者的专业技术社区及服务平台</a></p>
+                  </div>
+                  <div class="side-img-item">
+                    <div class="side-img-item-img"><a href="#"><img src="images/side-item.jpg"/></a></div>
+                    <p class="side-img-item-title"><a href="#">联合货币</a></p>
+                    <p class="side-img-item-content"><a href="#">SegmentFault是一个面向中文开发者的专业技术社区及服务平台</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="foot">
+      <div class="container">
+        <div class="row-main">
+          <div class="foot-input-title">
+          </div>
+          <div class="foot-input-content">
+          </div>
+        </div>
+        <div class="row-side">
+          <ul class="foot-item-list">
+            <li class="clearfix foot-side-locate">
+              <div class="foot-item-img"><a href="#"><img src="images/side-foot-icon-1.jpg" width="42" height="42"/></a></div>
+              <div class="foot-item-content">
+                <p>上海市徐汇区中山西路2025号</p>
+                <p>永升大厦1312-1314室</p>
+              </div>
+            </li>
+            <li class="clearfix foot-side-mail">
+              <div class="foot-item-img"><a href="#"><img src="images/side-foot-icon-2.jpg" width="42" height="42"/></a></div>
+              <div class="foot-item-content">
+                <p>hr@cjobcn.com</p>
+              </div>
+            </li>
+            <li class="clearfix foot-side-tel">
+              <div class="foot-item-img"><a href="#"><img src="images/side-foot-icon-3.jpg" width="42" height="42"/></a></div>
+              <div class="foot-item-content">
+                <p>021-34691601</p>
+                <p>021-34691601-8016</p>
+              </div>
+            </li>
+            <li class="clearfix foot-side-global">
+              <div class="foot-item-img"><a href="#"><img src="images/side-foot-icon-4.jpg" width="42" height="42"/></a></div>
+              <div class="foot-item-content">
+                <p>www.cjobcn.com</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="copyright">
+      <p><a href="#">Copyright 2009 cjobcn.com inc. all rights reserved.</a></p>
+      <p><a href="#">沪ICP备05110979号</a></p>
+    </div>
+    <script type="text/javascript" src="js/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </div>
+</body>

@@ -1,4 +1,7 @@
-define(['./ajax-keys'], function (ajaxKeys) {
+define([
+  'jquery',
+  './ajax-keys'
+], function ($, ajaxKeys) {
   var isObject = function (obj) {
     return obj != null && obj.toString.call({}) === '[object Object]';
   };

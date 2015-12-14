@@ -6,9 +6,8 @@ requirejs.config({
   }
 });
 
-require([
-  'jquery'
-], function ($) {
+require(['./index'], function (mod) {
+  mod.show();
 }, function (err) {
   throw err;
 });

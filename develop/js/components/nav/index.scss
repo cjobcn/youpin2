@@ -26,7 +26,7 @@ $layout-main: 84.5%;
 $nav-height: 38px;
 $nav-border-width: 1px;
 nav { height: $nav-height + $nav-border-width * 2; }
-nav > .container { width: $layout-main; background-color: #e9e9e9; }
+nav > .container { width: 1200px; background-color: #e9e9e9; }
 /* ------------------------------------------------------------------------ */
 
 /* .nav-main-search */

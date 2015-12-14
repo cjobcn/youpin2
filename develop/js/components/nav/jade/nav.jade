@@ -5,7 +5,7 @@ include ./custom-manager
 include ./city
 include ./salary
 
-ul.nav-list
+ul.nav-list(v-show='active')
   li(
     v-repeat="val in list",
     v-class="active: $index == activeListIndex",

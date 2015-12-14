@@ -1,5 +1,5 @@
 //- .hidden: if tested in #page, set this class to be hidden at first
-.position-edit.hidden
+.position-edit(v-on="hidden: !active")
   .container
     main
       .pe-main-item.pe-custom-company
@@ -114,5 +114,5 @@
                   textarea
                   .pe-mind-btns.clearfix
                     p
-                      a(href="#") 取消
-                      a.active(href="#") 保存
+                      a(href="#", v-on="click: clickBtn($event)") 取消
+                      a.active(href="#", v-on="click: clickBtn($event)") 保存

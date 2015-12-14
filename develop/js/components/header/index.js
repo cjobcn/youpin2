@@ -10,6 +10,13 @@ define(['vue', 'jquery'], function (Vue, $) {
         this.active = true;
       }
     },
+    events: {
+      events: {
+        change: function (newIndex, prevIndex) {
+          //this.$emit('change', i, prev);
+        }
+      }
+    },
     components: {
       'header-logo' : {
         template: '#template-header-logo',
@@ -40,14 +47,9 @@ define(['vue', 'jquery'], function (Vue, $) {
             if (i !== this.currentIndex) {
               var prev = this.currentIndex;
               this.currentIndex = i;
-              this.$emit('change', i, prev);
+              this.$dispatch('change', i, prev);
             }
             return false;
-          }
-        },
-        events: {
-          change: function (newIndex, prevIndex) {
-            // ....
           }
         }
       },

@@ -48,7 +48,6 @@ i {
   font-style: normal;
 }
 
-/*Ping Hei Bold*/
 body {
   color: #333;
   font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
@@ -386,10 +385,12 @@ header > .container {
   height: 16px;
   line-height: 16px;
   padding-bottom: 2px;
+  padding-left: 10px;
   position: relative;
 }
 #header-interactive > li .fa {
   font-size: 16px;
+  font-weight: 100;
   color: #6d6c6d;
   padding-right: 5px;
 }
@@ -445,7 +446,6 @@ header > .container {
 }
 
 /* ---------------------------------------------------------------- */
-/* if test, add up codes, else, comment or remove up codes */
 /* ------------------------------------------------------------------------ */
 /* =====================   @classPrefix: .pe-*     ======================== */
 /* ------------------------------------------------------------------------ */
@@ -486,10 +486,12 @@ header > .container {
 .position-edit {
   padding-top: 25px;
   padding-bottom: 120px;
-  width: 100%;
+  background-color: #fff;
+  width: 650px;
 }
 .position-edit > .container {
-  width: 54%;
+  width: 100%;
+  min-width: 650px;
 }
 .position-edit main {
   width: 100%;
