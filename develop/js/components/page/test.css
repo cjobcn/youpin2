@@ -1122,6 +1122,15 @@ nav > .container {
 
 /* ---------------------------------------------------------------------------------------- */
 /* .my-position-aside */
+.my-position aside {
+  position: relative;
+}
+.my-position aside .my-position-aside {
+  position: fixed;
+  width: 210px;
+  top: 130px;
+  right: 70px;
+}
 .my-position aside .my-position-publish,
 .my-position aside .my-position-delegate {
   text-align: center;
@@ -1566,6 +1575,15 @@ nav > .container {
 
 /* ---------------------------------------------------------------------------------------- */
 /* .delegate-position-aside */
+.delegate-position aside {
+  position: relative;
+}
+.delegate-position aside .delegate-position-aside {
+  position: fixed;
+  width: 210px;
+  top: 130px;
+  right: 70px;
+}
 .delegate-position aside .delegate-position-mail-list {
   text-align: center;
   height: 44px;
@@ -1626,8 +1644,6 @@ nav > .container {
 }
 
 /* ---------------------------------------------------------------- */
-/* if tested in this folder, add the up codes, else, comment the up codes */
-/* and remember .fe-hidden is the class that should be set hidden in other folder at first */
 /* ------------------------------------------------------------------------ */
 /* =====================   @classPrefix: .pe-*     ======================== */
 /* ------------------------------------------------------------------------ */

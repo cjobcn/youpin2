@@ -361,6 +361,13 @@ $delegate-position-title-height: 44px;
 /* .delegate-position-aside */
 .delegate-position aside  {
   $aside-btn-height: 44px;
+  position: relative;
+  .delegate-position-aside {
+    position: fixed;
+    width: 210px;
+    top: 130px;
+    right: 70px;
+  }
   .delegate-position-mail-list {
     text-align: center;
     height: $aside-btn-height;

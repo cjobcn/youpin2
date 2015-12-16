@@ -311,6 +311,13 @@ $my-position-title-height: 44px;
 /* .my-position-aside */
 .my-position aside  {
   $aside-btn-height: 44px;
+  position: relative;
+  .my-position-aside {
+    position: fixed;
+    width: 210px;
+    top: 130px;
+    right: 70px;
+  }
   .my-position-publish,
   .my-position-delegate  {
     text-align: center;
