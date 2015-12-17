@@ -1,13 +1,6 @@
-extends ../_base/index
-append stylesheets
-  link(rel="stylesheet", href="../../../stylesheets/fa/css/font-awesome.min.css")
-  link(rel="stylesheet", href="./index.css")
-
-append script
-  script(type="text/javascript", src="../../require.js", data-main="./index.js")
-
-append part
-  include ../header/index
-  include ../nav/index
-  include ../content/index
-  include ../copyright/index
+include ../header/index
+.screen-cover.hidden
+include ../position-edit/index
+include ../nav/index
+include ../content/index
+include ../copyright/index

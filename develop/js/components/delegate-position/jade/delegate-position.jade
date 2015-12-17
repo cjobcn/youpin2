@@ -1,0 +1,12 @@
+include ./template-delegate-position-title
+include ./template-delegate-position-content
+include ./template-delegate-position-aside
+include ./template-delegate-position-pagination
+
+.delegate-position(v-show="active")
+  main
+    delegate-position-title
+    delegate-position-content
+    delegate-position-pagination
+  aside
+    delegate-position-aside

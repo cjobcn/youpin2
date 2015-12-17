@@ -7,7 +7,10 @@ requirejs.config({
 });
 
 require(['./index'], function (mod) {
-  mod.show();
+  mod.content.show();
+  mod.myPosition.show();
+  //mod.myPosition.hide();
+  //mod.delegatePosition.show();
 }, function (err) {
   throw err;
 });

@@ -1,23 +1,15 @@
-requirejs.config({
-  baseUrl: './',
-  paths: {
-    jquery: '../../jquery',
-    vue: '../../vue'
-  }
-});
-
-require([
+define([
   '../header/index',
   '../nav/index',
   '../content/index',
-  '../copyright/index'
-], function (header, nav, content, copyright) {
-  // ------------------------
-  header.show();
-  nav.show();
-  content.show();
-  copyright.show();
-  // ------------------------
-}, function (err) {
-  throw err;
+  '../copyright/index',
+  '../position-edit/index'
+], function (header, nav, contentSection, copyright, positionEdit) {
+  return {
+    header: header,
+    nav: nav,
+    contentSection: contentSection,
+    copyright: copyright,
+    positionEdit: positionEdit
+  };
 });

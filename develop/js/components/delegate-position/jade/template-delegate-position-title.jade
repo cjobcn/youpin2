@@ -1,0 +1,25 @@
+template#template-delegate-position-title
+  ul.container.delegate-position-title
+    li.content-main-col-1
+      .delegate-position-item
+        i.fa(
+        v-class="fa-circle-o: !count, fa-check-circle-o: count"
+        v-on="click: onClick($event)"
+        )
+    li.content-main-col-2
+      .delegate-position-item
+        h2 {{position}}
+    li.content-main-col-3
+      .delegate-position-item
+        h2 {{customManager}}
+    li.content-main-col-4
+      .delegate-position-item
+        h2 {{recommandingTalent}}
+    li.content-main-col-5
+      .delegate-position-item
+        h2 {{readyRecommandingTalent}}
+    li.content-main-col-6
+      .delegate-position-item
+        h2 {{update}}
+    li.content-main-col-7
+      .delegate-position-item

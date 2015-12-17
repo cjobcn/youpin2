@@ -1,47 +1,59 @@
 /* .icon-nav */
 .icon-nav {
   display: inline-block;
-  background: url("../../../images/icons-12-7.png") no-repeat; }
+  background: url("../../../images/icons-12-7.png") no-repeat;
+}
 
 .icon-nav-cat {
   width: 26px;
-  height: 26px; }
+  height: 26px;
+}
 
 .icon-nav-position-state {
-  background-position: 0px 0; }
+  background-position: 0px 0;
+}
 
 .icon-nav-industry-function {
-  background-position: -26px 0; }
+  background-position: -26px 0;
+}
 
 .icon-nav-custom {
-  background-position: -52px 0; }
+  background-position: -52px 0;
+}
 
 .icon-nav-custom-manager {
-  background-position: -78px 0; }
+  background-position: -78px 0;
+}
 
 .icon-nav-work-place {
-  background-position: -104px 0; }
+  background-position: -104px 0;
+}
 
 .icon-nav-salary {
-  background-position: -130px 0; }
+  background-position: -130px 0;
+}
 
 .icon-nav-search {
-  background-position: -156px 0; }
+  background-position: -156px 0;
+}
 
 /* ------------------------------------------------------------------------ */
 /* nav */
 nav {
-  height: 40px; }
+  height: 40px;
+}
 
 nav > .container {
   width: 84.5%;
-  background-color: #e9e9e9; }
+  background-color: #e9e9e9;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .nav-main-search */
 .nav-main-search {
   float: right;
-  padding-top: 5px; }
+  padding-top: 5px;
+}
 
 .nav-main-search input {
   width: 132px;
@@ -52,19 +64,22 @@ nav > .container {
   background-color: #fff;
   color: #818181;
   float: left;
-  margin-right: 10px; }
+  margin-right: 10px;
+}
 
 .nav-main-search .icon-nav {
   float: left;
   position: relative;
   left: -4px;
-  top: 2px; }
+  top: 2px;
+}
 
 /* ------------------------------------------------------------------------ */
 /* some main vars about $nav-li-1 ... */
 /* .nav-li-1-border */
 .nav-li-1-border, .nav-list > li, .nav-list > li.active, .nav-li-1-sub-box-set, .position-state, .nav-common-set, .custom, .custom-manager, .city, .salary, .industry-function, .salary .salary-count input {
-  border: 1px solid #b0b0b0; }
+  border: 1px solid #b0b0b0;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .nav-mask */
@@ -75,41 +90,49 @@ nav > .container {
   height: 1px;
   width: 150px;
   background-color: #fff;
-  display: none; }
+  display: none;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .nav-list */
 .nav-list {
   float: left;
-  height: 38px; }
-  .nav-list > li {
-    float: left;
-    position: relative;
-    top: -1px;
-    cursor: pointer;
-    width: 120px;
-    border-bottom: none;
-    border-color: transparent;
-    padding-left: 20px;
-    padding-right: 10px;
-    height: 38px;
-    line-height: 38px; }
-    .nav-list > li .icon-nav {
-      position: relative;
-      top: 8px; }
-    .nav-list > li span {
-      display: inline-block;
-      padding-left: 5px; }
-    .nav-list > li .icon-nav-arrow {
-      position: relative;
-      top: 15px;
-      float: right; }
-    .nav-list > li.active {
-      background: #fff;
-      border-bottom: none; }
-      .nav-list > li.active .nav-mask {
-        display: block;
-        z-index: 3; }
+  height: 38px;
+}
+.nav-list > li {
+  float: left;
+  position: relative;
+  top: -1px;
+  cursor: pointer;
+  width: 120px;
+  border-bottom: none;
+  border-color: transparent;
+  padding-left: 20px;
+  padding-right: 10px;
+  height: 38px;
+  line-height: 38px;
+}
+.nav-list > li .icon-nav {
+  position: relative;
+  top: 8px;
+}
+.nav-list > li span {
+  display: inline-block;
+  padding-left: 5px;
+}
+.nav-list > li .icon-nav-arrow {
+  position: relative;
+  top: 15px;
+  float: right;
+}
+.nav-list > li.active {
+  background: #fff;
+  border-bottom: none;
+}
+.nav-list > li.active .nav-mask {
+  display: block;
+  z-index: 3;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .nav-content */
@@ -117,14 +140,17 @@ nav > .container {
   position: relative;
   height: auto;
   left: -20px;
-  z-index: 2; }
-  .nav-content a.active {
-    color: #889fdd;
-    font-weight: bold;
-    text-decoration: underline; }
+  z-index: 2;
+}
+.nav-content a.active {
+  color: #889fdd;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
 .nav-content-item {
-  background-color: #fff; }
+  background-color: #fff;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .nav-li-1-sub-box-set */
@@ -134,19 +160,22 @@ nav > .container {
   top: -2px;
   border-top: none;
   width: 150px;
-  text-align: center; }
+  text-align: center;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .position-state */
 .position-state {
-  padding-top: 10px; }
-  .position-state a {
-    color: #7c7c7c;
-    font-size: 1.2em;
-    display: block;
-    height: 1em;
-    line-height: 1em;
-    padding-bottom: 10px; }
+  padding-top: 10px;
+}
+.position-state a {
+  color: #7c7c7c;
+  font-size: 1.2em;
+  display: block;
+  height: 1em;
+  line-height: 1em;
+  padding-bottom: 10px;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .industry-function */
@@ -156,7 +185,8 @@ nav > .container {
   padding: 1em 2em;
   position: absolute;
   left: -153px;
-  top: -2px; }
+  top: -2px;
+}
 
 .industry-level-1 > a {
   display: block;
@@ -164,78 +194,95 @@ nav > .container {
   float: left;
   font-size: 1.2em;
   text-decoration: underline;
-  color: #838183; }
+  color: #838183;
+}
 
 .industry-level-2 {
-  float: left; }
-  .industry-level-2 > a {
-    width: 70px;
-    display: block;
-    float: left;
-    color: #838183; }
+  float: left;
+}
+.industry-level-2 > a {
+  width: 70px;
+  display: block;
+  float: left;
+  color: #838183;
+}
 
 .industry-level-3 {
   float: left;
   width: 274px;
-  padding-right: 10px; }
-  .industry-level-3 > a {
-    color: #bababa;
-    font-size: 1em;
-    display: inline-block;
-    height: 1em;
-    line-height: 1em;
-    padding: 0 6px;
-    border-right: 1px solid #dfdfdf; }
-    .industry-level-3 > a.last {
-      border: none; }
+  padding-right: 10px;
+}
+.industry-level-3 > a {
+  color: #bababa;
+  font-size: 1em;
+  display: inline-block;
+  height: 1em;
+  line-height: 1em;
+  padding: 0 6px;
+  border-right: 1px solid #dfdfdf;
+}
+.industry-level-3 > a.last {
+  border: none;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .nav-common-set */
 .nav-common-set, .custom, .custom-manager, .city, .salary {
   overflow-y: auto;
-  padding-top: 10px; }
-  .nav-common-set p, .custom p, .custom-manager p, .city p, .salary p {
-    line-height: 2em;
-    padding: 0 3px; }
-  .nav-common-set a, .custom a, .custom-manager a, .city a, .salary a {
-    color: #878787; }
+  padding-top: 10px;
+}
+.nav-common-set p, .custom p, .custom-manager p, .city p, .salary p {
+  line-height: 2em;
+  padding: 0 3px;
+}
+.nav-common-set a, .custom a, .custom-manager a, .city a, .salary a {
+  color: #878787;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .custom */
 .custom {
-  height: 250px; }
+  height: 250px;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .custom-manager */
 .custom-manager {
-  height: 115px; }
+  height: 115px;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .city */
 .city {
-  height: 115px; }
+  height: 115px;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .salary */
 .salary {
   overflow: hidden;
-  height: 70px; }
-  .salary .salary-count {
-    height: 1.2em;
-    line-height: 1.2em;
-    padding: 10px 0;
-    border-bottom: 1px dashed #4b4d52; }
-    .salary .salary-count input {
-      width: 3em;
-      height: 1.2em;
-      line-height: 1.2em; }
-  .salary .salary-btn {
-    padding: 4px 4px 4px 0; }
-    .salary .salary-btn button {
-      display: inline-block;
-      float: right;
-      background-color: #693434;
-      color: #fff; }
+  height: 70px;
+}
+.salary .salary-count {
+  height: 1.2em;
+  line-height: 1.2em;
+  padding: 10px 0;
+  border-bottom: 1px dashed #4b4d52;
+}
+.salary .salary-count input {
+  width: 3em;
+  height: 1.2em;
+  line-height: 1.2em;
+}
+.salary .salary-btn {
+  padding: 4px 4px 4px 0;
+}
+.salary .salary-btn button {
+  display: inline-block;
+  float: right;
+  background-color: #693434;
+  color: #fff;
+}
 
 /* ------------------------------------------------------------------------ */
 /* .nav-result */
@@ -244,20 +291,24 @@ nav > .container {
   padding: 10px 15.5% 10px 0;
   clear: both;
   background-color: #fff;
-  z-index: 1; }
-  .nav-result li {
-    float: left;
-    height: 2.2em;
-    line-height: 2.2em;
-    background-color: #4574ba;
-    margin-right: 1em;
-    margin-bottom: 1em;
-    padding: 0px 4px; }
-  .nav-result .reset a, .nav-result span {
-    color: #fff; }
-  .nav-result .fa {
-    padding-left: 5px;
-    font-weight: 300;
-    color: #97b2d9; }
+  z-index: 1;
+}
+.nav-result li {
+  float: left;
+  height: 2.2em;
+  line-height: 2.2em;
+  background-color: #4574ba;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  padding: 0px 4px;
+}
+.nav-result .reset a, .nav-result span {
+  color: #fff;
+}
+.nav-result .fa {
+  padding-left: 5px;
+  font-weight: 300;
+  color: #97b2d9;
+}
 
 /* ------------------------------------------------------------------------ */

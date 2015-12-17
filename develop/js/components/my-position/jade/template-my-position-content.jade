@@ -1,0 +1,65 @@
+- var ieach = 6;
+template#template-my-position-content
+  ul.container.my-position-content(v-repeat="item in list[currentIndex]", wait-for="data-loaded")
+    li.content-main-col-1
+      .my-position-item
+        i.fa(
+          v-class="fa-circle-o: !item.count, fa-check-circle-o: item.count"
+          v-on="click: item.count = !item.count"
+        )
+        //v-on="mouseenter:enterDesc($event, item.desc, item), mouseleave:leaveDesc($event, item.desc, item)"
+    - var str = "mouseenter: enterCol2($event, item)"
+    - str += ", " + "mouseleave: leaveCol2($event, item)"
+    li.content-main-col-2
+      .my-position-item(
+        v-on="#{str}"
+      )
+        h2.pos-title {{item.desc.name}}
+        h2.pos-desc {{item.desc.position}}
+        include my-position-desc-preview
+    li.content-main-col-3
+      .my-position-item
+        ul.clearfix
+          li.info-talent-person(
+            v-repeat="val in item.recommending",
+            v-show="val.active",
+            v-transition="expand"
+            stagger="100"
+          )
+            p.talent-desc
+              a.talen-name(href='#') {{val.name}}
+              i.img.img-info-new(v-if="val.isNew")
+            p.talent-level
+              i.img.img-talent.img-talent-level-active(v-repeat="val.level")
+              i.img.img-talent.img-talent-level(v-repeat="5 - val.level")
+        a.talent-btn.fa(
+          href="#",
+          v-show="item.recommending.length > #{ieach}"
+          v-on="click:onClickRecommendingBtn($event, item)"
+          v-class='"fa-chevron-circle-down": !item.active, "fa-chevron-circle-up": item.active'
+        )
+    li.content-main-col-4
+      .my-position-item
+        ul.clearfix
+          li.info-talent-person(
+            v-repeat="val in item.matched",
+          )
+            p.talent-desc
+              a.talen-name(href='#') {{val.name}}
+              i.img.img-info-new(v-if="val.isNew")
+            p.talent-level
+              i.img.img-talent.img-talent-level-active(v-repeat="val.level")
+              i.img.img-talent.img-talent-level(v-repeat="5 - val.level")
+    li.content-main-col-5
+      .my-position-item
+        h3.ymd {{item.update.ymd}}
+        h3.hms {{item.update.hms}}
+    li.content-main-col-6
+      .my-position-item
+        p
+          a.img-item-4(
+            class="{{val.className}}",
+            v-attr="href:val.href",
+            v-repeat="val in item.notes",
+            v-on="click:onClickEdit($event, val, item)"
+          )

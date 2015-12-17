@@ -1,7 +1,8 @@
+@charset "UTF-8";
+
 @import "./_vars.scss";
 @import "./_mixin.scss";
 
-@charset "UTF-8";
 /* base */
 * { margin: 0; padding: 0; }
 ol,
@@ -15,8 +16,12 @@ form,
 select { margin: 0; }
 input { outline: medium; border: none; }
 i { font-style: normal; }
-/*Ping Hei Bold*/
+// ===================
+// html { height: 100%; overflow: hidden; }
+// ===================
 body { color: #333; font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif; }
+
+
 /* ---------------------------------------------------------------- */
 
 /* common */
@@ -46,6 +51,8 @@ body { color: #333; font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f5
 
 /* ------- render considerations ---------- */
 /* hide the prev build result */
+//.hidden { display: none !important; }
+//[v-cloak] { display: none !important; }
 [v-cloak],
 .hidden { display: none !important; }
 /* ---------------------------------------------------------------- */

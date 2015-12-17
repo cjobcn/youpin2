@@ -49,6 +49,9 @@ define([
     el: 'nav',
     ready: function () {},
     methods: {
+      hide: function () {
+        this.active = false;
+      },
       show: function () {
         this.active = true;
         this.listenClick();

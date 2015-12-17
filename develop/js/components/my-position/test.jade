@@ -1,0 +1,12 @@
+extends ../_base/index
+append stylesheets
+  link(rel="stylesheet", href="../_base/index.css")
+  link(rel="stylesheet", href="./test.css")
+  style.
+    body { min-height: 1000px; }
+append script
+  script(type="text/javascript", src="../../require.js", data-main="./test.js")
+append part
+  #content
+    .container
+      include ./index

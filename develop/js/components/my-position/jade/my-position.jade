@@ -1,0 +1,12 @@
+include ./template-my-position-title
+include ./template-my-position-content
+include ./template-my-position-aside
+include ./template-my-position-pagination
+
+.my-position(v-show="active")
+  main
+    my-position-title
+    my-position-content
+    my-position-pagination
+  aside
+    my-position-aside
