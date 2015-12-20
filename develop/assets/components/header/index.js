@@ -4,7 +4,8 @@ define(['vue', 'jquery'], function (Vue, $) {
   return new Vue({
     el: 'header',
     data: {
-      active: false
+      active: false,
+      activeIndex: null
     },
     methods: {
       show: function () {
@@ -15,6 +16,7 @@ define(['vue', 'jquery'], function (Vue, $) {
         i = ~~i;
         if (i < I_LEN_TAB && i >= 0) {
           this.$broadcast('set-tab-index', i);
+          this.activeIndex = i;
         }
       }
     },

@@ -9,7 +9,7 @@ ul.nav-list(v-show='active')
   li(
     v-repeat="val in list",
     v-class="active: $index == activeListIndex",
-    v-on="click: onNavListLi1Click($event, val, $index)",
+    v-on="mouseenter: openClose($event, val, $index, 1), mouseleave: openClose($event, val, $index, 0),",
     v-cloak
   )
     .nav-title.container

@@ -2,10 +2,20 @@ define([
   'vue',
   'jquery',
   './js/assemble-nav-data',
-  './js/walker'
-], function (Vue, $, navData, walker) {
+  './js/walker',
+  '../_base/js/db',
+  '../header/index',
+  './js/ajax-keys'
+], function (Vue, $, navData, walker, db, header, ajaxKeys) {
 
-  var openClose = {
+  // *****************************************
+  // TO DO: header must set the right activeIndex, then nav can get the right storage data
+  // console.log(db.data('navSelections'));
+  // *****************************************
+
+  var navSelections = db.navSelections;
+
+  var componentEvents = {
     close: function (desc) {
       if (this.desc === desc && this.active) {
         this.active = false;
@@ -15,6 +25,13 @@ define([
       if (this.desc === desc && !this.active) {
         this.active = true;
       }
+    },
+    // **********************************************************
+    //TO DO: In the first, split the navSelections to "{single arr}s" for each section
+    // **********************************************************
+    'init-selections': function (key, arr) {
+      if (this.initSelections)
+        this.initSelections(key, arr);
     }
   };
 
@@ -40,6 +57,69 @@ define([
       this.$dispatch(eventName, val);
 
       return false;
+    },
+
+    initSelections: function (key, arr) {
+      var self = this;
+
+      if (
+        self.hasInitedSelections ||
+        self.list == null ||
+        self.ajaxKey == null ||
+        self.ajaxKey != key
+      ) { return; }
+
+      self.hasInitedSelections = true;
+
+      // remember the key of each section, to decide how to find the val
+      // var key = self.ajaxKey;
+      // pass all the results to nav-result section
+      var results = [];
+      // the val to be added
+      var val;
+
+      arr.forEach(function (ajax) {
+        if (ajax.key !== key)
+          throw new Error('key is not the same ' + key);
+
+        switch (ajax.key) {
+          case ajaxKeys.status:
+          case ajaxKeys.client:
+          case ajaxKeys.manager:
+          case ajaxKeys.city:
+            self.list.forEach(function (_val) {
+              if (_val.ajax.value == ajax.value) {
+                val = _val;
+                return false;
+              }
+            });
+            break;
+
+          case ajaxKeys.industry:
+            self.list.forEach(function (one) {
+              walker(one, function (_val) {
+                if (_val.ajax.value == ajax.value) {
+                  val = _val;
+                  return false;
+                }
+              });
+            });
+            break;
+
+          //salary is not to be considered right now
+          //case ajaxKeys.salary
+        }
+
+        // if no val to be found, there must be an error
+        if (val == null)
+          throw new Error(ajax.key + ': no val: ' + ajax);
+
+        val.active = true;
+        results.push(val);
+        val = null;
+      });
+
+      self.$dispatch('init-results', results);
     }
   };
 
@@ -55,6 +135,36 @@ define([
       show: function () {
         this.active = true;
         this.listenClick();
+        this.initSelections();
+      },
+      initSelections: function () {
+        if (this.hasInitedSelections)
+          return;
+        this.hasInitedSelections = true;
+
+        var data = {};
+        data[ajaxKeys.status] = [];
+        data[ajaxKeys.city] = [];
+        data[ajaxKeys.client] = [];
+        data[ajaxKeys.manager] = [];
+        data[ajaxKeys.industry] = [];
+
+        var arr = navSelections.get(header.activeIndex);
+        if ($.isArray(arr)) arr.forEach(function (one) {
+          data[one.key].push(one);
+        });
+
+        for (var key in data)
+          if (data[key].length)
+            this.$broadcast('init-selections', key, data[key]);
+
+        // sort and sync the data
+        arr.sort(function (a, b) {
+          return a.key - b.key;
+        });
+        navSelections.set(header.activeIndex, arr);
+
+        this.$broadcast('sort-init-results');
       },
       onKeyUp : function (e, text) {
         this.$emit('main-search', text);
@@ -64,7 +174,7 @@ define([
       getActive: function () {
         return this.list[this.activeListIndex];
       },
-      onNavListLi1Click: function (e, val, i) {
+      openClose: function (e, val, i, toOpen) {
         stop(e);
 
         if (i < 0)
@@ -76,12 +186,14 @@ define([
           this.$broadcast('close', $active.desc);
           if (i === this.activeListIndex) {
             this.activeListIndex = -1;
-            return;
           }
         }
-        val.active = true;
-        this.$broadcast('open', val.desc);
-        this.activeListIndex = i;
+
+        if (toOpen) {
+          val.active = true;
+          this.$broadcast('open', val.desc);
+          this.activeListIndex = i;
+        }
       },
       listenClick: function (e) {
         if (listenClick) {
@@ -104,14 +216,24 @@ define([
     },
     events: {
       'main-search': function (text) {},
+      // only for nav-results
       'add-result': function (val) {
         this.$broadcast('add-result', val);
       },
+      // only for nav-results
       'remove-result': function (val) {
         this.$broadcast('remove-result', val);
-      }
+      },
+      // only for nav-results
+      'init-results': function (arr) {
+        this.$broadcast('init-results', arr);
+      },
+      // only for nav-results
+      //'sort-init-results': function () {
+      //}
     },
     data: {
+      hasInitedSelections: false,
       active: false,
       activeListIndex: -1,
       mainSearch: {
@@ -162,6 +284,7 @@ define([
         template: '#template-nav-result',
         data: function () {
           return {
+            hasInitedSelections : false,
             list: []
           }
         },
@@ -177,6 +300,7 @@ define([
                 val.active = false;
               });
               this.list = [];
+              navSelections.empty(header.activeIndex);
             }
           },
           add: function (val) {
@@ -191,8 +315,10 @@ define([
               var i = this.list.indexOf(val);
               if (i === -1) {
                 this.list.push(val);
+                navSelections.add(header.activeIndex, { key: val.ajax.key, value: val.ajax.value });
               }
             }
+            // ----------------------------------
           },
           remove: function (val) {
             if (val == null)
@@ -206,6 +332,7 @@ define([
               var i = this.list.indexOf(val);
               if (i > -1) {
                 this.list.splice(i, 1);
+                navSelections.remove(header.activeIndex, i);
               }
             }
           }
@@ -216,6 +343,19 @@ define([
           },
           'remove-result': function (val) {
             this.remove(val);
+          },
+          'init-results': function (arr) {
+            var i = -1;
+            var len = arr.length;
+            while (++i < len) {
+              if (arr[i].active)
+                this.list.push(arr[i]);
+            }
+          },
+          'sort-init-results': function () {
+            this.list.sort(function (a, b) {
+              return a.key - b.key;
+            });
           }
         }
       },
@@ -223,6 +363,8 @@ define([
         template: '#template-salary',
         data : function () {
           return {
+            ajaxKey: ajaxKeys.salary,
+            hasInitedSelections : false,
             active: false,
             desc: 'salary',
             min: "",
@@ -238,49 +380,57 @@ define([
           },
           stop: stop
         },
-        events: $.extend({}, openClose)
+        events: $.extend({}, componentEvents)
       },
       // -------- work-place: city ----------
       'city': {
         template: '#template-city',
         data : function () {
           return {
+            ajaxKey: ajaxKeys.city,
+            hasInitedSelections : false,
             active: false,
             desc: 'city',
             list: navData.city
           };
         },
         methods: $.extend({}, commonMethods),
-        events: $.extend({}, openClose)
+        events: $.extend({}, componentEvents)
       },
       'custom-manager': {
         template: '#template-custom-manager',
         data : function () {
           return {
+            ajaxKey: ajaxKeys.manager,
+            hasInitedSelections : false,
             active: false,
             desc: 'custom-manager',
             list: navData.customManager
           };
         },
         methods: $.extend({}, commonMethods),
-        events: $.extend({}, openClose)
+        events: $.extend({}, componentEvents)
       },
       'custom': {
         template: '#template-custom',
         data : function () {
           return {
+            ajaxKey: ajaxKeys.client,
+            hasInitedSelections : false,
             active: false,
             desc: 'custom',
             list: navData.custom
           };
         },
         methods: $.extend({}, commonMethods),
-        events: $.extend({}, openClose)
+        events: $.extend({}, componentEvents)
       },
       'industry-function': {
         template: '#template-industry-function',
         data : function () {
           return {
+            ajaxKey: ajaxKeys.industry,
+            hasInitedSelections : false,
             anchorHeight: 26,
             active: false,
             desc: 'industry-function',
@@ -300,24 +450,28 @@ define([
               + 'px';
           }
         }),
-        events: $.extend({}, openClose)
+        events: $.extend({}, componentEvents)
       },
       'position-state' : {
         template : '#template-position-state',
         data: function () {
           return {
+            ajaxKey: ajaxKeys.status,
+            hasInitedSelections : false,
             active: false,
             desc: 'position-state',
+            // *************************************************************************************************
             list: [
-              { active: false, href:"#", name: "发布中职位", state: 1, ajax: {} },
-              { active: false, href:"#", name: "已关闭职位", state: 2, ajax: {} },
-              { active: false, href:"#", name: "已暂缓职位", state: 3, ajax: {} },
-              { active: false, href:"#", name: "已成功职位", state: 4, ajax: {} }
+              { active: false, href:"#", name: "发布中职位", state: 1, ajax: { key: ajaxKeys.status, value: 1 } },
+              { active: false, href:"#", name: "已关闭职位", state: 2, ajax: { key: ajaxKeys.status, value: 2 } },
+              { active: false, href:"#", name: "已暂缓职位", state: 3, ajax: { key: ajaxKeys.status, value: 3 } },
+              { active: false, href:"#", name: "已成功职位", state: 4, ajax: { key: ajaxKeys.status, value: 4 } }
             ]
+            // *************************************************************************************************
           };
         },
         methods: $.extend({}, commonMethods),
-        events: $.extend({}, openClose)
+        events: $.extend({}, componentEvents)
       }
     }
   });
