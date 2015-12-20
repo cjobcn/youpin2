@@ -1,0 +1,279 @@
+/* ------------------------------------------------------------------------ */
+/* =====================   @classPrefix: .pe-*     ======================== */
+/* ------------------------------------------------------------------------ */
+
+/* vars */
+$pe-zindex : 99;
+$pe-padding-10: 10px;
+$pe-main-border-width: 1px;
+$pe-main-border-color: #d8d7d6;
+$pe-main-title-height: 14px;
+$pe-main-title-h2-color: #333;
+$pe-p-color: #626262;
+$pe-main-title-zindex: 2;
+$pe-border-color: #d0d0d0;
+$pe-anchor-color: #539edc;
+$pe-textarea-width: 545px;
+/* ------------------------------------------------------------------------ */
+
+/* common style */
+.pe-main-col-1 {
+  width: 58px;
+  float: left;
+  overflow: hidden;
+}
+.pe-sex {
+  width: 10px;
+  height: 10px;
+  background-color: #939393;
+  cursor: pointer;
+}
+.pe-sex.active {
+  background-color: green;
+}
+.pe-border-v {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 0;
+  height: 1em;
+  line-height: 1em;
+  font-size: 1em;
+  vertical-align: text-bottom;
+  border-right: 1px solid $pe-border-color;
+}
+//.form-el-mask {
+//  $select-mask-border-width: 1px;
+//  $select-mask-border-radius: 4px;
+//  display: inline-block;
+//  position: relative;
+//  left: 0;
+//  top: 0;
+//  vertical-align: middle;
+//  border: $select-mask-border-width solid $pe-border-color;
+//  border-radius: $select-mask-border-radius;
+//  overflow:hidden;
+//  // -----------------------------------------------
+//  input,
+//  select { margin: -1 * $select-mask-border-width; border-radius: $select-mask-border-radius; }
+//}
+/* ------------------------------------------------------------------------ */
+
+/* .position-edit */
+.position-edit {
+  //z-index: $pe-zindex;
+  padding-top: 25px;
+  padding-bottom: 120px;
+  background-color: #fff;
+  // --------------------------------------
+  // .position-edit { width: 100%; }
+  width: 650px;
+  // .position-edit > .container { width: 54%; }
+  > .container { width: 100%; min-width: 650px; }
+  main { width: 100%; }
+  // --------------------------------------
+  .fa { cursor: pointer; }
+
+  span,
+  a,
+  i,
+  input,
+  select {
+    display: inline-block;
+  }
+
+  textarea,
+  select,
+  input {
+    border: 1px solid $pe-border-color;
+  }
+
+  textarea {
+    width: $pe-textarea-width;
+    min-height: 65px;
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+/* .pe-main-item */
+.pe-main-item {
+  position: relative;
+  p { color : $pe-p-color; }
+}
+.pe-main-item .pe-main-title {
+  padding-bottom: 14px;
+}
+/* ------------------------------------------------------------------------ */
+
+/* .pe-main-border */
+.pe-main-border {
+  position: absolute;
+  left: 0;
+  top: ceil($pe-main-title-height / 2) + $pe-main-border-width;
+  width: 100%;
+  height: 0;
+  border-top: $pe-main-border-width solid $pe-main-border-color;
+  z-index: $pe-main-title-zindex - 1;
+}
+/* ------------------------------------------------------------------------ */
+
+/* .pe-main-title */
+.pe-main-title {
+  position: relative;
+  height: $pe-main-title-height;
+  line-height: $pe-main-title-height;
+  z-index: $pe-main-title-zindex;
+  h2 {
+    float: left;
+    background-color: #fff;
+    height: $pe-main-title-height;
+    line-height: $pe-main-title-height;
+    color: $pe-main-title-h2-color;
+    padding-right: 5px;
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+/* .pe-custom-company */
+.pe-custom-company {
+  padding-bottom: 32px;
+  // :nth-of-type, :nth-child(1): the first is 1, not 0;
+  i:nth-of-type(1) {
+    padding-right: 28px;
+  }
+  select:nth-of-type(1) {
+    width: 136px;
+    margin-right: 4px;
+  }
+  a {
+    display: inline-block;
+    color: $pe-anchor-color;
+    text-decoration: underline;
+    padding: 0 4px;
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+/* .pe-position-info */
+.pe-position-info {
+  padding-bottom: 16px;
+  .clearfix > div,
+  .clearfix > p {
+    float: left;
+  }
+  li {
+    padding-bottom: 10px;
+  }
+  li:nth-child(1) {
+    p:nth-child(2) {
+      input { width: 52px; padding: 1px 4px; }
+    }
+    p:nth-child(3) {
+      padding-left: 25px;
+      i { padding-right: 17px; }
+      select { width: 60px; margin-right: 5px; }
+    }
+    p:nth-child(4) {
+      padding-left: 25px;
+      i:nth-child(1) { padding-right: 17px; }
+      input { width: 36px; padding: 1px 4px; }
+    }
+  }
+  li:nth-child(2) {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+  li:nth-child(3) {
+    p:nth-child(2) {
+      i:nth-child(1) {
+        color: #fff;
+        position: relative;
+        height: 20px;
+        line-height: 20px;
+        padding: 0 7px;
+        background-color: #539edc;
+        border: 1px solid #a9cfee;
+      }
+      a {
+        padding-left: 3px;
+        color: $pe-anchor-color;
+        text-decoration: underline;
+      }
+    }
+  }
+  li:nth-child(4) {
+    input {
+      width: 60px;
+      margin: 0 20px;
+    }
+    p:nth-child(2) {
+      select {
+        width: 60px;
+      }
+    }
+    p:nth-child(3) {
+      padding-left: 24px;
+    }
+  }
+  li:nth-child(5) {
+    textarea {
+      height: 166px;
+    }
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+/* .pe-position-demands */
+.pe-position-demands {
+  .clearfix > div,
+  .clearfix > p {
+    float: left;
+  }
+  li {
+    padding-bottom: 10px;
+  }
+  li:nth-child(1) {
+    p:nth-child(2) {
+      select { width: 60px; }
+    }
+    p:nth-child(3) {
+      i:nth-child(1) { padding: 0 25px; }
+      input { width: 33px; }
+    }
+    p:nth-child(4) {
+      padding-left: 25px;
+      i, span {
+        margin-right: 8px;
+      }
+      .pe-sex {
+        position: relative;
+        top : 1px;
+      }
+    }
+  }
+  li:nth-child(2) {
+    textarea {
+      height: 166px;
+    }
+    .pe-mind-btns {
+      padding-top: 20px;
+      p {
+        float: right;
+      }
+      a {
+        margin-left: 6px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 30px;
+        color: #fff;
+        font-weight: bold;
+        background-color: #bebebe;
+      }
+      a.active {
+        background-color: #539edc;
+      }
+    }
+  }
+}
+/* ------------------------------------------------------------------------ */

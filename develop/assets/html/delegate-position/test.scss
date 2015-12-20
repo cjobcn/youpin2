@@ -1,0 +1,38 @@
+@import "../../components/_base/vars.scss";
+@import "../../components/_base/mixin.scss";
+@import "../../components/_base/index.scss";
+
+@import "../../components/header/index.scss";
+@import "../../components/nav/index.scss";
+
+@import "../../components/content/index.scss";
+@import "../../components/my-position/index.scss";
+@import "../../components/delegate-position/index.scss";
+
+@import "../../components/copyright/index.scss";
+@import "../../components/position-edit/index.scss";
+
+nav { min-height: 100px; height: auto; }
+
+#page .position-edit {
+  width: 766px;
+  z-index: 99;
+  position: absolute;
+  right: 100px;
+  top: 60px;
+  background-color: #fff;
+  > .container {
+    width: 75%;
+  }
+}
+.screen-cover {
+  width: 100%;
+  min-height: 1550px;
+  background-color: #000;
+  opacity: .3;
+  z-index: 90;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+

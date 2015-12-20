@@ -1,0 +1,437 @@
+/* #content */
+#content {
+  width: 100%;
+}
+
+#content > .container {
+  width: 1200px;
+}
+
+#content main,
+#content aside {
+  float: left;
+}
+
+#content main {
+  padding-right: 20px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* floats */
+.content-main-col-1,
+.content-main-col-2,
+.content-main-col-3,
+.content-main-col-4,
+.content-main-col-5,
+.content-main-col-6,
+.content-main-col-7 {
+  float: left;
+}
+
+/* ------------------------------------------------------------------------ */
+/* .my-position */
+.my-position {
+  width: 100%;
+  min-height: 1110px;
+  height: auto;
+}
+
+.my-position main {
+  width: 970px;
+}
+
+.my-position aside {
+  width: 210px;
+}
+
+.my-position .my-position-title {
+  background-color: #e9e9e9;
+}
+
+.my-position .my-position-content {
+  background-color: #fff;
+  border-bottom: 2px solid #e9e9e9;
+}
+
+/* ------------------------------------------------------------------------ */
+/* .content-main-col-1 */
+.my-position-title .content-main-col-1,
+.my-position-content .content-main-col-1 {
+  width: 50px;
+}
+
+.my-position-title .content-main-col-1 .my-position-item,
+.my-position-content .content-main-col-1 .my-position-item {
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------------- */
+/* .content-main-col-2 */
+.my-position-title .content-main-col-2,
+.my-position-content .content-main-col-2 {
+  width: 200px;
+}
+
+.my-position-title .content-main-col-2 .my-position-item,
+.my-position-content .content-main-col-2 .my-position-item {
+  padding: 0 14px;
+}
+
+/* --------------------------------------------------------------------------------- */
+/* .content-main-col-3 */
+.my-position-title .content-main-col-3,
+.my-position-content .content-main-col-3 {
+  width: 220px;
+}
+
+.my-position-title .content-main-col-3 .my-position-item,
+.my-position-content .content-main-col-3 .my-position-item {
+  padding-left: 15px;
+  padding-right: 35px;
+}
+
+/* --------------------------------------------------------------------------------- */
+/* .content-main-col-4 */
+.my-position-title .content-main-col-4,
+.my-position-content .content-main-col-4 {
+  width: 270px;
+}
+
+.my-position-title .content-main-col-4 .my-position-item,
+.my-position-content .content-main-col-4 .my-position-item {
+  padding: 0 30px 0 50px;
+}
+
+/* --------------------------------------------------------------------------------- */
+/* .content-main-col-5 */
+.my-position-title .content-main-col-5,
+.my-position-content .content-main-col-5 {
+  width: 100px;
+}
+
+.my-position-title .content-main-col-5 .my-position-item,
+.my-position-content .content-main-col-5 .my-position-item {
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------------- */
+/* .content-main-col-6 */
+.my-position-title .content-main-col-6,
+.my-position-content .content-main-col-6 {
+  width: 130px;
+}
+
+.my-position-title .content-main-col-6 .my-position-item,
+.my-position-content .content-main-col-6 .my-position-item {
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------------- */
+/* .content-main-col-1 .fa */
+.my-position-title .content-main-col-1 .fa,
+.my-position-content .content-main-col-1 .fa {
+  font-size: 1.8em;
+  color: #272636;
+  position: relative;
+  cursor: pointer;
+}
+
+.my-position-title .content-main-col-1 .fa {
+  top: 4px;
+}
+
+.my-position-content .content-main-col-1 .fa {
+  top: 0;
+}
+
+/* --------------------------------------------------------------------------------- */
+.my-position-title {
+  height: 44px;
+  background-color: #e9e9e9;
+}
+.my-position-title h2 {
+  font-size: 1.2em;
+}
+.my-position-title .my-position-item {
+  text-align: center;
+  line-height: 44px;
+}
+
+.my-position-content {
+  /* .expand-transition */
+  /* -------------------------- */
+}
+.my-position-content .content-main-col-1 .my-position-item,
+.my-position-content .content-main-col-2 .my-position-item,
+.my-position-content .content-main-col-5 .my-position-item,
+.my-position-content .content-main-col-6 .my-position-item {
+  text-align: center;
+}
+.my-position-content .content-main-col-1 .my-position-item {
+  padding-top: 18px;
+}
+.my-position-content .content-main-col-1 .my-position-item .fa {
+  cursor: pointer;
+}
+.my-position-content .content-main-col-2 .my-position-item {
+  padding-top: 10px;
+  position: relative;
+}
+.my-position-content .content-main-col-2 .my-position-item h2.pos-title {
+  cursor: pointer;
+  color: #717173;
+  line-height: 22px;
+}
+.my-position-content .content-main-col-2 .my-position-item h2.pos-desc {
+  cursor: pointer;
+  color: #999;
+  line-height: 22px;
+}
+.my-position-content .content-main-col-3 .my-position-item,
+.my-position-content .content-main-col-4 .my-position-item {
+  position: relative;
+}
+.my-position-content .content-main-col-3 .my-position-item ul,
+.my-position-content .content-main-col-4 .my-position-item ul {
+  width: 180px;
+  min-height: 60px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.my-position-content .content-main-col-3 .my-position-item li,
+.my-position-content .content-main-col-4 .my-position-item li {
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 6px;
+  overflow: hidden;
+}
+.my-position-content .content-main-col-3 .my-position-item li p,
+.my-position-content .content-main-col-4 .my-position-item li p {
+  width: 50px;
+  white-space: nowrap;
+  height: 12px;
+  line-height: 12px;
+}
+.my-position-content .content-main-col-3 .talent-btn {
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  font-size: 1.6em;
+  color: #666;
+  transition: all 0.5s;
+  z-index: 1;
+}
+.my-position-content .content-main-col-4 .my-position-item {
+  padding-left: 70px;
+}
+.my-position-content .content-main-col-5 .my-position-item {
+  padding-top: 20px;
+}
+.my-position-content .content-main-col-5 .my-position-item .ymd,
+.my-position-content .content-main-col-5 .my-position-item .hms {
+  line-height: 14px;
+  font-size: 12px;
+}
+.my-position-content .content-main-col-6 .my-position-item {
+  padding-top: 25px;
+  padding-left: 10px;
+}
+.my-position-content .expand-transition {
+  transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  overflow: hidden;
+  height: 24px;
+  opacity: 1;
+}
+.my-position-content .expand-enter,
+.my-position-content .expand-leave {
+  height: 0;
+  opacity: 0;
+}
+
+#content .my-position-desc-preview {
+  width: 360px;
+  height: 570px;
+  z-index: 100;
+  padding: 0 20px;
+  border: 2px solid #a9ceed;
+  position: absolute;
+  left: 180px;
+  top: 10px;
+  background-color: #fff;
+}
+#content .my-position-desc-preview ul {
+  width: 100%;
+}
+#content .my-position-desc-preview ul > li {
+  border-bottom: 1px solid #706e6e;
+  padding: 14px 0;
+  position: relative;
+  overflow: hidden;
+}
+#content .my-position-desc-preview h2 {
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  color: #000;
+  text-align: left;
+}
+#content .my-position-desc-preview p {
+  line-height: 18px;
+  color: #747272;
+  text-align: left;
+}
+#content .my-position-desc-preview p i, #content .my-position-desc-preview p em {
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+}
+#content .my-position-desc-preview p i {
+  padding-right: 5px;
+}
+#content .my-position-desc-preview .my-position-desc-pd {
+  height: 222px;
+}
+#content .my-position-desc-preview .my-position-desc-pd ol {
+  list-style: decimal;
+  padding: 0 0 1em 1.8em;
+}
+#content .my-position-desc-preview .my-position-desc-pd-c {
+  width: 95%;
+  height: 90%;
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+  background-color: #fff;
+}
+#content .my-position-desc-preview .my-position-desc-pd-c div {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#content .my-position-desc-preview .my-position-desc-pd-scrollbar {
+  width: 5px;
+  height: 75%;
+  background-color: #e0e0e0;
+  position: absolute;
+  right: 5px;
+  top: 50px;
+  z-index: 101;
+}
+#content .my-position-desc-preview .my-position-desc-pd-scrollbar div {
+  width: 100%;
+  height: 14px;
+  background-color: #0097FE;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+#content .my-position-desc-preview .caret-left {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 6px solid #539edc;
+  position: absolute;
+  top: 10px;
+  left: -6px;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* .my-position .pagination */
+.my-position .pagination {
+  padding: 40px 0 50px 0;
+}
+.my-position .pagination ul {
+  width: 55%;
+  margin: 0 auto;
+}
+.my-position .pagination li {
+  float: left;
+  background-color: #fff;
+  border: 1px solid #f4f4f4;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  padding: 0 7px;
+  margin-right: 5px;
+}
+.my-position .pagination li a {
+  color: #666;
+}
+.my-position .pagination .active {
+  background-color: #0097FE;
+}
+.my-position .pagination .active a {
+  color: #fff;
+}
+.my-position .pagination .remaining {
+  border: none;
+  padding: 0;
+}
+.my-position .pagination .prev.active a,
+.my-position .pagination .next.active a {
+  color: #000;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* .my-position-aside */
+.my-position aside {
+  position: relative;
+}
+.my-position aside .my-position-aside {
+  position: fixed;
+  width: 210px;
+  top: 130px;
+  right: 70px;
+}
+.my-position aside .my-position-publish,
+.my-position aside .my-position-delegate {
+  text-align: center;
+  height: 44px;
+  line-height: 44px;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 8px;
+  width: 100%;
+  cursor: pointer;
+}
+.my-position aside .my-position-publish {
+  background-color: #4574ba;
+}
+.my-position aside .my-position-delegate {
+  background-color: #a10017;
+}
+.my-position aside .side-img-1 {
+  padding-top: 10px;
+}
+.my-position aside .side-img-1 img {
+  max-width: 210px;
+}
+.my-position aside .side-img-2 {
+  padding-top: 20px;
+}
+.my-position aside .side-img-item {
+  padding: 20px 0;
+}
+.my-position aside .side-img-item p {
+  height: 24px;
+  line-height: 24px;
+  font-weight: bold;
+}
+.my-position aside .side-img-item-img {
+  padding-bottom: 4px;
+}
+.my-position aside .side-img-item-title a {
+  color: #5cacff;
+}
+.my-position aside .side-img-item-content a {
+  color: #a0a0a0;
+}
+
+/* ---------------------------------------------------------------------------------------- */

@@ -1,0 +1,118 @@
+//- .hidden: if tested in #page, set this class to be hidden at first
+.position-edit.hidden(v-class="hidden: !active")
+  .container
+    main
+      .pe-main-item.pe-custom-company
+        .pe-main-border
+        .pe-main-title
+          h2 客户公司
+        .pe-main-content
+          p
+            i 客户公司
+            select
+              option 1
+              option 2
+            a(href="#") 编辑
+            span.pe-border-v
+            a(href="#") 新增
+      .pe-main-item.pe-position-info
+        .pe-main-border
+        .pe-main-title
+          h2 职位信息
+        .pe-main-content
+          ul
+            li
+              .clearfix
+                p.pe-main-col-1
+                  i 职位名
+                p
+                  input(type="text")
+                p
+                  i 行业职能
+                  select
+                    option 1
+                    option 2
+                  select
+                    option 1
+                    option 2
+                  select
+                    option 1
+                    option 2
+                p
+                  i 薪酬
+                  input(type="text")
+                  i &nbsp;-
+                  input(type="text")
+                  i &nbsp;元/月&nbsp;
+                  i (年)
+            li
+              .clearfix
+                p.pe-main-col-1
+                  i 薪资结构
+                div
+                  textarea
+            li
+              .clearfix
+                p.pe-main-col-1
+                  i 标签
+                p.pe-main-benifit
+                  i 五险一金
+                  a(href="#") 添加
+            li
+              .clearfix
+                p.pe-main-col-1
+                  i 所在城市
+                p
+                  select
+                    option 1
+                    option 2
+                p
+                  i 汇报对象
+                  input(type="text")
+                p
+                  i 招聘人数
+                  input(type="text")
+            li
+              .clearfix
+                p.pe-main-col-1
+                  i 职位详情
+                div
+                  textarea
+      .pe-main-item.pe-position-demands
+        .pe-main-border
+        .pe-main-title
+          h2 任职要求
+        .pe-main-content
+          ul
+            li
+              .clearfix
+                p.pe-main-col-1
+                  i 学历
+                p
+                  select
+                    option 1
+                    option 2
+                p
+                  i 年龄
+                  input(type="text")
+                  i &nbsp;-
+                  input(type="text")
+                  i &nbsp;岁
+                p
+                  i 性别
+                  span.pe-sex
+                  i 男
+                  span.pe-sex
+                  i 女
+                  span.pe-sex
+                  i 不限
+            li
+              .clearfix
+                p.pe-main-col-1
+                  i 搜索思路
+                div
+                  textarea
+                  .pe-mind-btns.clearfix
+                    p
+                      a(href="#", v-on="click: clickBtn($event)") 取消
+                      a.active(href="#", v-on="click: clickBtn($event)") 保存

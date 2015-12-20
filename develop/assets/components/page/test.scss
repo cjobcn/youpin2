@@ -1,0 +1,54 @@
+@import "../_base/vars.scss";
+@import "../_base/mixin.scss";
+@import "../_base/index.scss";
+
+@import "../header/index.scss";
+@import "../nav/index.scss";
+
+@import "../content/index.scss";
+@import "../my-position/index.scss";
+@import "../delegate-position/index.scss";
+
+@import "../copyright/index.scss";
+@import "../position-edit/index.scss";
+
+nav { min-height: 100px; height: auto; }
+//#content > .container { width: 84.5%; }
+//#content main { width: 80%; }
+//#content aside { width: 18%; }
+//#content .content-main-col-1 { width: 5%; }
+//#content .content-main-col-2 { width: 20%; }
+//#content .content-main-col-3 { width: 25%; }
+//#content .content-main-col-4 {
+//  width: 20%;
+//  .my-position-item {
+//    padding-left: 30px;
+//  }
+//}
+//#content .content-main-col-5 { width: 15%; }
+//#content .content-main-col-6 { width: 15%; }
+
+#page .position-edit {
+  width: 766px;
+  z-index: 99;
+  position: absolute;
+  right: 100px;
+  top: 60px;
+  background-color: #fff;
+  > .container {
+    width: 75%;
+  }
+}
+.screen-cover {
+  width: 100%;
+  min-height: 1550px;
+  background-color: #000;
+  opacity: .3;
+  z-index: 90;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+
