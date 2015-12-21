@@ -91,7 +91,7 @@ define(function () {
     }
   };
 
-  //db.navSelections.init();
+  db.navSelections.init();
   //db.navSelections.empty();
 
   return db;
