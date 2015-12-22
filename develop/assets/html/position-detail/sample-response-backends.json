@@ -1,0 +1,57 @@
+{
+  "info": {
+    "desc": "position-detail",
+    "positionName": "室内设计经理",
+    "clientName": null,
+    "city": "上海",
+    "customManager": "王霞",
+    "salaryMin": "60",
+    "salaryMax": "100",
+    "publishTime": "04月16日 10:27",
+    "educationDemands": "1",
+    "recruitNumber": "1",
+    "sex": "不限",
+    "workPlace": "待定",
+    "reportTo": "室内设计总监",
+    "ageMin": "28",
+    "ageMax": "38",
+    "requirement": "",
+    "notes": [
+      {
+        "noteId": 1,
+        "content": "需要：英语好",
+        "publishedTime": "04月02日 14:30"
+      },
+      {
+        "noteId": 2,
+        "content": "需要：语文好",
+        "publishedTime": "04月02日 14:30"
+      }
+    ],
+    "receivedResumes": [
+      {
+        "rResumeId": 1,
+        "rResumeName": "高锟1",
+        "managerId": 100,
+        "managerName": "陆元敏1"
+      },
+      {
+        "rResumeId": 2,
+        "rResumeName": "高锟2",
+        "managerId": 200,
+        "managerName": "陆元敏2"
+      }
+    ],
+    "entrustCompanys": [
+      {
+        "entrustCompanyId": 1,
+        "entrustCompanyName": "第一家公司"
+      },
+      {
+        "entrustCompanyId": 2,
+        "entrustCompanyName": "第二家公司"
+      }
+    ]
+  },
+  "status": 1
+}

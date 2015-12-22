@@ -744,10 +744,11 @@ header > .container {
 }
 .pd-delegate-company .fa-remove {
   color: #626262;
+  padding-right: 5px;
 }
 .pd-delegate-company span {
   display: inline-block;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 /* ------------------------------------------------------------------------ */

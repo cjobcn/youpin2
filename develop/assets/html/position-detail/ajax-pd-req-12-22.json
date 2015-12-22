@@ -1,29 +1,4 @@
-;(function (ajaxData) {
-
-define([
-  'vue',
-  'jquery',
-  '$post',
-  //'post!' + JSON.stringify({
-  //  "url": "home/position/getPositionDetail",
-  //  "data": {
-  //    "userId": 91,
-  //    "positionId": 86
-  //  }
-  //}),
-], function (Vue, $, $post, data) {
-  return new Vue({
-    el: '.position-detail',
-    data: {
-      info: ajaxData.info,
-      status: ajaxData.status,
-      active: false
-    },
-    methods: {}
-  });
-});
-
-})({
+{
   "status": 1,
 
   "info": {
@@ -43,9 +18,6 @@ define([
     "age-min": "28",
     "age-max": "38",
     "requirement": "",
-
-    // 对应的数字，对应建立是否可以投递啊什么的。。。
-    "position-status": 1,
 
     "custom-demands": [
       "从事Android应用软件开发",
@@ -86,4 +58,4 @@ define([
 
     "company-desc" : "浙江数芳科技（以下简称\"su2\"）有限公司作为一家外商独资的移动互联网软件公司，从07年成立至今一直致力与移动互联网软件产品的开发，销售和运营工作。数芳公司从成立伊始就和各大手机品牌厂商以及手机研发公司有较好的合作关系，与电信运营商从2009年开始有较为密切的合作，为浙江电信提供了翼起来，wifi客户端，智慧杭州，天翼看交通等软件产品的开发设计以及运营支持，同时数芳也获得了电信c w客户端解决方案的生成供货资格。数芳公司2013年底开始进***载wifi行业，凭借在移动互联网行业的多年经营基础，迅速完成业务切入，公司旗下的灵无线、公交乐等产品已经在全国许多省份长途车、公交车上进行安装部署，为用户提供免费高速的车载移动网络服务。"
   }
-});
+}
