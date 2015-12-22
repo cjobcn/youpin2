@@ -364,3 +364,7 @@ define(['../vue', 'jquery', './one-key-send', './copyright'],
     testReadyTalentItem: __testReadyTalentItem
   };
 });
+
+
+
+
