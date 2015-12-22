@@ -1,0 +1,18 @@
+template#template-my-position-pagination
+  .pagination(v-show="active")
+    ul.clearfix
+      li
+        a(href="#", v-on="click: onClick($event, cur - 1)") 上一页
+      li(
+        v-repeat="i in len",
+        v-class="active: cur === i",
+        v-show="i <= start + remaining && i > start - 1"
+      )
+        a(
+        href="#"
+        v-on="click: onClick($event, i)"
+        ) {{i + 1}}
+      li.remaining
+        span(v-show="start + remaining < len - 1") ...
+      li.next
+        a(href="#", v-on="click: onClick($event, cur + 1)") 下一页

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <title>index</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../../../stylesheets/fa/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="./test.css"/>
+  <style>body { min-height: 1000px; }</style>
+  <script type="text/javascript" src="../../require.js" data-main="./test.js"></script>
+</head>
+<body>
+  <div id="page">
+    <div class="container">
+      <!-- common header-->
+      <header v-class="hidden:!active">
+        <div class="container">
+          <template id="template-header-logo">
+            <div id="header-logo"><a href="{{href}}"><img src="../../../images/site-logo.png" width="300" height="60"/></a></div>
+          </template>
+          <header-logo></header-logo>
+          <template id="template-header-interactive">
+            <ul id="header-interactive">
+              <li v-repeat="val in list" v-on="mouseenter: val.active = !val.active, mouseleave: val.active = !val.active" class="{{val.className}}"><i v-class="active: val.active" class="fa {{val.iconClassName}}"></i>
+                <ul v-show="val.active">
+                  <li v-repeat="item in val.list"><a href="{{item.href}}">{{item.value}}</a></li>
+                </ul>
+              </li>
+            </ul>
+          </template>
+          <header-interactive></header-interactive>
+          <template id="template-header-tab">
+            <div id="header-tab" v-on="mouseleave: activeIndex = currentIndex">
+              <ul>
+                <li v-repeat="val in tabTitles" v-on="click: onClick($event, val, $index), mouseenter: activeIndex = $index" v-style="left: val.left"><a href="{{val.href}}">{{val.title}}</a></li>
+              </ul>
+              <div v-style="left: tabTitles[activeIndex].left, width: tabTitles[activeIndex].width" class="active-border"></div>
+            </div>
+          </template>
+          <header-tab></header-tab>
+        </div>
+      </header>
+      <!-- screen-cover + position-edit-->
+      <div class="screen-cover hidden"></div>
+      <div v-class="hidden: !active" class="position-edit hidden">
+        <div class="container">
+          <main>
+            <div class="pe-main-item pe-custom-company">
+              <div class="pe-main-border"></div>
+              <div class="pe-main-title">
+                <h2>客户公司</h2>
+              </div>
+              <div class="pe-main-content">
+                <p><i>客户公司</i>
+                  <select>
+                    <option>1</option>
+                    <option>2</option>
+                  </select><a href="#">编辑</a><span class="pe-border-v"></span><a href="#">新增</a>
+                </p>
+              </div>
+            </div>
+            <div class="pe-main-item pe-position-info">
+              <div class="pe-main-border"></div>
+              <div class="pe-main-title">
+                <h2>职位信息</h2>
+              </div>
+              <div class="pe-main-content">
+                <ul>
+                  <li>
+                    <div class="clearfix">
+                      <p class="pe-main-col-1"><i>职位名</i></p>
+                      <p>
+                        <input type="text"/>
+                      </p>
+                      <p><i>行业职能</i>
+                        <select>
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                        <select>
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                        <select>
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                      </p>
+                      <p><i>薪酬</i>
+                        <input type="text"/><i>&nbsp;-</i>
+                        <input type="text"/><i>&nbsp;元/月&nbsp;</i><i>(年)</i>
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clearfix">
+                      <p class="pe-main-col-1"><i>薪资结构</i></p>
+                      <div>
+                        <textarea></textarea>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clearfix">
+                      <p class="pe-main-col-1"><i>标签</i></p>
+                      <p class="pe-main-benifit"><i>五险一金</i><a href="#">添加</a></p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clearfix">
+                      <p class="pe-main-col-1"><i>所在城市</i></p>
+                      <p>
+                        <select>
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                      </p>
+                      <p><i>汇报对象</i>
+                        <input type="text"/>
+                      </p>
+                      <p><i>招聘人数</i>
+                        <input type="text"/>
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clearfix">
+                      <p class="pe-main-col-1"><i>职位详情</i></p>
+                      <div>
+                        <textarea></textarea>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="pe-main-item pe-position-demands">
+              <div class="pe-main-border"></div>
+              <div class="pe-main-title">
+                <h2>任职要求</h2>
+              </div>
+              <div class="pe-main-content">
+                <ul>
+                  <li>
+                    <div class="clearfix">
+                      <p class="pe-main-col-1"><i>学历</i></p>
+                      <p>
+                        <select>
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                      </p>
+                      <p><i>年龄</i>
+                        <input type="text"/><i>&nbsp;-</i>
+                        <input type="text"/><i>&nbsp;岁</i>
+                      </p>
+                      <p><i>性别</i><span class="pe-sex"></span><i>男</i><span class="pe-sex"></span><i>女</i><span class="pe-sex"></span><i>不限</i></p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="clearfix">
+                      <p class="pe-main-col-1"><i>搜索思路</i></p>
+                      <div>
+                        <textarea></textarea>
+                        <div class="pe-mind-btns clearfix">
+                          <p><a href="#" v-on="click: clickBtn($event)">取消</a><a href="#" v-on="click: clickBtn($event)" class="active">保存</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+      <!-- my-position nav-->
+      <nav v-class="hidden:!active">
+        <div class="container">
+          <template id="template-position-state">
+            <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="position-state nav-content-item"><a v-attr="href: val.href" v-repeat="val in list" v-on="click: onClick($event, val, $index)" v-class="active: val.active">{{val.name}}</a></div>
+          </template>
+          <template id="template-industry-function">
+            <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="industry-function nav-content-item">
+              <div v-repeat="item1 in list" class="industry-level-1 clearfix"><a href="#" v-on="click:onClick($event, item1, $index)" style="height: {{countAnchorHeight(item1)}}" v-class="active: item1.active">{{item1.name}}</a>
+                <div v-repeat="item2 in item1.sub" class="industry-level-2"><a href="#" v-on="click:onClick($event, item2, $index)" v-class="active: item2.active">{{item2.name}}</a>
+                  <div class="industry-level-3"><a href="#" v-repeat="item3 in item2.sub" v-on="click:onClick($event, item3, $index)" v-class="last: $index == item2.sub.length - 1, active: item3.active">{{item3.name}}</a></div>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template id="template-custom">
+            <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="custom nav-content-item">
+              <p v-repeat="val in list"><a v-on="click:onClick($event, val, $index)" v-class="active: val.active" href="#">{{val.name}}</a></p>
+            </div>
+          </template>
+          <template id="template-custom-manager">
+            <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="custom-manager nav-content-item">
+              <p v-repeat="val in list"><a v-on="click:onClick($event, val, $index)" v-class="active: val.active" href="#">{{val.name}}</a></p>
+            </div>
+          </template>
+          <template id="template-city">
+            <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="city nav-content-item">
+              <p v-repeat="val in list"><a v-on="click:onClick($event, val, $index)" v-class="active: val.active" href="#">{{val.name}}</a></p>
+            </div>
+          </template>
+          <template id="template-salary">
+            <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="salary nav-content-item">
+              <div class="salary-count">
+                <input type="text" v-model="min" placeholder="不限"/><span class="salary-span">-</span>
+                <input type="text" v-model="max" placeholder="不限"/><span class="salary-span2">K/月</span>
+              </div>
+              <div class="salary-btn">
+                <button type="button" v-on="click:onClick($event)">YES</button>
+              </div>
+            </div>
+          </template>
+          <ul v-show="active" class="nav-list">
+            <li v-repeat="val in list" v-class="active: $index == activeListIndex" v-on="mouseenter: openClose($event, val, $index, 1), mouseleave: openClose($event, val, $index, 0)," v-cloak="v-cloak">
+              <div class="nav-title container"><i v-class="val.iconClassName" class="icon-nav icon-nav-cat"></i><span>{{val.text}}</span><i v-class="fa-chevron-down: !val.active, fa-chevron-up: val.active" class="icon-nav-arrow fa"></i>
+                <div v-if="$index == 1" class="nav-mask"></div>
+              </div>
+              <div class="nav-content">
+                <position-state v-if="val.desc === 'position-state'"></position-state>
+                <industry-function v-if="val.desc === 'industry-function'"></industry-function>
+                <custom v-if="val.desc === 'custom'"></custom>
+                <custom-manager v-if="val.desc === 'custom-manager'"></custom-manager>
+                <city v-if="val.desc === 'city'"></city>
+                <salary v-if="val.desc === 'salary'"></salary>
+              </div>
+            </li>
+          </ul>
+          <div class="nav-main-search">
+            <input type="text" v-model="mainSearch.text" v-attr="placeholder: mainSearch.placeholder" v-on="keyup: onKeyUp($event, mainSearch.text) | key 'enter'"/><i class="icon-nav icon-nav-cat icon-nav-search"></i>
+          </div>
+          <template id="template-nav-result">
+            <div v-cloak="v-cloak" class="nav-result">
+              <ul class="clearfix">
+                <li v-repeat="val in list"><span>{{val.name}}</span><a href="#" v-on="click: onClickDelete($event, val)" class="fa fa-remove"></a></li>
+                <li class="reset"><a href="#" v-on="click: empty($event)">reset</a></li>
+              </ul>
+            </div>
+          </template>
+          <nav-result></nav-result>
+        </div>
+      </nav>
+      <!-- delegate-position content list-->
+      <div id="content" v-class="hidden:!active">
+        <div class="container">
+          <!--include ../my-position/index-->
+          <!--include ../delegate-position/index-->
+          <template id="template-delegate-position-title">
+            <ul class="container delegate-position-title">
+              <li class="content-main-col-1">
+                <div class="delegate-position-item"><i v-class="fa-circle-o: !count, fa-check-circle-o: count" v-on="click: onClick($event)" class="fa"></i></div>
+              </li>
+              <li class="content-main-col-2">
+                <div class="delegate-position-item">
+                  <h2>{{position}}</h2>
+                </div>
+              </li>
+              <li class="content-main-col-3">
+                <div class="delegate-position-item">
+                  <h2>{{customManager}}</h2>
+                </div>
+              </li>
+              <li class="content-main-col-4">
+                <div class="delegate-position-item">
+                  <h2>{{recommandingTalent}}</h2>
+                </div>
+              </li>
+              <li class="content-main-col-5">
+                <div class="delegate-position-item">
+                  <h2>{{readyRecommandingTalent}}</h2>
+                </div>
+              </li>
+              <li class="content-main-col-6">
+                <div class="delegate-position-item">
+                  <h2>{{update}}</h2>
+                </div>
+              </li>
+              <li class="content-main-col-7">
+                <div class="delegate-position-item"></div>
+              </li>
+            </ul>
+          </template>
+          <template id="template-delegate-position-content">
+            <ul v-repeat="item in list[currentIndex]" wait-for="data-loaded" class="container delegate-position-content">
+              <li class="content-main-col-1">
+                <div class="delegate-position-item"><i v-class="fa-circle-o: !item.count, fa-check-circle-o: item.count" v-on="click: item.count = !item.count" class="fa"></i></div>
+              </li>
+              <li v-on="mouseenter: enterCol2($event, item), mouseleave: leaveCol2($event, item)" class="content-main-col-2">
+                <div class="delegate-position-item">
+                  <p><i>{{item.desc.name}}</i></p>
+                  <p><i>{{item.desc.position}}</i></p>
+                  <artical v-show="item.desc.active" class="delegate-position-desc-preview">
+                    <div class="caret-left"></div>
+                    <ul>
+                      <li>
+                        <h2>职位信息</h2>
+                        <p><i>职位名称:</i><em>投资部经理</em></p>
+                        <p><i>发布时间:</i><em>7月28日15:57</em></p>
+                        <p><i>工作地点:</i><em>上海</em></p>
+                        <p><i>学历要求:</i><em>本科</em></p>
+                        <p><i>汇报对象:</i><em>总经理</em></p>
+                        <p><i>招聘人数:</i><em>1人</em></p>
+                        <p><i>所属行业:</i><em>房地产/投资开发/投资</em></p>
+                        <p><i>年龄要求:</i><em>30-45人</em></p>
+                      </li>
+                      <li class="delegate-position-desc-pd">
+                        <h2>职位描述</h2>
+                        <div class="delegate-position-desc-pd-c">
+                          <div>
+                            <p><i>职位需求:</i><em>投资部经理</em></p>
+                            <p><i>汇报对象:</i><em>总经理</em></p>
+                            <p><i>下属人数:</i><em>3名</em></p>
+                            <p><i>岗位描述:</i></p>
+                            <ol>
+                              <li>
+                                <p>参与制定具体的发展目标，根据公司发展战略，把握投资方向。</p>
+                              </li>
+                              <li>
+                                <p>参与制定具体的发展目标，根据公司发展战略，把握投资方向。</p>
+                              </li>
+                              <li>
+                                <p>参与制定具体的发展目标，根据公司发展战略，把握投资方向。</p>
+                              </li>
+                              <li>
+                                <p>参与制定具体的发展目标，根据公司发展战略，把握投资方向。</p>
+                              </li>
+                            </ol>
+                            <p><i>工作地址:</i><em>上海北京东路科技京城</em></p>
+                          </div>
+                        </div>
+                        <div class="delegate-position-desc-pd-scrollbar">
+                          <div v-on="mousedown: scrollbarMouseDown($event)"></div>
+                        </div>
+                      </li>
+                      <li>
+                        <h2>薪酬福利</h2>
+                        <p><i>职位年薪:</i><em>60-80W/年</em></p>
+                        <p><i>薪资构成:</i><em>30万12个月发，剩下30万年底发</em></p>
+                      </li>
+                    </ul>
+                  </artical>
+                </div>
+              </li>
+              <li class="content-main-col-3">
+                <div class="delegate-position-item">
+                  <p><i href="#" class="custom-manager-name">{{item.customManager.name}}</i><i class="fa fa-wechat"></i></p>
+                  <p><i class="custom-manager-from">{{item.customManager.from}}</i></p>
+                </div>
+              </li>
+              <li class="content-main-col-4">
+                <div class="delegate-position-item">
+                  <ul class="clearfix">
+                    <li v-repeat="val in item.recommending" v-show="val.active" v-transition="expand" stagger="100" class="info-talent-person">
+                      <p class="talent-desc"><a href="#" class="talen-name">{{val.name}}</a><i v-if="val.isNew" class="img img-info-new"></i></p>
+                      <p class="talent-level"><i v-repeat="val.level" class="img img-talent img-talent-level-active"></i><i v-repeat="5 - val.level" class="img img-talent img-talent-level"></i></p>
+                    </li>
+                  </ul><a href="#" v-show="item.recommending.length &gt; 4" v-on="click:onClickRecommendingBtn($event, item)" v-class="&quot;fa-chevron-circle-down&quot;: !item.active, &quot;fa-chevron-circle-up&quot;: item.active" class="talent-btn fa"></a>
+                </div>
+              </li>
+              <li class="content-main-col-5">
+                <div class="delegate-position-item">
+                  <ul class="clearfix">
+                    <li v-repeat="val in item.matched" class="info-talent-person">
+                      <p class="talent-desc"><a href="#" class="talen-name">{{val.name}}</a><i v-if="val.isNew" class="img img-info-new"></i></p>
+                      <p class="talent-level"><i v-repeat="val.level" class="img img-talent img-talent-level-active"></i><i v-repeat="5 - val.level" class="img img-talent img-talent-level"></i></p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="content-main-col-6">
+                <div class="delegate-position-item">
+                  <h3 class="ymd">{{item.update.ymd}}</h3>
+                  <h3 class="hms">{{item.update.hms}}</h3>
+                </div>
+              </li>
+              <li class="content-main-col-7">
+                <div class="delegate-position-item">
+                  <p><a v-attr="href:val.href" v-repeat="val in item.notes" v-on="click:onClickEdit($event, val, item)" class="img-item-4 {{val.className}}"></a></p>
+                </div>
+              </li>
+            </ul>
+          </template>
+          <template id="template-delegate-position-aside">
+            <div class="delegate-position-aside">
+              <div class="delegate-position-side-btns">
+                <h2 class="delegate-position-mail-list">邮件列表</h2>
+              </div>
+              <div class="side-img-1"><a href="{{img1.href}}"><img v-attr="src:img1.imgSrc"/></a></div>
+              <div class="side-img-2">
+                <div v-repeat="item in items" class="side-img-item">
+                  <div class="side-img-item-img"><a href="#"><img v-attr="src:item.imgSrc"/></a></div>
+                  <p class="side-img-item-title"><a href="{{item.href}}">{{item.title}}</a></p>
+                  <p class="side-img-item-content"><a href="{{item.href}}">{{item.content}}</a></p>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template id="template-delegate-position-pagination">
+            <div v-show="active" class="pagination">
+              <ul class="clearfix">
+                <li><a href="#" v-on="click: onClick($event, cur - 1)">上一页</a></li>
+                <li v-repeat="i in len" v-class="active: cur === i" v-show="i &lt;= start + remaining &amp;&amp; i &gt; start - 1"><a href="#" v-on="click: onClick($event, i)">{{i + 1}}</a></li>
+                <li class="remaining"><span v-show="start + remaining &lt; len - 1">...</span></li>
+                <li class="next"><a href="#" v-on="click: onClick($event, cur + 1)">下一页</a></li>
+              </ul>
+            </div>
+          </template>
+          <div v-show="active" class="delegate-position">
+            <main>
+              <delegate-position-title></delegate-position-title>
+              <delegate-position-content></delegate-position-content>
+              <delegate-position-pagination></delegate-position-pagination>
+            </main>
+            <aside>
+              <delegate-position-aside></delegate-position-aside>
+            </aside>
+          </div>
+        </div>
+      </div>
+      <!-- common footer-->
+      <div id="copyright" class="hidden">
+        <p><a href="#">Copyright 2009 cjobcn.com inc. all rights reserved.</a></p>
+        <p><a href="#">沪ICP备05110979号</a></p>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,99 @@
+$header-height: 60px !default;
+
+/* #header */
+header { height: $header-height; background-color: #2a2428; }
+header > .container { width: 84.5%; }
+/* ---------------------------------------------------------------- */
+
+/* #header-logo */
+#header-logo {
+  float: left;
+  height: $header-height;
+}
+/* ---------------------------------------------------------------- */
+
+/* #header-tab */
+$header-tab-width: 473px !default;
+$active-border-height: 4px !default;
+$header-tab-top: 10px !default;
+$header-tab-height: $header-height - $header-tab-top - $active-border-height;
+
+#header-tab {
+  float: right;
+  top: $header-tab-top;
+  height: $header-tab-height;
+  width: $header-tab-width;
+  position: relative;
+}
+#header-tab li {
+  height: $header-tab-height;
+  line-height: $header-tab-height;
+  position: absolute;
+  top: 0;
+  padding: 0 14px;
+  min-width: 70px;
+}
+#header-tab a { font-size: 16px; font-weight: bold; color: #fff; }
+#header-tab .active-border {
+  height: $active-border-height;
+  position: absolute;
+  bottom: -1 * $active-border-height;
+  background-color: #708dd7;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+/* ---------------------------------------------------------------- */
+
+/* #header-interactive */
+$header-interactive-height: 16px !default;
+$header-interactive-padding-bottom: 2px !default;
+$header-interactive-ul-width: 60px !default;
+$header-interactive-ul-zindex: 2 !default;
+
+#header-interactive {
+  float: right;
+  height: $header-interactive-height + $header-interactive-padding-bottom;
+  padding-top: 40px;
+  padding-left: 90px;
+}
+
+#header-interactive > li {
+  float: left;
+  height: $header-interactive-height;
+  line-height: $header-interactive-height;
+  padding-bottom: $header-interactive-padding-bottom;
+  padding-left: 10px;
+  position: relative;
+  .fa {
+    font-size: $header-interactive-height;
+    font-weight: 100;
+    color: #6d6c6d;
+    padding-right: 5px;
+    &.active {
+      cursor: pointer;
+      color: #bcbabc;
+    }
+  }
+  ul {
+    z-index: $header-interactive-ul-zindex;
+    padding-bottom: 3px;
+    background-color: #2a2428;
+    position: absolute;
+    top: $header-interactive-height + $header-interactive-padding-bottom;
+    li { padding: 3px 5px; text-align: center; }
+    a { color: #6a6a6a; }
+    a:hover { color: #e1e1e1; }
+  }
+  &.header-interactive-plus ul {
+    width: $header-interactive-ul-width;
+    left: -$header-interactive-ul-width + $header-interactive-height;
+  }
+  &.header-interactive-user ul {
+    width: $header-interactive-ul-width;
+    left: 0;
+  }
+}
+/* ---------------------------------------------------------------- */

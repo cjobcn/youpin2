@@ -1,0 +1,25 @@
+/* #content */
+$layout-side: 15.5%;
+$layout-main: 84.5%;
+$main-width: 970px;
+$aside-width: 210px;
+$main-padding-right: 20px;
+$content-main-col-2-width: 200px;
+$desc-artical-zindex: 100;
+
+#content { width: 100%;  }
+#content > .container { width: $main-width + $main-padding-right + $aside-width; }
+#content main,
+#content aside { float: left; }
+#content main { padding-right: $main-padding-right; }
+/* ------------------------------------------------------------------------ */
+
+/* floats */
+.content-main-col-1,
+.content-main-col-2,
+.content-main-col-3,
+.content-main-col-4,
+.content-main-col-5,
+.content-main-col-6,
+.content-main-col-7 { float: left; }
+/* ------------------------------------------------------------------------ */

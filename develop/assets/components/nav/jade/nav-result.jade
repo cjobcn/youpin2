@@ -1,0 +1,9 @@
+template#template-nav-result
+  .nav-result(v-cloak)
+    ul.clearfix
+      li(v-repeat="val in list")
+        span {{val.name}}
+        a(href="#", v-on="click: onClickDelete($event, val)").fa.fa-remove
+      li.reset
+        a(href="#", v-on="click: empty($event)") reset
+nav-result

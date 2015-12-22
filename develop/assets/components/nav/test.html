@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <title>index</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../../../stylesheets/fa/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../_base/index.css"/>
+  <link rel="stylesheet" href="./index.css"/>
+  <style>body { height: 1000px; }</style>
+  <script type="text/javascript" src="../../require.js" data-main="./test.js"></script>
+</head>
+<body>
+  <div id="page">
+    <nav v-class="hidden:!active">
+      <div class="container">
+        <template id="template-position-state">
+          <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="position-state nav-content-item"><a v-attr="href: val.href" v-repeat="val in list" v-on="click: onClick($event, val, $index)" v-class="active: val.active">{{val.name}}</a></div>
+        </template>
+        <template id="template-industry-function">
+          <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="industry-function nav-content-item">
+            <div v-repeat="item1 in list" class="industry-level-1 clearfix"><a href="#" v-on="click:onClick($event, item1, $index)" style="height: {{countAnchorHeight(item1)}}" v-class="active: item1.active">{{item1.name}}</a>
+              <div v-repeat="item2 in item1.sub" class="industry-level-2"><a href="#" v-on="click:onClick($event, item2, $index)" v-class="active: item2.active">{{item2.name}}</a>
+                <div class="industry-level-3"><a href="#" v-repeat="item3 in item2.sub" v-on="click:onClick($event, item3, $index)" v-class="last: $index == item2.sub.length - 1, active: item3.active">{{item3.name}}</a></div>
+              </div>
+            </div>
+          </div>
+        </template>
+        <template id="template-custom">
+          <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="custom nav-content-item">
+            <p v-repeat="val in list"><a v-on="click:onClick($event, val, $index)" v-class="active: val.active" href="#">{{val.name}}</a></p>
+          </div>
+        </template>
+        <template id="template-custom-manager">
+          <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="custom-manager nav-content-item">
+            <p v-repeat="val in list"><a v-on="click:onClick($event, val, $index)" v-class="active: val.active" href="#">{{val.name}}</a></p>
+          </div>
+        </template>
+        <template id="template-city">
+          <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="city nav-content-item">
+            <p v-repeat="val in list"><a v-on="click:onClick($event, val, $index)" v-class="active: val.active" href="#">{{val.name}}</a></p>
+          </div>
+        </template>
+        <template id="template-salary">
+          <div v-cloak="v-cloak" v-show="active" v-on="click: stop($event)" class="salary nav-content-item">
+            <div class="salary-count">
+              <input type="text" v-model="min" placeholder="不限"/><span class="salary-span">-</span>
+              <input type="text" v-model="max" placeholder="不限"/><span class="salary-span2">K/月</span>
+            </div>
+            <div class="salary-btn">
+              <button type="button" v-on="click:onClick($event)">YES</button>
+            </div>
+          </div>
+        </template>
+        <ul class="nav-list">
+          <li v-repeat="val in list" v-class="active: $index == activeListIndex" v-on="click: onNavListLi1Click($event, val, $index)" v-cloak="v-cloak">
+            <div class="nav-title container"><i v-class="val.iconClassName" class="icon-nav icon-nav-cat"></i><span>{{val.text}}</span><i v-class="fa-chevron-down: !val.active, fa-chevron-up: val.active" class="icon-nav-arrow fa"></i>
+              <div v-if="$index == 1" class="nav-mask"></div>
+            </div>
+            <div class="nav-content">
+              <position-state v-if="val.desc === 'position-state'"></position-state>
+              <industry-function v-if="val.desc === 'industry-function'"></industry-function>
+              <custom v-if="val.desc === 'custom'"></custom>
+              <custom-manager v-if="val.desc === 'custom-manager'"></custom-manager>
+              <city v-if="val.desc === 'city'"></city>
+              <salary v-if="val.desc === 'salary'"></salary>
+            </div>
+          </li>
+        </ul>
+        <div class="nav-main-search">
+          <input type="text" v-model="mainSearch.text" v-attr="placeholder: mainSearch.placeholder" v-on="keyup: onKeyUp($event, mainSearch.text) | key 'enter'"/><i class="icon-nav icon-nav-cat icon-nav-search"></i>
+        </div>
+        <template id="template-nav-result">
+          <div v-cloak="v-cloak" class="nav-result">
+            <ul class="clearfix">
+              <li v-repeat="val in list"><span>{{val.name}}</span><a href="#" v-on="click: onClickDelete($event, val)" class="fa fa-remove"></a></li>
+              <li class="reset"><a href="#" v-on="click: empty($event)">reset</a></li>
+            </ul>
+          </div>
+        </template>
+        <nav-result></nav-result>
+      </div>
+    </nav>
+  </div>
+</body>

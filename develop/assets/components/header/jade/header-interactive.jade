@@ -1,0 +1,11 @@
+template#template-header-interactive
+  ul#header-interactive
+    li(
+      v-repeat="val in list",
+      class="{{val.className}}",
+      v-on="mouseenter: val.active = !val.active, mouseleave: val.active = !val.active"
+    )
+      i(class="fa {{val.iconClassName}}", v-class="active: val.active")
+      ul(v-show="val.active")
+        li(v-repeat="item in val.list")
+          a(href="{{item.href}}") {{item.value}}
