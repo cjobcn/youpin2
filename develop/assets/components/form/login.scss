@@ -1,0 +1,80 @@
+body { font: 12px/1.5 SimSun, tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif; }
+
+header {
+  height: 308px;
+  background-color: #539edc;
+}
+.header-logo {
+  padding-top: 20px;
+  padding-left: 32px;
+  img { width: 333px; height: 55px; }
+}
+
+$form-item-height: 24px;
+$form-item-width: 190px;
+$form-item-padding-bottom: 18px;
+$login-padding-left: 36px;
+$login-padding-right: 36px;
+$login-input-height: 12px;
+$login-input-padding-v: 6px;
+$login-input-padding-h: 10px;
+$login-border-width: 2px;
+$caret-1-border-width: 12px;
+
+content > .container {
+  width: $form-item-width + $login-padding-left + $login-padding-right;
+}
+.login {
+  width: $form-item-width;
+  padding: 60px $login-padding-right 32px $login-padding-left;
+  background-color: #fff;
+  border: $login-border-width solid #c3c3c3;
+  position: relative;
+  top: -50px;
+  .caret-1 {
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: -1 * $login-border-width;
+    bottom: -1 * $login-border-width;
+    border-top: $caret-1-border-width solid #b2b2b2;
+    border-left: $caret-1-border-width solid #b2b2b2;
+    border-right: $caret-1-border-width solid #fff;
+    border-bottom: $caret-1-border-width solid #fff;
+  }
+  .caret-2 {
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: -1 * $login-border-width + 18px;
+    bottom: -1 * $login-border-width + 18px;
+    border-top: $caret-1-border-width / 4 solid #fff;
+    border-left: $caret-1-border-width / 4 solid #fff;
+    border-right: $caret-1-border-width / 4 solid transparent;
+    border-bottom: $caret-1-border-width / 4 solid transparent;
+  }
+}
+.form-item {
+  width: $form-item-width;
+  height: $form-item-height;
+  padding-bottom: $form-item-padding-bottom;
+  input[type="text"],
+  input[type="password"] {
+    width: $form-item-width + (-2 * $login-input-padding-h);
+    height: $login-input-height;
+    line-height: $login-input-height;
+    padding: $login-input-padding-v $login-input-padding-h;
+    font-size: $login-input-height;
+    color: #b2b2b2;
+    background-color: #efefef;
+  }
+  input[type="submit"] {
+    width: $form-item-width;
+    height: $login-input-height * 2;
+    line-height: $login-input-height * 2;
+    font-size: 14px;
+    color: #fff;
+    background-color: #539edc;
+    cursor: pointer;
+  }
+}
