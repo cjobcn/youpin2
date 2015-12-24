@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href="../../../stylesheets/fa/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="../_base/index.css"/>
-  <link rel="stylesheet" href="./admin.css"/>
+  <link rel="stylesheet" href="./custom.css"/>
   <style>body { height: 1068px; }</style>
-  <script type="text/javascript" src="../../require.js" data-main="./admin.js"></script>
+  <script type="text/javascript" src="../../require.js" data-main="./custom.js"></script>
 </head>
 <body>
   <div id="page">
@@ -17,13 +17,13 @@
     </header>
     <content>
       <div class="container">
-        <form class="login">
+        <form v-cloak="v-cloak" class="login">
           <div class="form-title">
             <p><i class="icon-form-title"></i><a href="#">{{title}}</a></p>
             <div class="caret-arrow"></div>
           </div>
           <div class="form-item">
-            <input type="text" name="company" placeholder="请输入公司名" v-model="ajax.company.value"/>
+            <p class="company">{{companyName}}</p>
           </div>
           <div class="form-item">
             <input type="text" name="email" placeholder="请输入邮箱" v-model="ajax.email.value"/>
@@ -47,7 +47,7 @@
             <input type="text" name="ename" placeholder="请输入英文名(必填)" v-model="ajax.ename.value"/>
           </div>
           <div class="form-item">
-            <input type="submit" value="登陆" v-on="click: submit($event)"/>
+            <input type="button" value="注册" v-on="click: submit($event)"/>
           </div>
           <div class="caret-1"></div>
           <div class="caret-2"></div>

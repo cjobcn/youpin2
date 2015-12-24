@@ -5,36 +5,36 @@ append stylesheets
   style.
     body { height: 1068px; }
 append script
-  //script(type="text/javascript", src="../../require.js", data-main="./custom.js")
+  script(type="text/javascript", src="../../require.js", data-main="./custom.js")
 append part
   header
     .header-logo
       img(src="../../../images/form-logo-fonts.png")
   content
     .container
-      form.login
+      form.login(v-cloak)
         .form-title
           p
             i.icon-form-title
-            a(href="#") 用户注册
+            a(href="#") {{title}}
           .caret-arrow
         .form-item
-          p.company 上海协骏企业管理有限公司
+          p.company {{companyName}}
         .form-item
-          input(type="text", name="email", value="", placeholder="请输入邮箱")
+          input(type="text", name="email", placeholder="请输入邮箱", v-model="ajax.email.value")
         .form-item
-          input(type="text", name="phone", value="", placeholder="请输入手机号")
+          input(type="text", name="phone", placeholder="请输入手机号", v-model="ajax.phone.value")
         .form-item
-          input(type="text", name="qq", value="", placeholder="请输入QQ号")
+          input(type="text", name="qq", placeholder="请输入QQ号", v-model="ajax.qq.value")
         .form-item
-          input(type="password", name="password", value="", placeholder="请输入密码")
+          input(type="password", name="password", placeholder="请输入密码", v-model="ajax.password.value")
         .form-item
-          input(type="password", name="password2", value="", placeholder="请确认输入密码")
+          input(type="password", name="password2", placeholder="请确认输入密码", v-model="ajax.password2.value")
         .form-item
-          input(type="text", name="name", value="", placeholder="请输入姓名(必填)")
+          input(type="text", name="name", placeholder="请输入姓名(必填)", v-model="ajax.name.value")
         .form-item
-          input(type="text", name="ename", value="", placeholder="请输入英文名(必填)")
+          input(type="text", name="ename", placeholder="请输入英文名(必填)", v-model="ajax.ename.value")
         .form-item
-          input(type="submit", value="注册")
+          input(type="button", value="注册", v-on="click: submit($event)")
         .caret-1
         .caret-2

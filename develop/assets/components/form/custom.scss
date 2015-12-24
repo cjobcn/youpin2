@@ -78,6 +78,7 @@ content > .container {
     color: $login-input-color;
     background-color: $login-input-bgcolor;
   }
+  input[type="button"],
   input[type="submit"] {
     width: $form-item-width;
     height: $login-input-height * 2;

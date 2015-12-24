@@ -44,13 +44,13 @@
           <div class="pd-main-item pd-position-desc">
             <div class="pd-main-border"></div>
             <div class="pd-main-title clearfix">
-              <h2>{{info["position-name"]}}</h2>
+              <h2>{{info["positionName"]}}</h2>
               <p><i class="fa fa-download"></i><i>{{status == 1 ? '已关闭' : '已关闭' }}</i></p>
               <div><a href="#">编辑职位</a></div>
             </div>
             <div class="pd-main-content">
-              <p><i>客户经理:&nbsp;</i><i>{{info["custom-manager"]}}&nbsp;</i><i class="fa fa-qq"></i></p>
-              <p><i>薪酬:</i><i>&nbsp;{{info["salary-min"]}}</i><i>-</i><i>{{info["salary-max"]}}</i><i>&nbsp;K/月</i><i>&nbsp;(W/年)</i></p>
+              <p><i>客户经理:&nbsp;</i><i>{{info["customManager"]}}&nbsp;</i><i class="fa fa-qq"></i></p>
+              <p><i>薪酬:</i><i>&nbsp;{{info["salaryMin"]}}</i><i>-</i><i>{{info["salaryMax"]}}</i><i>&nbsp;K/月</i><i>&nbsp;(W/年)</i></p>
             </div>
           </div>
           <div class="pd-main-item pd-position-info">
@@ -70,15 +70,15 @@
               <div class="pd-main-item pd-words">
                 <div class="pd-main-content clearfix">
                   <div class="pd-main-col-1">
-                    <p><i>发布时间:&nbsp;</i><i>{{info['position-name']}}</i></p>
-                    <p><i>学历要求:&nbsp;</i><i>{{info['education-demands']}}</i></p>
-                    <p><i>招聘人数:&nbsp;</i><i>{{info["recruit-number"]}}</i></p>
+                    <p><i>发布时间:&nbsp;</i><i>{{info['positionName']}}</i></p>
+                    <p><i>学历要求:&nbsp;</i><i>{{info['educationDemands']}}</i></p>
+                    <p><i>招聘人数:&nbsp;</i><i>{{info["recruitNumber"]}}</i></p>
                     <p><i>性别要求:&nbsp;</i><i>{{info.sex}}</i></p>
                   </div>
                   <div class="pd-main-col-2">
-                    <p><i>工作地点:&nbsp;</i><i>{{info["work-place"]}}</i></p>
-                    <p><i>汇报对象:&nbsp;</i><i>{{info["report-to"]}}</i></p>
-                    <p><i>年龄要求:&nbsp;</i><i>{{info["age-min"]}}</i><i>&nbsp;-&nbsp;</i><i>{{info["age-max"]}}</i></p>
+                    <p><i>工作地点:&nbsp;</i><i>{{info["workPlace"]}}</i></p>
+                    <p><i>汇报对象:&nbsp;</i><i>{{info["reportTo"]}}</i></p>
+                    <p><i>年龄要求:&nbsp;</i><i>{{info["ageMin"]}}</i><i>&nbsp;-&nbsp;</i><i>{{info["ageMax"]}}</i></p>
                   </div>
                 </div>
               </div>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="pd-main-content">
                   <ol>
-                    <li v-repeat="val in info['custom-demands']">
+                    <li v-repeat="val in info['customDemands']">
                       <p>{{val}}</p>
                     </li>
                   </ol>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="pd-main-content">
                   <ol>
-                    <li v-repeat="val in info['position-detail']">
+                    <li v-repeat="val in info['positionDetail']">
                       <p>{{val}}</p>
                     </li>
                   </ol>
@@ -123,9 +123,9 @@
             </div>
             <div class="pd-main-content">
               <ul>
-                <li v-repeat="val in info['received-resumes']" class="clearfix">
+                <li v-repeat="val in info['receivedResumes']" class="clearfix">
                   <p class="pd-rcv-name"><a href="#">{{val['name']}}</a></p>
-                  <p class="pd-rcv-consult"><span>顾问:&nbsp;</span><span>{{val['consult-name']}}&nbsp;</span><i class="fa fa-qq"></i></p>
+                  <p class="pd-rcv-consult"><span>顾问:&nbsp;</span><span>{{val['consultName']}}&nbsp;</span><i class="fa fa-qq"></i></p>
                   <p class="pd-rcv-date"><em>{{val['time']}}</em></p>
                   <p class="pd-rcv-note"><i>{{val['note']}}</i></p>
                 </li>
@@ -141,7 +141,7 @@
             </div>
             <div class="pd-side-content">
               <ul class="clearfix">
-                <li v-repeat="val in info['delegated-companies']"><span>{{val.value}}</span><i class="fa fa-remove"></i></li>
+                <li v-repeat="val in info['delegatedCompanies']"><span>{{val.value}}</span><i class="fa fa-remove"></i></li>
               </ul>
             </div>
           </div>
@@ -162,7 +162,7 @@
               <h2>快速预览</h2>
             </div>
             <div class="pd-side-content">
-              <p class="pd-seem-position-desc">{{info['company-desc']}}</p>
+              <p class="pd-seem-position-desc">{{info['companyDesc']}}</p>
               <p class="pd-seem-position-view clearfix"><a href="#">浏览该职位</a></p>
               <p class="pd-seem-position-view-more"><a href="#">查看更多</a></p>
             </div>
