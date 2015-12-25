@@ -4,7 +4,7 @@
       .pd-main-item.pd-position-desc
         .pd-main-border
         .pd-main-title.clearfix
-          h2 {{info["position-name"]}}
+          h2 {{info["positionName"]}}
           p
             i.fa.fa-download
             i {{status == 1 ? '已关闭' : '已关闭' }}
@@ -13,13 +13,13 @@
         .pd-main-content
           p
             i 客户经理:&nbsp;
-            i {{info["custom-manager"]}}&nbsp;
+            i {{info["customManager"]}}&nbsp;
             i.fa.fa-qq
           p
             i 薪酬:
-            i &nbsp;{{info["salary-min"]}}
+            i &nbsp;{{info["salaryMin"]}}
             i -
-            i {{info["salary-max"]}}
+            i {{info["salaryMax"]}}
             i &nbsp;K/月
             i &nbsp;(W/年)
       .pd-main-item.pd-position-info
@@ -39,41 +39,41 @@
               .pd-main-col-1
                 p
                   i 发布时间:&nbsp;
-                  i {{info['position-name']}}
+                  i {{info['positionName']}}
                 p
                   i 学历要求:&nbsp;
-                  i {{info['education-demands']}}
+                  i {{info['educationDemands']}}
                 p
                   i 招聘人数:&nbsp;
-                  i {{info["recruit-number"]}}
+                  i {{info["recruitNumber"]}}
                 p
                   i 性别要求:&nbsp;
                   i {{info.sex}}
               .pd-main-col-2
                 p
                   i 工作地点:&nbsp;
-                  i {{info["work-place"]}}
+                  i {{info["workPlace"]}}
                 p
                   i 汇报对象:&nbsp;
-                  i {{info["report-to"]}}
+                  i {{info["reportTo"]}}
                 p
                   i 年龄要求:&nbsp;
-                  i {{info["age-min"]}}
+                  i {{info["ageMin"]}}
                   i &nbsp;-&nbsp;
-                  i {{info["age-max"]}}
+                  i {{info["ageMax"]}}
           .pd-main-item.pd-custom-needs
             .pd-main-title
               h2 客户要求
             .pd-main-content
               ol
-                li(v-repeat="val in info['custom-demands']")
+                li(v-repeat="val in info['customDemands']")
                   p {{val}}
           .pd-main-item.pd-position-details
             .pd-main-title
               h2 职位详情&nbsp;(岗位职责+对候选人要求)
             .pd-main-content
               ol
-                li(v-repeat="val in info['position-detail']")
+                li(v-repeat="val in info['positionDetail']")
                   p {{val}}
           .pd-main-item.pd-note
             .pd-main-title
@@ -86,12 +86,12 @@
           h2 已收到简历
         .pd-main-content
           ul
-            li.clearfix(v-repeat="val in info['received-resumes']")
+            li.clearfix(v-repeat="val in info['receivedResumes']")
               p.pd-rcv-name
                 a(href="#") {{val['name']}}
               p.pd-rcv-consult
                 span 顾问:&nbsp;
-                span {{val['consult-name']}}&nbsp;
+                span {{val['consultName']}}&nbsp;
                 i.fa.fa-qq
               p.pd-rcv-date
                 em {{val['time']}}
@@ -104,7 +104,7 @@
           h2 委托公司
         .pd-side-content
           ul.clearfix
-            li(v-repeat="val in info['delegated-companies']")
+            li(v-repeat="val in info['delegatedCompanies']")
               span {{val.value}}
               i.fa.fa-remove
       .pd-side-item.pd-quick-preview
@@ -124,7 +124,7 @@
           h2 快速预览
         .pd-side-content
           p.pd-seem-position-desc
-            |{{info['company-desc']}}
+            |{{info['companyDesc']}}
           p.pd-seem-position-view.clearfix
             a(href="#") 浏览该职位
           p.pd-seem-position-view-more

@@ -68,6 +68,7 @@ content > .container {
     color: #b2b2b2;
     background-color: #efefef;
   }
+  input[type="button"],
   input[type="submit"] {
     width: $form-item-width;
     height: $login-input-height * 2;
@@ -78,3 +79,5 @@ content > .container {
     cursor: pointer;
   }
 }
+
+

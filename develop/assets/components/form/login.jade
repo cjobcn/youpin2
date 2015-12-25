@@ -5,7 +5,7 @@ append stylesheets
   style.
     body { height: 1068px; }
 append script
-  //script(type="text/javascript", src="../../require.js", data-main="./login.js")
+  script(type="text/javascript", src="../../require.js", data-main="./login.js")
 append part
   header
     .header-logo
@@ -14,10 +14,10 @@ append part
     .container
       form.login
         .form-item
-          input(type="text", placeholder="请输入邮箱/手机号")
+          input(name="id", type="text", placeholder="请输入邮箱/手机号", v-model="ajax.id.value")
         .form-item
-          input(type="password", placeholder="请输入密码")
+          input(type="password", placeholder="请输入密码", v-model="ajax.password.value")
         .form-item
-          input(type="submit", value="登陆")
+          input(type="button", value="登陆", v-on="click: submit($event)")
         .caret-1
         .caret-2
