@@ -8,6 +8,12 @@ Gemfile.lock
 .rbenv-version
 .idea
 
+/develop/test-*/
+/develop2/test-*/
+
+/develop/test/
+/develop2/test/
+
 /test
 bower.json
 .bowerrc

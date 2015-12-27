@@ -1,0 +1,35 @@
+extends ./_base
+append stylesheets
+  link(rel="stylesheet", href="../_base/index.css")
+  link(rel="stylesheet", href="./form.css")
+  style.
+    body { height: 1068px; }
+append script
+  script(type="text/javascript", src="../../require.js", data-main="./admin.js")
+append part
+  header
+    .header-logo
+      img(src="../../../images/form-logo-fonts.png")
+  content
+    .container
+      form.login(v-cloak)
+        .form-title.form-admin-title
+          p
+            i.icon.icon-form-title
+            a(href="#") {{title}}
+          .caret-arrow
+        .form-item(v-repeat="item in list")
+          input(
+          type="{{item.type || 'text'}}",
+          name="{{item.key}}",
+          placeholder="{{item.placeholder}}",
+          v-model="item.value"
+          )
+          p.alert(v-show="item.alert && item.required")
+            img(src="../../../images/icon-form-alert.png")
+            | {{item.error}}
+          i.icon.icon-form-eye(v-if="item.eye")
+        .form-item
+          input(type="submit", value="登陆", v-on="click: submit($event)")
+        .caret-1
+        .caret-2

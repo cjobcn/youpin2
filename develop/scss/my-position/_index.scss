@@ -1,0 +1,34 @@
+@import "../_base.scss";
+
+@import "../header.scss";
+@import "../nav.scss";
+
+// add the content list scss styles
+@import "./list.scss";
+
+@import "../copyright.scss";
+@import "../position-edit.scss";
+
+nav { min-height: 100px; height: auto; }
+
+#page .position-edit {
+  width: 766px;
+  z-index: 99;
+  position: absolute;
+  right: 100px;
+  top: 60px;
+  background-color: #fff;
+  > .container {
+    width: 75%;
+  }
+}
+.screen-cover {
+  width: 100%;
+  min-height: 1550px;
+  background-color: #000;
+  opacity: .3;
+  z-index: 90;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>index</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../css/fa/css/font-awesome.css"/>
+  <link rel="stylesheet" href="../css/form.css"/>
+  <style>body { height: 1068px; }</style>
+  <script type="text/javascript" src="../js/libs/require.js" data-main="../js/form-admin.js"></script>
+</head>
+<body>
+  <div id="page">
+    <header>
+      <div class="header-logo"><img src="../images/form-logo-fonts.png"/></div>
+    </header>
+    <content>
+      <div class="container">
+        <form v-cloak="v-cloak" class="login">
+          <div class="form-title form-admin-title">
+            <p><i class="icon icon-form-title"></i><a href="#">{{title}}</a></p>
+            <div class="caret-arrow"></div>
+          </div>
+          <div v-repeat="item in list" class="form-item">
+            <input type="{{item.type || 'text'}}" name="{{item.key}}" placeholder="{{item.placeholder}}" v-model="item.value"/>
+            <p v-show="item.alert &amp;&amp; item.required" class="alert"><img src="../images/icon-form-alert.png"/>{{item.error}}</p><i v-if="item.eye" class="icon icon-form-eye"></i>
+          </div>
+          <div class="form-item">
+            <input type="submit" value="登陆" v-on="click: submit($event)"/>
+          </div>
+          <div class="caret-1"></div>
+          <div class="caret-2"></div>
+        </form>
+      </div>
+    </content>
+  </div>
+</body>
+</html>
