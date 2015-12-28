@@ -1,5 +1,8 @@
 $header-height: 60px !default;
 
+
+$header-height: 60px !default;
+
 /* #header */
 header { height: $header-height; background-color: #2a2428; }
 header > .container { width: 84.5%; }
@@ -48,7 +51,7 @@ $header-tab-height: $header-height - $header-tab-top - $active-border-height;
 /* ---------------------------------------------------------------- */
 
 /* #header-interactive */
-$header-interactive-height: 16px !default;
+$header-interactive-height: 24px !default;
 $header-interactive-padding-bottom: 2px !default;
 $header-interactive-ul-width: 60px !default;
 $header-interactive-ul-zindex: 2 !default;
@@ -67,6 +70,7 @@ $header-interactive-ul-zindex: 2 !default;
   padding-bottom: $header-interactive-padding-bottom;
   padding-left: 10px;
   position: relative;
+  top: -.5 * $header-interactive-height;
   .fa {
     font-size: $header-interactive-height;
     font-weight: 100;
