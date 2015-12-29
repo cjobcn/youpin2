@@ -1,0 +1,12 @@
+template#template-talent-libs-aside
+  h3.btn 上传新简历
+  .side-img
+    a(href="{{image.href}}")
+      img(v-attr="src: image.src, width: image.width, height: image.height")
+  .cv
+    p.advice
+      |{{cv.advice}}
+    p.view
+      a(href="{{cv.view.href}}") {{cv.view.text}}
+    p.more
+      a(href="{{cv.more.href}}") {{cv.more.text}}

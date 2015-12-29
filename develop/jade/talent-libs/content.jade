@@ -1,0 +1,23 @@
+#content
+  .container
+    .talent-libs(v-cloak)
+      main
+        .tab-title.clearfix
+          talent-libs-tab-title
+        .tab-content
+          .item.item-0(v-class="active: activeIndex == 0")
+            .talent-libs-title
+              talent-libs-title-0
+            .talent-libs-content
+              talent-libs-tab-content-item-0
+            .pagination
+              talent-libs-pagination-0
+          .item.item-1(v-class="active: activeIndex == 1")
+            .talent-libs-title
+              talent-libs-title-1
+            .talent-libs-content
+              talent-libs-tab-content-item-1
+            .pagination
+              talent-libs-pagination-1
+      aside
+        talent-libs-aside

@@ -1,0 +1,427 @@
+@import "../scss/base";
+@import "../scss/header";
+@import "../scss/copyright";
+@import "../scss/content";
+
+/* .talent-libs */
+$main-width: 970px;
+$aside-width: 210px;
+$main-margin-right: 20px;
+//$talent-libs-min-height: (30 * 2 + 6 * 2 + 2) * 15px; // 74 * 15
+//min-height: $talent-libs-min-height;
+.talent-libs { width: 100%;  height: auto; padding-top: 15px; }
+.talent-libs main { width: $main-width; }
+#content .talent-libs main { padding: 0; margin-right: $main-margin-right; }
+.talent-libs aside { width: $aside-width; }
+/* ------------------------------------------------------------------------ */
+
+/* .tab-title */
+.talent-libs {
+
+  $title-height: 44px;
+  $title-font-size: 22px;
+
+  $title-font-color-1: #666666;
+  $title-font-color-2: #000000;
+  $title-bgcolor: #e9e9e9;
+
+  $title-li-width: 140px;
+  $title-li-border-width: 3px;
+  $title-li-border-color: #539edc;
+  $title-li-active-bgcolor: #fff;
+
+  $title-search-top: 2px;
+  $title-search-right: 2px;
+  $title-search-height: 40px;
+  $title-search-width: 206px;
+
+  $title-input-height: 12px;
+  $title-input-padding-v: ($title-search-height - $title-input-height) / 2;
+
+  $title-input-padding-h: 10px;
+  $title-input-width: $title-search-width - (2 * $title-input-padding-h);
+
+  .tab-title {
+    width: 100%;
+    height: $title-height;
+    position: relative;
+    background-color: $title-bgcolor;
+    ul > li {
+      width: $title-li-width;
+      height: $title-height - (2 * $title-li-border-width);
+      line-height: $title-height - (2 * $title-li-border-width);
+      text-align: center;
+      float: left;
+      border-top: $title-li-border-width solid transparent;
+      border-bottom: $title-li-border-width solid transparent;
+      a {
+        color: $title-font-color-1;
+        font-size: $title-font-size;
+      }
+      &.active {
+        border-top: $title-li-border-width solid $title-li-border-color;
+        background-color: $title-li-active-bgcolor;
+        a {
+          color: $title-font-color-2;
+        }
+      }
+    }
+    .search {
+      z-index: 3;
+      position: absolute;
+      top: $title-search-top;
+      right: $title-search-right;
+      height: $title-search-height;
+      transition: all 1s ease;
+      input {
+        height: $title-input-height;
+        width: $title-input-width;
+        padding: $title-input-padding-v $title-input-padding-h;
+        background-color: #fff;
+      }
+      .fa-neuter {
+        font-size: 24px;
+        color: $title-bgcolor;
+        position: absolute;
+        right: 5px;
+        top: ($title-search-height - 24px) / 2;
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+    }
+    $join-sell-width: 100px;
+    .join-sell {
+      z-index: 2;
+      position: absolute;
+      right: $title-search-right;
+      top: $title-search-top;
+      width: $join-sell-width;
+      text-align: center;
+      height: $title-search-height;
+      line-height: $title-search-height;
+      background-color: #539edc;
+      transition: all 1s ease;
+      .fa,
+      a { color: #fff; font-size: 14px; }
+      .fa { padding-right: 5px; }
+    }
+    .move-transition {
+      right: ($title-search-right + $join-sell-width) + $title-search-right;
+      transition: all .5s ease;
+    }
+    .move-enter,
+    .move-leave {
+      right: $title-search-right;
+    }
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+@mixin talent-libs-cols() {
+  .content-main-col-1 { width: 70px; }
+  .content-main-col-2,
+  .content-main-col-3,
+  .content-main-col-4,
+  .content-main-col-5,
+  .content-main-col-6 { width: 100px; }
+  .content-main-col-7 { width: 76px; }
+
+  .content-main-col-2 { margin-left: 65px; }
+  .content-main-col-3 { margin-left: 49px; }
+  .content-main-col-4 { margin-left: 53px; }
+  .content-main-col-5 { margin-left: 53px; }
+  .content-main-col-6 { margin-left: 53px; }
+  .content-main-col-7 { margin-left: 41px; }
+}
+
+
+/* .tab-content .tab-item */
+.tab-content > .item {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+/* ======================================================================== */
+/* .item-0 .talent-libs-title */
+.talent-libs .tab-content > .item-0 {
+  > .talent-libs-title {
+    @include talent-libs-cols();
+
+    $title-font-size: 14px;
+    $title-font-color: #000;
+
+    $title-padding-v: 12px;
+    $title-item-height: $title-font-size + (2 * $title-padding-v);
+
+    padding-top: 10px;
+
+    .item {
+      height: $title-item-height;
+      line-height: $title-item-height;
+      text-align: center;
+    }
+    .title {
+      color: $title-font-color;
+      font-size: $title-font-size;
+    }
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+/* .item-0 .talent-libs-content > .item */
+.talent-libs .tab-content > .item-0 > .talent-libs-content {
+  > .item {
+    @include talent-libs-cols();
+
+    $item-height: 66px;
+    $item-col-padding-top: 10px;
+
+    $item-border-width: 1px;
+    $item-border-color: #eeeeee;
+
+    $p-font-size: 12px;
+    $p-height-padding-v: 6px;
+    $p-height: $p-font-size + (2 * $p-height-padding-v);
+
+    $p-font-color-1: #000;
+    $p-font-color-2: #b2b2b2;
+    $p-recommend-color: #539edc;
+
+    text-align: center;
+    height: $item-height;
+    border-top: $item-border-width solid $item-border-color;
+    .col {
+      padding-top: $item-col-padding-top;
+    }
+    p {
+      height: $p-height;
+      line-height: $p-height;
+      color: $p-font-color-1;
+    }
+    p.grey {
+      color: $p-font-color-2;
+    }
+    p.recommend {
+      a {
+        color: $p-recommend-color;
+        text-decoration: underline;
+      }
+    }
+    p.hms {
+      position: relative;
+      top: -4px;
+    }
+  }
+}
+/* ------------------------------------------------------------------------ */
+/* ======================================================================== */
+
+/* ======================================================================== */
+/* .item-1 .talent-libs-title */
+.talent-libs .tab-content > .item-1 {
+  > .talent-libs-title {
+    @include talent-libs-cols();
+
+    $title-font-size: 14px;
+    $title-font-color: #000;
+
+    $title-padding-v: 12px;
+    $title-item-height: $title-font-size + (2 * $title-padding-v);
+
+    padding-top: 10px;
+
+    .item {
+      height: $title-item-height;
+      line-height: $title-item-height;
+      text-align: center;
+    }
+    .title {
+      color: $title-font-color;
+      font-size: $title-font-size;
+    }
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+/* .item-1 .talent-libs-content > .item */
+.talent-libs .tab-content > .item-1 > .talent-libs-content {
+  > .item {
+    @include talent-libs-cols();
+
+    $item-height: 66px;
+    $item-col-padding-top: 10px;
+
+    $item-border-width: 1px;
+    $item-border-color: #eeeeee;
+
+    $p-font-size: 12px;
+    $p-height-padding-v: 6px;
+    $p-height: $p-font-size + (2 * $p-height-padding-v);
+
+    $p-font-color-1: #000;
+    $p-font-color-2: #b2b2b2;
+    $p-recommend-color: #539edc;
+
+    text-align: center;
+    height: $item-height;
+    border-top: $item-border-width solid $item-border-color;
+    .col {
+      padding-top: $item-col-padding-top;
+    }
+    p {
+      height: $p-height;
+      line-height: $p-height;
+      color: $p-font-color-1;
+    }
+    p.grey {
+      color: $p-font-color-2;
+    }
+    p.hms {
+      position: relative;
+      top: -4px;
+    }
+    p.notes {
+      position: relative;
+      top: 8px;
+      left: 0;
+    }
+  }
+}
+/* ------------------------------------------------------------------------ */
+/* ======================================================================== */
+
+/* .pagination */
+.talent-libs .pagination {
+  $a-font-size: 12px;
+  $a-padding-v: 2px;
+  $a-height: $a-font-size + (2 * $a-padding-v);
+  $a-width: $a-height;
+
+  $a-margin-between: 4px;
+
+  $a-border-width: 1px;
+
+  $a-border-color: #efefef;
+  $a-bgcolor: #fff;
+  $a-font-color: #c7c7c7;
+
+  $a-active-border-color: #82b9e6;
+  $a-active-bgcolor: #539edc;
+  $a-active-font-color: #fff;
+
+  margin-top: 30px;
+  margin-bottom: 60px;
+
+  p {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    a {
+      display: inline-block;
+    }
+    /* .number */
+    .number {
+      font-size: $a-font-size;
+      margin: 0 ($a-margin-between / 2);
+      width: $a-width;
+      text-align: center;
+      height: $a-height;
+      line-height: $a-height;
+      // ******************************************
+      color: $a-font-color;
+      background-color: $a-bgcolor;
+      border: $a-border-width solid $a-border-color;
+    }
+    .number:hover,
+    .number.active {
+      color: $a-active-font-color;
+      background-color: $a-active-bgcolor;
+      border-color: $a-active-border-color;
+    }
+    /* ------------------------------ */
+
+    /* .next + .prev */
+    $next-prev-margin: 10px;
+    .next,
+    .prev {
+      color: #000;
+    }
+    .next.lock,
+    .prev.lock {
+      color: #666666;
+    }
+    .next {
+      margin-left: $next-prev-margin;
+    }
+    .prev {
+      margin-right: $next-prev-margin;
+    }
+    /* ------------------------------ */
+  }
+}
+/* ------------------------------------------------------------------------ */
+
+/* aside */
+.talent-libs {
+  aside {
+    .side-img {
+      margin-top: 10px;
+    }
+    .btn {
+      font-size: 12px;
+      display: block;
+      cursor: pointer;
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      background-color: #539edc;
+      font-weight: normal;
+    }
+    .cv {
+      border-top: 2px solid #eeeeee;
+      padding-top: 10px;
+      margin-top: 10px;
+      p {
+        line-height: 18px;
+        font-size: 12px;
+        height: auto;
+      }
+      p.advice {
+        color: #333;
+      }
+      p.view {
+        margin-top: 10px;
+        text-align: right;
+        a {
+          color: #9ac2e8;
+          text-decoration: underline;
+        }
+      }
+      p.more {
+        margin-top: 10px;
+        text-align: center;
+        a {
+          // ***********************
+          color: #9ac2e8;
+          // ***********************
+          display: inline-block;
+          height: 18px;
+          line-height: 18px;
+          width: 70px;
+          text-align: center;
+          background-color: #ffffff;
+          border-radius: 8px;
+          border: 1px solid #9ac2e8;
+        }
+      }
+    }
+  }
+}
+/* ------------------------------------------------------------------------ */
+

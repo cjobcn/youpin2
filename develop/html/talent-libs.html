@@ -6,25 +6,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href="../css/fa/css/font-awesome.css"/>
   <link rel="stylesheet" href="../css/talent-libs.css"/>
-  <script type="text/javascript" src="../js/libs/require.js"></script>
-  <script>
-    requirejs.config({
-      baseUrl: './',
-      paths: {
-        jquery: '../js/libs/jquery',
-        vue: '../js/libs/vue'
-      }
-    });
-    require(['../js/header', '../js/copyright'], function (mod, mod2) {
-      mod.show();
-      mod2.show();
-    }, function (err) {
-      throw err;
-    });
-  </script>
+  <script type="text/javascript" src="../js/libs/require.js" data-main="../js/talent-libs.js"></script>
 </head>
 <body>
 <div id="page">
+  <template id="template-talent-libs-tab-title">
+    <ul class="clearfix">
+      <li v-repeat="val in list" v-class="active: $index == activeIndex" v-on="click: onClick($event, $index)"><a href="#">{{val.value}}</a></li>
+    </ul>
+    <div v-style="right: !search.active ? '2px' : '106px'" class="search">
+      <input type="text" placeholder="{{search.placeholder}}" v-model="search.value"/>
+      <div class="fa fa-neuter"></div>
+    </div>
+    <p class="join-sell"><i class="fa fa-plus"></i><a href="#">{{joinSell.text}}</a></p>
+  </template>
+  <template id="template-talent-libs-title-0">
+    <div class="item clearfix">
+      <div class="col content-main-col-1">
+        <h3 class="title">{{candidate}}</h3>
+      </div>
+      <div class="col content-main-col-2">
+        <h3 class="title">{{recentPosition}}</h3>
+      </div>
+      <div class="col content-main-col-3">
+        <h3 class="title">{{intentCity}}</h3>
+      </div>
+      <div class="col content-main-col-4">
+        <h3 class="title">{{headhunterCompany}}</h3>
+      </div>
+      <div class="col content-main-col-5">
+        <h3 class="title">{{uploadConsult}}</h3>
+      </div>
+      <div class="col content-main-col-6">
+        <h3 class="title">{{refreshTime}}</h3>
+      </div>
+      <div class="col content-main-col-7"></div>
+    </div>
+  </template>
+  <template id="template-talent-libs-tab-content-item-0">
+    <div v-repeat="item in list[activeIndex]" class="item clearfix">
+      <div class="col content-main-col-1">
+        <p><i>{{item.candidate.name}}</i></p>
+        <p class="grey"><i>{{item.candidate.sexAge}}</i></p>
+      </div>
+      <div class="col content-main-col-2">
+        <p><i>{{item.recentPosition.position}}</i></p>
+        <p class="grey"><i>{{item.recentPosition.company}}</i></p>
+      </div>
+      <div class="col content-main-col-3">
+        <p><i>{{item.intentCity}}</i></p>
+      </div>
+      <div class="col content-main-col-4">
+        <p><i>{{item.headhunterCompany}}</i></p>
+      </div>
+      <div class="col content-main-col-5">
+        <p><i>{{item.uploadConsult}}</i></p>
+      </div>
+      <div class="col content-main-col-6">
+        <p class="ymd"><i>{{item.refreshTime.ymd}}</i></p>
+        <p class="hms"><i>{{item.refreshTime.hms}}</i></p>
+      </div>
+      <div class="col content-main-col-7">
+        <p class="recommend"><a href="#">{{item.recommend}}</a></p>
+      </div>
+    </div>
+  </template>
+  <template id="template-talent-libs-pagination-0">
+    <p v-cloak="v-cloak"><a href="#" v-class="lock: cur - 1 &lt; 0" v-on="click: onClick($event, cur - 1)" class="prev">上一页</a><a href="#" v-repeat="i in len" v-class="active: cur === i" v-show="i &lt;= start + remaining &amp;&amp; i &gt; start - 1" v-on="click: onClick($event, i)" class="number">{{i + 1}}</a><i v-show="start + remaining &lt; len - 1" class="remaining">...</i><a href="#" v-on="click: onClick($event, cur + 1)" v-class="lock: cur + 1 &gt; len - 1" class="next">下一页</a></p>
+  </template>
+  <template id="template-talent-libs-title-1">
+    <div class="item clearfix">
+      <div class="col content-main-col-1">
+        <h3 class="title">{{candidate}}</h3>
+      </div>
+      <div class="col content-main-col-2">
+        <h3 class="title">{{recentPosition}}</h3>
+      </div>
+      <div class="col content-main-col-3">
+        <h3 class="title">{{intentCity}}</h3>
+      </div>
+      <div class="col content-main-col-4">
+        <h3 class="title">{{headhunterCompany}}</h3>
+      </div>
+      <div class="col content-main-col-5">
+        <h3 class="title">{{uploadConsult}}</h3>
+      </div>
+      <div class="col content-main-col-6">
+        <h3 class="title">{{refreshTime}}</h3>
+      </div>
+      <div class="col content-main-col-7"></div>
+    </div>
+  </template>
+  <template id="template-talent-libs-tab-content-item-1">
+    <div v-repeat="item in list[activeIndex]" class="item clearfix">
+      <div class="col content-main-col-1">
+        <p><i>{{item.candidate.name}}</i></p>
+        <p class="grey"><i>{{item.candidate.sexAge}}</i></p>
+      </div>
+      <div class="col content-main-col-2">
+        <p><i>{{item.recentPosition.position}}</i></p>
+        <p class="grey"><i>{{item.recentPosition.company}}</i></p>
+      </div>
+      <div class="col content-main-col-3">
+        <p><i>{{item.intentCity}}</i></p>
+      </div>
+      <div class="col content-main-col-4">
+        <p><i>{{item.headhunterCompany}}</i></p>
+      </div>
+      <div class="col content-main-col-5">
+        <p><i>{{item.uploadConsult}}</i></p>
+      </div>
+      <div class="col content-main-col-6">
+        <p class="ymd"><i>{{item.refreshTime.ymd}}</i></p>
+        <p class="hms"><i>{{item.refreshTime.hms}}</i></p>
+      </div>
+      <div class="col content-main-col-7">
+        <p class="notes"><a v-attr="href:val.href" v-repeat="val in item.notes" v-on="click:onClickEdit($event, val, item)" class="img-item-4 {{val.className}}"></a></p>
+      </div>
+    </div>
+  </template>
+  <template id="template-talent-libs-pagination-1">
+    <p v-cloak="v-cloak"><a href="#" v-class="lock: cur - 1 &lt; 0" v-on="click: onClick($event, cur - 1)" class="prev">上一页</a><a href="#" v-repeat="i in len" v-class="active: cur === i" v-show="i &lt;= start + remaining &amp;&amp; i &gt; start - 1" v-on="click: onClick($event, i)" class="number">{{i + 1}}</a><i v-show="start + remaining &lt; len - 1" class="remaining">...</i><a href="#" v-on="click: onClick($event, cur + 1)" v-class="lock: cur + 1 &gt; len - 1" class="next">下一页</a></p>
+  </template>
+  <template id="template-talent-libs-aside">
+    <h3 class="btn">上传新简历</h3>
+    <div class="side-img"><a href="{{image.href}}"><img v-attr="src: image.src, width: image.width, height: image.height"/></a></div>
+    <div class="cv">
+      <p class="advice">{{cv.advice}}</p>
+      <p class="view"><a href="{{cv.view.href}}">{{cv.view.text}}</a></p>
+      <p class="more"><a href="{{cv.more.href}}">{{cv.more.text}}</a></p>
+    </div>
+  </template>
   <header v-class="hidden:!active">
     <div class="container">
       <template id="template-header-logo">
@@ -54,353 +166,39 @@
   </header>
   <div id="content">
     <div class="container">
-      <div class="talent-libs">
-        <div class="tab-title clearfix">
-          <main>
-            <ul class="clearfix">
-              <li class="active"><a href="#">人才商场</a></li>
-              <li><a href="#">我的人才</a></li>
-            </ul>
-            <div class="search">
-              <input type="text" placeholder="候选人姓名/职位"/>
-              <div class="fa fa-neuter"></div>
-            </div>
-          </main>
-          <aside></aside>
-        </div>
-        <div class="tab-content clearfix">
-          <div class="tab-item active">
-            <main>
+      <div v-cloak="v-cloak" class="talent-libs">
+        <main>
+          <div class="tab-title clearfix">
+            <talent-libs-tab-title></talent-libs-tab-title>
+          </div>
+          <div class="tab-content">
+            <div v-class="active: activeIndex == 0" class="item item-0">
               <div class="talent-libs-title">
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <h3 class="title">候选人</h3>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <h3 class="title">最近职位</h3>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <h3 class="title">意向城市</h3>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <h3 class="title">猎头公司</h3>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <h3 class="title">上传顾问</h3>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <h3 class="title">更新时间</h3>
-                  </div>
-                  <div class="col content-main-col-7"></div>
-                </div>
+                <talent-libs-title-0></talent-libs-title-0>
               </div>
               <div class="talent-libs-content">
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
-                <div class="item clearfix">
-                  <div class="col content-main-col-1">
-                    <p><i>杨劲波</i></p>
-                    <p class="grey"><i>男/26岁</i></p>
-                  </div>
-                  <div class="col content-main-col-2">
-                    <p><i>研发工程师</i></p>
-                    <p class="grey"><i>华为</i></p>
-                  </div>
-                  <div class="col content-main-col-3">
-                    <p><i>上海</i></p>
-                  </div>
-                  <div class="col content-main-col-4">
-                    <p><i>协骏</i></p>
-                  </div>
-                  <div class="col content-main-col-5">
-                    <p><i>孙还还</i></p>
-                  </div>
-                  <div class="col content-main-col-6">
-                    <p class="ymd"><i>2015/12/10</i></p>
-                    <p class="hms"><i>16:00</i></p>
-                  </div>
-                  <div class="col content-main-col-7">
-                    <p class="recommend"><a href="#">推荐到职位</a></p>
-                  </div>
-                </div>
+                <talent-libs-tab-content-item-0></talent-libs-tab-content-item-0>
               </div>
-              <p class="pagination"><a href="#" class="prev lock">上一页</a><a href="#" class="number active">1</a><a href="#" class="number">2</a><a href="#" class="number">3</a><i>...</i><a href="#" class="number">30</a><a href="#" class="next">下一页</a></p>
-            </main>
-            <aside>
-              <h3 class="btn">上传新简历</h3>
-              <div class="side-img"><a href="#"><img src="../images/side-img-1.jpeg" width="210px" height="195px"/></a></div>
-              <div class="cv">
-                <p class="advice">
-                  恒大地产的销售总监
-                  与您发布的中信地产
-                  营销总监职位很相似。
-                  试试把您已有的简历投递
-                  过去？
-                </p>
-                <p class="view"><a href="#">浏览该职位</a></p>
-                <p class="more"><a href="#">查看更多</a></p>
+              <div class="pagination">
+                <talent-libs-pagination-0></talent-libs-pagination-0>
               </div>
-            </aside>
+            </div>
+            <div v-class="active: activeIndex == 1" class="item item-1">
+              <div class="talent-libs-title">
+                <talent-libs-title-1></talent-libs-title-1>
+              </div>
+              <div class="talent-libs-content">
+                <talent-libs-tab-content-item-1></talent-libs-tab-content-item-1>
+              </div>
+              <div class="pagination">
+                <talent-libs-pagination-1></talent-libs-pagination-1>
+              </div>
+            </div>
           </div>
-        </div>
+        </main>
+        <aside>
+          <talent-libs-aside></talent-libs-aside>
+        </aside>
       </div>
     </div>
   </div>

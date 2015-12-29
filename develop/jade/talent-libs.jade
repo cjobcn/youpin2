@@ -2,114 +2,16 @@ extends ../jade/_base
 append stylesheets
   link(rel="stylesheet", href="./index.css")
 append script
-  script(type="text/javascript", src="../js/libs/require.js")
-  script.
-    requirejs.config({
-      baseUrl: './',
-      paths: {
-        jquery: '../js/libs/jquery',
-        vue: '../js/libs/vue'
-      }
-    });
-    require(['../js/header', '../js/copyright'], function (mod, mod2) {
-      mod.show();
-      mod2.show();
-    }, function (err) {
-      throw err;
-    });
+  script(type="text/javascript", src="../js/libs/require.js", data-main='../js/talent-libs.js')
 append part
-  mixin title-item()
-    .item.clearfix
-      .col.content-main-col-1
-        h3.title 候选人
-      .col.content-main-col-2
-        h3.title 最近职位
-      .col.content-main-col-3
-        h3.title 意向城市
-      .col.content-main-col-4
-        h3.title 猎头公司
-      .col.content-main-col-5
-        h3.title 上传顾问
-      .col.content-main-col-6
-        h3.title 更新时间
-      .col.content-main-col-7
-  mixin content-item()
-    .item.clearfix
-      .col.content-main-col-1
-        p
-          i 杨劲波
-        p.grey
-          i 男/26岁
-      .col.content-main-col-2
-        p
-          i 研发工程师
-        p.grey
-          i 华为
-      .col.content-main-col-3
-        p
-          i 上海
-      .col.content-main-col-4
-        p
-          i 协骏
-      .col.content-main-col-5
-        p
-          i 孙还还
-      .col.content-main-col-6
-        p.ymd
-          i 2015/12/10
-        p.hms
-          i 16:00
-      .col.content-main-col-7
-        p.recommend
-          a(href="#") 推荐到职位
-  mixin content()
-    #content
-      .container
-        .talent-libs
-          .tab-title.clearfix
-            main
-              ul.clearfix
-                li.active
-                  a(href="#") 人才商场
-                li
-                  a(href="#") 我的人才
-              .search
-                input(type="text", placeholder="候选人姓名/职位")
-                .fa.fa-neuter
-            aside
-          .tab-content.clearfix
-            .tab-item.active
-              main
-                .talent-libs-title
-                  +title-item()
-                .talent-libs-content
-                  - var i = 11;
-                  while (i--)
-                    +content-item()
-                p.pagination
-                  a.prev.lock(href="#") 上一页
-                  a.number.active(href="#") 1
-                  a.number(href="#") 2
-                  a.number(href="#") 3
-                  i ...
-                  a.number(href="#") 30
-                  a.next(href="#") 下一页
-              aside
-                h3.btn 上传新简历
-                .side-img
-                  a(href="#")
-                    img(src="../images/side-img-1.jpeg", width="210px", height="195px")
-                .cv
-                  p.advice
-                    | 恒大地产的销售总监
-                    | 与您发布的中信地产
-                    | 营销总监职位很相似。
-                    | 试试把您已有的简历投递
-                    | 过去？
-                  p.view
-                    a(href="#") 浏览该职位
-                  p.more
-                    a(href="#") 查看更多
+  include ./talent-libs/template-talent-libs-aside
+  include ./talent-libs/template-talent-libs-pagination-0
+  include ./talent-libs/template-talent-libs-pagination-1
+  include ./talent-libs/template-talent-libs-tab-content-item-0
+  include ./talent-libs/template-talent-libs-tab-content-item-1
+  include ./talent-libs/template-talent-libs-tab-title
+  include ./talent-libs/template-talent-libs-title-0
+  include ./talent-libs/template-talent-libs-title-1
   include ../jade/header
-  +content()
+  include ./talent-libs/content
   include ../jade/copyright

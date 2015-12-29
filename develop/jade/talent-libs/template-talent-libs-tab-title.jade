@@ -1,0 +1,14 @@
+template#template-talent-libs-tab-title
+  ul.clearfix
+    li(
+    v-repeat="val in list",
+    v-class="active: $index == activeIndex",
+    v-on="click: onClick($event, $index)"
+    )
+      a(href="#") {{val.value}}
+  .search(v-style="right: !search.active ? '2px' : '106px'")
+    input(type="text", placeholder="{{search.placeholder}}", v-model="search.value")
+    .fa.fa-neuter
+  p.join-sell
+    i.fa.fa-plus
+    a(href="#") {{joinSell.text}}

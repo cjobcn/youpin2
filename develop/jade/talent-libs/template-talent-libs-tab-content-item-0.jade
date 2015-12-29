@@ -1,0 +1,29 @@
+template#template-talent-libs-tab-content-item-0
+  .item.clearfix(v-repeat="item in list[activeIndex]")
+    .col.content-main-col-1
+      p
+        i {{item.candidate.name}}
+      p.grey
+        i {{item.candidate.sexAge}}
+    .col.content-main-col-2
+      p
+        i {{item.recentPosition.position}}
+      p.grey
+        i {{item.recentPosition.company}}
+    .col.content-main-col-3
+      p
+        i {{item.intentCity}}
+    .col.content-main-col-4
+      p
+        i {{item.headhunterCompany}}
+    .col.content-main-col-5
+      p
+        i {{item.uploadConsult}}
+    .col.content-main-col-6
+      p.ymd
+        i {{item.refreshTime.ymd}}
+      p.hms
+        i {{item.refreshTime.hms}}
+    .col.content-main-col-7
+      p.recommend
+        a(href="#") {{item.recommend}}

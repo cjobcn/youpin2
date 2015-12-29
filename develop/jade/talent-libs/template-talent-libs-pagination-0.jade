@@ -1,0 +1,20 @@
+template#template-talent-libs-pagination-0
+  p(v-cloak)
+    a.prev(
+    href="#",
+    v-class="lock: cur - 1 < 0",
+    v-on="click: onClick($event, cur - 1)"
+    ) 上一页
+    a.number(
+    href="#",
+    v-repeat="i in len",
+    v-class="active: cur === i",
+    v-show="i <= start + remaining && i > start - 1",
+    v-on="click: onClick($event, i)"
+    ) {{i + 1}}
+    i.remaining(v-show="start + remaining < len - 1") ...
+    a.next(
+    href="#",
+    v-on="click: onClick($event, cur + 1)",
+    v-class="lock: cur + 1 > len - 1",
+    ) 下一页
